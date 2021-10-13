@@ -10,5 +10,7 @@
  - Dzhangir Bayandarov
    - Hi, I'm Dzhangir. International student from Kazakhstan, 3rd year CS major. Love combat sports and weightlifting. Huge nature and adventure guy. 
    - https://personal-blog-kual4gfvy-dzhango.vercel.app/
- - another one
+ - David Jun
+     - Hi! My name is David. I am a third year Math CS major in Warren College. I enjoy listening to music, indulging in nature, and eating food.
+     - https://github.com/d1jun
  - another another one
