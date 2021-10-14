@@ -13,4 +13,9 @@
  - David Jun
      - Hi! My name is David. I am a third year Math CS major in Warren College. I enjoy listening to music, indulging in nature, and eating food.
      - https://github.com/d1jun
- - another another one
+
+
+ - Richard Yu
+   - Hello! My name is Richard. I'm a fourth year Computer Science major. I really enjoy watching anime, being active (gym, badminton, table tennis, gyming), and playing guitar.
+   - https://richard511011.github.io/fa21-cse110-lab3/
+  
