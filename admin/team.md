@@ -13,4 +13,6 @@
  - David Jun
      - Hi! My name is David. I am a third year Math CS major in Warren College. I enjoy listening to music, indulging in nature, and eating food.
      - https://github.com/d1jun
- - another another one
+ - Will Liao
+    - Hi! I'm Will, currently a international third-year Math-CS student in Warren college. For me, I love watching movies/anime, playing RPG, and cooking. I have a border collie at my home in China. If you want to know more about me [here]https://taoboliao.github.io/TaoboLiao_CSE110_Lab1_FA_21/ is my home page for this course.
+ - another one
