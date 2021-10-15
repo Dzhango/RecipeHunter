@@ -19,3 +19,6 @@
    - Hello! My name is Richard. I'm a fourth year Computer Science major. I really enjoy watching anime, being active (gym, badminton, table tennis, gyming), and playing guitar.
    - https://richard511011.github.io/fa21-cse110-lab3/
   
+- Jeremy Hartman
+     - Hello, my name is Jeremy! I'm a third-year Math-CS student in Marshall college. I enjoy creative projects like crochet and knitting, listening to indie/pop music and true crime podcasts, reading fiction, and playing with my cat. 
+     - https://jerhartman.github.io/fa21-cse110-lab1/
