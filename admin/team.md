@@ -20,3 +20,7 @@
      - https://jerhartman.github.io/fa21-cse110-lab1/
  - Will Liao
    - Hi! I'm Will, currently a international third-year Math-CS student in Warren college. For me, I love watching movies/anime, playing RPG, and cooking. I have a border collie at my home in China. If you want to know more about me [here]https://taoboliao.github.io/TaoboLiao_CSE110_Lab1_FA_21/ is my home page for this course.
+- Ryan Heo
+   - Hi! I'm Ryan, currently a third-year CS student in Sixth college. For me, I enjoy playing basketball, playing guitar, and cooking.
+   - https://github.com/Ryanheo15
+
