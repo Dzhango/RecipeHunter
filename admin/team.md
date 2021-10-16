@@ -1,7 +1,6 @@
 ## Team Page of 
-## TEAM NAME !!!
-[ICON] <br>
-[A MASCOT] <br>
+## Productive Raccoons
+![ICON](PierreCook.png) <br>
 [Team values] <br>
 ## Meet our members:
  - Niya Shao 
