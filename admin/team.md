@@ -26,3 +26,7 @@
 - Antonia Huwe
    - Hello, I am Antonia and an international exchange student from Germany. I am studying at UCSD only for this fall quarter and am excited to work on the project with my group! I am very excited how our app will look like at the end. In my free time I do a lot of sports like Crossfit and Tennis. I love going to the beach and meet my friends.
    - https://github.com/antonia1999
+
+- Ryan Wong
+  - Hi, I'm an exchange student from Fudan University. I'm a huge fan of indie/electronic music. I also love hiking and travelling.
+  - https://lumoshr.github.io/CSE110-Lab01/
