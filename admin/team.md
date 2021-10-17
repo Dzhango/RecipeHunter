@@ -1,7 +1,7 @@
 ## Team Page of 
 ## Productive Raccoons
-![ICON](PierreCook.png) <br>
-[Team values] <br>
+![ICON](branding/PierreCook.png) <br>
+Raccoon is an animal with their own territory, so are we. We are proficient in our own field -- front-end developers, back-end developer, designer, team leader, tester, etc. But we are more than that. We value communication and unity. We are collaborator that scanvenge for treasures together. We value trust, courage, and creativity. Just as in our name, we are productive raccoon with productivity. The special hand of raccoon is gonna to create a better world for you. <br>
 ## Meet our members:
  - Niya Shao 
     - Hi This is Niya! A transfer & international student from China. Currently a senior student in UCSD Sixth college major in computer science. Watch some anime, play some indie video games, learning guitar and skateboard (2 weeks until I can finally skate a straightline lol).
