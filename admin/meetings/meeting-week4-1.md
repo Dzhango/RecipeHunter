@@ -1,6 +1,3 @@
-Attendence
-Except Ryan Heo
-
 # Team Meeting
 ### Date: Oct 12, 2021. 3:00pm - 4:50pm
 ### Meeting method: in-person
