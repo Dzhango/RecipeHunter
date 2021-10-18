@@ -1,7 +1,7 @@
 ## Team Page of 
 ## Productive Raccoons
-![ICON](PierreCook.png) <br>
-[Team values] <br>
+![ICON](branding/PierreCook.png) <br>
+Raccoon is an animal with their own territory, so are we. We are proficient in our own field -- front-end developers, back-end developer, designer, team leader, tester, etc. But we are more than that. We value communication and unity. We are collaborator that scanvenge for treasures together. We value trust, courage, and creativity. Just as in our name, we are productive raccoon with productivity. The special hand of raccoon is gonna to create a better world for you. <br>
 ## Meet our members:
  - Niya Shao 
     - Hi This is Niya! A transfer & international student from China. Currently a senior student in UCSD Sixth college major in computer science. Watch some anime, play some indie video games, learning guitar and skateboard (2 weeks until I can finally skate a straightline lol).
@@ -26,3 +26,7 @@
 - Antonia Huwe
    - Hello, I am Antonia and an international exchange student from Germany. I am studying at UCSD only for this fall quarter and am excited to work on the project with my group! I am very excited how our app will look like at the end. In my free time I do a lot of sports like Crossfit and Tennis. I love going to the beach and meet my friends.
    - https://github.com/antonia1999
+
+- Ryan Wong
+  - Hi, I'm an exchange student from Fudan University. I'm a huge fan of indie/electronic music. I also love hiking and travelling.
+  - https://lumoshr.github.io/CSE110-Lab01/
