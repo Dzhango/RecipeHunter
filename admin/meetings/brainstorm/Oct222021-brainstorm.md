@@ -23,9 +23,9 @@ N/A
 
 #### New dishes in this meeting:
 1. Design Team show the design to all teammates (https://www.figma.com/file/5A496mX1T0s4hcLYzgsaSm/Website-recipe?node-id=0%3A1)
-![meeting-week5-2](meeting-week5-2.png)
+![meeting-week5-2](../meeting-week5-2.png)
 2. a question was raised by Antonia
-![meeting-week5-3](meeting-week5-3.PNG)
+![meeting-week5-3](../meeting-week5-3.PNG)
 3. Suggestion: Remove add recipe, but just editing the existing recipe. Considering college student does not really need to create their own recipe out from no where
    1. What to go on for the Create feature in CRUD?
 4. Discuss additional features: (√ decided to accept, done already done in the meeting, x decided not to accept)
