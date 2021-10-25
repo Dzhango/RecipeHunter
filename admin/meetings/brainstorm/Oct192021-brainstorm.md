@@ -21,9 +21,9 @@ N/A
 3. Dzhangir explain how sprint works
 4. Decided to use the scrum board (https://trello.com/invite/b/d5jxgkDs/9b2c83c9f8a02439d128f1b74d0c53ab/productive-raccoons-scrum-board)
 5. Discuss over miro board about CRUD features, but not going on very successfully. Decide to meet after class in-person
-![meeting-week5-dev-miro-1](meeting-week5-dev-miro-1.PNG)
+![meeting-week5-dev-miro-1](../meeting-week5-dev-miro-1.PNG)
 6. Meet in-person after class:
-![meeting-week5-dev-blackboard](meeting-week5-dev-blackboard.jpg)
+![meeting-week5-dev-blackboard](../meeting-week5-dev-blackboard.jpg)
 1. Explain about CRUD features
 2. Front-end: create wireframe with the design team
 3.  Back-end: Research about Express/Node, find recipe manager API
