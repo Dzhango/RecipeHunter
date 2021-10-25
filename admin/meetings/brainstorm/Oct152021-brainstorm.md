@@ -40,7 +40,7 @@ Discuss all together what the user may encounter while using the app, think abou
  - Team Contract Sign
 
 #### New dishes in this meeting:
-![meeting-week4-whiteboard-1](meeting-week4-whiteboard-1.jpg)
+![meeting-week4-whiteboard-1](../meeting-week4-whiteboard-1.jpg)
  - Decide our user to be college student
     - freshman lives on campus
  - Source of the recipe very important! Good recipe manager have good recipe
