@@ -5,7 +5,7 @@
 #### Attendence:
 Sanat <br>
 Dzhangir <br>
-Richard <br>
+Niya <br>
 
 #### Agenda:
 N/A
