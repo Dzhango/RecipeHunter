@@ -1,5 +1,5 @@
 # Team Meeting
-### Date: Oct 22, 2021. 2:00pm - 3:20pm
+### Date: Oct 26, 2021. 10:00pm - 11:00pm
 ### Meeting method: zoom
 
 #### Attendence:
