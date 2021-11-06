@@ -14,6 +14,7 @@
     <!-- TODO: IMPLEMENT NAVBAR-->
     <section class = "navbar">
         <div>
+            <ingredient-card name="Chocolate"></ingredient-card>
             <h1>Navbar PlaceHolder</h1>
         </div>
     </section>
@@ -34,15 +35,17 @@
                     <li>ingredient 2</a></li>
                     <li>ingredient 3</a></li>
                 </ul>
+
+
+                <!-- For testing purposes only -->
+                <input id="inputField" type="text"><button id="addIngredient">+</button>
+                <!-- <div class="to-dos" id="toDoContainer"> -->
+                    <!-- DELETE ONCE FINISHED -->
             </div>
 
             <!-- for listing features -->
-            <div class = "fridge-div">
-                <ul>
-                    <li><div>ingredient 1</div></li>
-                    <li>ingredient 1</li>
-                    <li>ingredient 1</li>
-                </ul>
+            <div class = "fridge-div ingredient-list" id = "ingredientList">
+
             </div>
             
         </div>
@@ -56,7 +59,7 @@
     
 </div>
 
-
+<script src="ingredientCard.js"></script>
 </body>
 </html>
 

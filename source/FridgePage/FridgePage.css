@@ -59,7 +59,7 @@
 }
 .fridge-div {
   background-color: #b5b5b5;
-  margin: 2rem;
+  margin: 1rem;
   padding: 5rem;
   border-radius: 1rem;
   width: 10rem;
@@ -93,4 +93,10 @@
   background: #6b6b6b;
   color: #fff;
   cursor: pointer;
+}
+.ingredient-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: -5rem;
 }
