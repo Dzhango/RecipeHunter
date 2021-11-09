@@ -33,7 +33,7 @@ h3{
     height:1.6rem;
     display:flex;
     justify-content: space-Between;
-    margin-top:.6rem;
+    margin-top: 1rem;
 
 
 }
