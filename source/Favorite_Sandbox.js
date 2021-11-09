@@ -14,12 +14,13 @@ function logTheObj(obj) {
 
 //store the newly added recipe into the list
 //structure localStorage.getItem('favorite_recipes') get a string of recipes
-//format: <SEPARATOR-SEPARATOR> + JSON.stringify(recipe1) + <SEPARATOR-SEPARATOR> + JSON.stringify(recipe2) + <SEPARATOR-SEPARATOR> + etc.
-function storeIntoFav(obj){  // Translate string to an array? Can we directly store and get an array object?
-    
+//format: <SEPARATOR-SEPARATOR> + JSON.stringify(recipe1) + <SEPARATOR-SEPARATOR> + 
+//JSON.stringify(recipe2) + <SEPARATOR-SEPARATOR> + etc.
+function storeIntoFav(obj){  
     //console.log(localStorage.getItem('favorite_recipes'));
 
-    //When store the first favorite recipe, localStorage.getItem('favorite_recipes') = null, to prevent becomes null + RecipeContent, remove the null
+    // When store the first favorite recipe, localStorage.getItem('favorite_recipes') = null, 
+    // to prevent becomes null + RecipeContent, remove the null
     if (localStorage.getItem('favorite_recipes') == null){
         localStorage.setItem('favorite_recipes', '');
     }
@@ -57,9 +58,31 @@ function Display(){
     `${jsonContent}`;
 }
 
-//TODO:
-function DeleteFromFav(obj){  // Translate string to an array? Can we directly store and get an array object?
-    favoriteRecipes += separator+JSON.stringify(obj);
+//Delete the given recipe from the list
+//structure localStorage.getItem('favorite_recipes') get a string of recipes
+//format: <SEPARATOR-SEPARATOR> + JSON.stringify(recipe1) + <SEPARATOR-SEPARATOR> + 
+//JSON.stringify(recipe2) + <SEPARATOR-SEPARATOR> + etc.
+function DeleteFromFav(obj){
+    //When the list is empty, localStorage.getItem('favorite_recipes') = null,
+    //to prevent becomes null + RecipeContent, remove the null
+    if (localStorage.getItem('favorite_recipes') == null || 
+            localStorage.getItem('favorite_recipes') == ""){
+        localStorage.setItem('favorite_recipes', '');
+        console.log('WARNING!!: Favorite list is empty')
+    }
+
+    //get the current list of favorite recipes
+    let favoriteRecipes = ''
+    try{
+        favoriteRecipes = localStorage.getItem('favorite_recipes'); // This is a string
+    }
+    catch(e){
+        console.log('WARNING!!: favorite_recipes not grabbed')
+    }
+
+    //delete the passed in recipe 'obj' from favorite_recipes
+    let rmvedObj = separator + JSON.stringify(obj);
+    favoriteRecipes = favoriteRecipes.replace(rmvedObj,"");
     try {
         localStorage.setItem('favorite_recipes', favoriteRecipes);
         stored = true;
@@ -67,14 +90,25 @@ function DeleteFromFav(obj){  // Translate string to an array? Can we directly s
     catch (e){
         console.log('WARNING!!: Recipe not stored')
     }
+
 }
 
 //bind favorite button
-function bindButton(){
-    const SearchButton = document.querySelector('button');
+function bindFavoriteButton(){
+    const SearchButton = document.querySelector('.button--favorite > button');
     SearchButton.addEventListener('click', function(event){
         //Currently only storing the first recipe in the populated recipe list for testing
         storeIntoFav(recipes[0]['recipes'][0]);
+        Display();
+    });
+}
+
+//bind revome button
+function bindRemoveButton(){
+    const SearchButton = document.querySelector('.button--remove > button');
+    SearchButton.addEventListener('click', function(event){
+         //Currently only remove the first recipe in the populated recipe list for testing
+        DeleteFromFav(recipes[0]['recipes'][0]);
         Display();
     });
 }
@@ -83,7 +117,8 @@ function bindButton(){
 async function populateRecipe(N){
     return new Promise((resolve, reject) => {
         for(let i = 0; i < N; i++){
-            fetch(`https://api.spoonacular.com/recipes/random?apiKey=67931e62b88649359913dbc496b0ad08`).then((response) => {
+            fetch(`https://api.spoonacular.com/recipes/random?apiKey=67931e62b88649359913dbc496b0ad08`)
+                        .then((response) => {
                 //console.log(response);
                 return response.json();
             }).then((data) => {
@@ -109,5 +144,6 @@ async function init() {
         return;
     }
 
-    bindButton();
+    bindFavoriteButton();
+    bindRemoveButton();
 }
