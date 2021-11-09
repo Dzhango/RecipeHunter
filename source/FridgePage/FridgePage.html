@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="FridgePage.css">
+    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
     <title>FridgePage</title>
 </head>
 <body>
@@ -12,12 +14,28 @@
 <div class= "container">
 
     <!-- TODO: IMPLEMENT NAVBAR-->
-    <section class = "navbar">
-        <div>
-            <ingredient-card name="Chocolate"></ingredient-card>
-            <h1>Navbar PlaceHolder</h1>
+
+        <div class="navbar top" id="navbar">
+        
+            <!-- The logo with title (left hand side of the navbar) -->
+            <h1 class=logo>
+        
+                LOGO
+            </h1>
+            <div class="search-container">
+                <input type="text" placeholder="Search.." name="search" class="search-bar">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- The button section of the navbar -->
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i></a></li>
+                    <li><a href="#fridge" class="navtext">My Fridge</a></li>
+                    <li><a href="#myRecipes" class="navtext">My Recipes</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
 
     <section class = "fridge-section">
         <div >
