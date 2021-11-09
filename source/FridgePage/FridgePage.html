@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="FridgePage.css">
+    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <title>FridgePage</title>
+</head>
+<body>
+    
+<div class= "container">
+
+    <!-- TODO: IMPLEMENT NAVBAR-->
+
+        <div class="navbar top" id="navbar">
+        
+            <!-- The logo with title (left hand side of the navbar) -->
+            <h1 class=logo>
+        
+                LOGO
+            </h1>
+            <div class="search-container">
+                <input type="text" placeholder="Search.." name="search" class="search-bar">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- The button section of the navbar -->
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i></a></li>
+                    <li><a href="#fridge" class="navtext">My Fridge</a></li>
+                    <li><a href="#myRecipes" class="navtext">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    <section class = "fridge-section">
+        <div >
+            <h1>Find recipes you can cook right now with the ingredientes in your kitchen!</h1>
+        </div>
+       
+        <div class = "two-window">
+
+            <!-- for search feature -->
+            <div class="fridge-div">
+                <input type="text" id="myInput" onkeyup="matchFuncmatchFunc()" placeholder="Search Ingredients...">
+                
+                <ul id="ingredList" >
+                    <li>ingredient 1</a></li>
+                    <li>ingredient 2</a></li>
+                    <li>ingredient 3</a></li>
+                </ul>
+
+
+                <!-- For testing purposes only -->
+                <input id="inputField" type="text"><button id="addIngredient">+</button>
+                <!-- <div class="to-dos" id="toDoContainer"> -->
+                    <!-- DELETE ONCE FINISHED -->
+            </div>
+
+            <!-- for listing features -->
+            <div class = "fridge-div ingredient-list" id = "ingredientList">
+
+            </div>
+            
+        </div>
+
+        <div>
+            <button class="fridge-button">Show Recipe</button>
+        </div>
+    </section>
+
+
+    
+</div>
+
+<script src="ingredientCard.js"></script>
+</body>
+</html>
+
+
+    <!-- <div>
+            <h1>Navbar PlaceHolder</h1>
+        </div>
+    </section>
+    <section class= "fridgeSection">
+        <div class="flex-box-columns">
+            <div class="item_1"></div>
+            <div class="item_1"></div>
+    
+        </div>
+        <div>
+            <button class = "fridge-Button">Click Me</button>
+        </div> -->
