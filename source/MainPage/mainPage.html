@@ -8,6 +8,7 @@
     <title>Team 6 Homepage</title>
     <link rel="stylesheet" href="./styles/homepage.css">
     <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <script src = "./scripts/mainPageScripts.js"></script>
 
 </head>
 
@@ -70,8 +71,12 @@
             </details>
             <details class="time">
                 <summary>Time</summary>
-                <input type="range" id="selectTime" min="5" max="180"> <br>
-                <label for="selectedTime">time in hours</label>
+
+                <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" />
+        
+
+
+                <div class = "selectedTime">Under 100 minutes</div>
             </details>
             <details class="allergies">
                 <summary>Allergies</summary>

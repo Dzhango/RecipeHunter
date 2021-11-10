@@ -92,6 +92,7 @@ li :hover {
   padding-right: 4rem; */
 }
 .filter-container * {
+  padding-top: 0.5rem;
   background-color: #b0b0b0;
   /* padding: 1rem 3rem; */
   /* padding: 1.5rem; */
@@ -128,14 +129,20 @@ details {
   width: 15rem;
 }
 .filter-container li {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   /* height: 2rem; */
 }
-.filter-item {
-  background-color: blue;
-  width: 100px;
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
 }
-input {
-  width: 2rem;
-  height: 2rem;
+input[type="range"] {
+  width: 8rem;
+}
+.selectedTime {
+  font-size: 1.8rem;
+  text-align: center;
 }
