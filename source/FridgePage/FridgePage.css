@@ -125,6 +125,7 @@ li :hover {
   padding: 5rem;
   border-radius: 1rem;
   width: 10rem;
+
   height: 18rem;
 }
 #myInput {
@@ -157,14 +158,17 @@ li :hover {
   cursor: pointer;
 }
 .ingredient-list {
+  /* height: 20rem; */
+  padding-top: 0.5rem;
+
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: -5rem;
-  background-color: blue;
+
+  height: 22.5rem;
 }
 
-/* .description for testing, delete in final build */
+/* .description for testing, delete in final bui;ld */
 .ingredient-list .description {
   font-size: 1.4rem;
   /* padding: 1rem; */
