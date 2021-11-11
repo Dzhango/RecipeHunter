@@ -1,29 +1,17 @@
-window.addEventListener('DOMContentLoaded', init);
+function displayTime() {
+  const inputRange = document.getElementById('time');
+  const displayDiv = document.querySelector('.selectedTime');
 
+  const timeValue = inputRange.value;
+
+  displayDiv.innerHTML = `Under ${timeValue} Minutes`;
+}
 
 function init() {
+  console.log('Called');
 
-
-console.log("Called");
-
-//Making div display time selected from slider    
-document.getElementById("time").addEventListener("input", displayTime);
-
-
- 
-
+  // Making div display time selected from slider
+  document.getElementById('time').addEventListener('input', displayTime);
 }
-function displayTime(){
 
-
-    let inputRange  = document.getElementById("time");
-      let displayDiv = document.querySelector(".selectedTime");
-      
-      let timeValue = inputRange.value;
-
-      displayDiv.innerHTML = `Under ${timeValue} Minutes`;
-
-
-     
-
-  }
+window.addEventListener('DOMContentLoaded', init);
