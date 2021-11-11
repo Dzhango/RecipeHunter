@@ -8,6 +8,7 @@ function displayTime() {
 }
 
 function init() {
+  // eslint-disable-next-line no-console
   console.log('Called');
 
   // Making div display time selected from slider
