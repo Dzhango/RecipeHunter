@@ -9,15 +9,10 @@
 #### Attendence:
 
 Sanat <br>
-
 Antonia <br>
-
 David <br>
-
 Dzhangir <br>
-
 Niya <br>
-
 Richard <br>
 
   
