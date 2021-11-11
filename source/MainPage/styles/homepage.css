@@ -75,21 +75,24 @@ li :hover {
 .filter-container {
   background-color: #c4c4c4;
   /* padding: 10rem; */
-  padding-left: 5rem;
-  padding-right: 5rem;
+  /* padding-left: 5rem;
+  padding-right: 5rem; */
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 /* for h2 */
 .filter-container h2 {
+  font-size: 3rem;
   color: #6b6b6b;
-  background-color: salmon;
+  /* background-color: salmon; */
+  text-align: center;
   width: 100%;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  /* padding-left: 4rem;
+  padding-right: 4rem; */
 }
 .filter-container * {
+  padding-top: 0.5rem;
   background-color: #b0b0b0;
   /* padding: 1rem 3rem; */
   /* padding: 1.5rem; */
@@ -111,18 +114,35 @@ li :hover {
   height: 100%;
   background-color: saddlebrown;
 }
+/* trying the input itself */
 .filter-container input {
   padding: 2rem;
   background-color: blue;
 }
+/* trying to style details */
 details {
-  background-color: blue;
+  /* margin-left: 2rem; */
+  margin: 0px;
+  padding-left: 4rem;
+  padding-right: 0rem;
+
+  width: 15rem;
 }
 .filter-container li {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   /* height: 2rem; */
 }
-.filter-item {
-  background-color: blue;
-  width: 100px;
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+input[type="range"] {
+  width: 8rem;
+}
+.selectedTime {
+  font-size: 1.8rem;
+  text-align: center;
 }
