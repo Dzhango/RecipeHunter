@@ -103,6 +103,11 @@ li :hover {
 }
 .recipes-container {
   background-color: purple;
+  /* creates grid of recipes */
+  display: grid;
+  /* creates 4 columns within grid */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3rem;
   padding: 40rem;
   padding-left: 35rem;
 }
