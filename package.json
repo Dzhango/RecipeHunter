@@ -15,5 +15,8 @@
     "bugs": {
         "url": "https://github.com/Dzhango/cse-110-team-6/issues"
     },
-    "homepage": "https://github.com/Dzhango/cse-110-team-6#readme"
+    "homepage": "https://github.com/Dzhango/cse-110-team-6#readme",
+    "devDependencies": {
+        "eslint": "^8.2.0"
+    }
 }
