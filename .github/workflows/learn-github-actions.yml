@@ -1,15 +1,11 @@
-name: learn-github-actions
-on: 
-  push:
-    branches:
-      - CI-testing-feature
-jobs:
-  runs-unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm install --save jest
-      - run: npm run test
+name: Recipe Management App
+on: [push]
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Run a one-line script
+          run: echo Hello from Octo Organization
