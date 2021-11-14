@@ -6,6 +6,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Run a one-line script
-        run: echo Hello from Octo Organization
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: install jest
+        run: npm install --save jest
