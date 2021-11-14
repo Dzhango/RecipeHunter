@@ -81,7 +81,14 @@
   img {
     border-radius: 30;
     max-width: 100%;
-
+  }
+  .notes-button {
+    float: right;
+    font-size: medium;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
   }
 
   /* CSS for recipe info */
