@@ -9,11 +9,11 @@ jobs:
   dowwnload-dependencies:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/ch  eckout@v2
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: 'echo ':this pipeline is working'
+      - run: 'echo "::debug::Set the Octocat variable"'
       - run: npm install jest --save
       - run: jest - v 
   run-tests:
