@@ -1,0 +1,19 @@
+{
+    "name": "cse-110-team6",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Dzhango/cse-110-team-6.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Dzhango/cse-110-team-6/issues"
+    },
+    "homepage": "https://github.com/Dzhango/cse-110-team-6#readme"
+}
