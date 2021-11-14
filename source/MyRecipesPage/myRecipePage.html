@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 6 Homepage</title>
+    <link rel="stylesheet" href="./styles/myRecipePage.css">
+    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <script src="./scripts/mainPageScripts.js"></script>
+
+</head>
+
+<body>
+
+    <!-- <div class="navHeader">
+            <div class="logo">
+                <img src="undefined" alt="logo">
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <a class='active' href="#home">Home</a>
+            <a href="#fridge">What's in My Fridge?</a>
+            <a href="#myRecipes">MyRecipes</a>
+        </div> -->
+    <div>
+        <div class="navbar" id="navbar">
+
+            <!-- The logo with title (left hand side of the navbar) -->
+            <h1 class=logo>
+
+                LOGO
+            </h1>
+            <div class="search-container">
+                <input type="text" placeholder="Search.." name="search" class="search-bar">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- The button section of the navbar -->
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i></a></li>
+                    <li><a href="#fridge" class="navtext">My Fridge</a></li>
+                    <li><a href="#myRecipes" class="navtext">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- Filter div -->
+
+        <div class="filter-and-recipe-container">
+
+            <!-- Filter div -->
+            <div class="filter-container">
+                <h2>Filters</h2>
+                <details class="type">
+                    <summary>Type</summary>
+                    <ul>
+                        <li><label><input type="checkbox"><span>breakfast</span></label></li>
+                        <li><label><input type="checkbox"><span>lunch</span></label></li>
+                        <li><label><input type="checkbox"><span>snack</span></label></li>
+                        <li><label><input type="checkbox"><span>dinner</span></label></li>
+                    </ul>
+
+
+                </details>
+                <details class="time">
+                    <summary>Time</summary>
+
+                    <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" />
+
+
+
+                    <div class="selectedTime">Under 100 minutes</div>
+                </details>
+                <details class="allergies">
+                    <summary>Allergies</summary>
+                    <ul>
+                        <li><label><input type="checkbox"><span>lactose</span></label></li>
+                        <li><label><input type="checkbox"><span>egg</span></label></li>
+                        <li><label><input type="checkbox"><span>fish</span></label></li>
+                        <li><label><input type="checkbox"><span>shellfish</span></label></li>
+                        <li><label><input type="checkbox"><span>peanuts</span></label></li>
+                        <li><label><input type="checkbox"><span>tree nuts</span></label></li>
+                        <li><label><input type="checkbox"><span>wheat</span></label></li>
+                        <li><label><input type="checkbox"><span>soy</span></label></li>
+                    </ul>
+                </details>
+                <details class="diet">
+                    <summary>Diet</summary>
+                    <ul>
+                        <li><label><input type="checkbox"><span>vegan</span></label></li>
+                        <li><label><input type="checkbox"><span>vegenatian</span></label></li>
+                        <li><label><input type="checkbox"><span>keto</span></label></li>
+                    </ul>
+                </details>
+            </div>
+            <!-- displayed recipes -->
+            <div class = "flex-column-container">
+            <div class="favorites-button-container">
+                <button class="favorites-button" id="add-button">+ Add Recipe</button>
+                <button class="favorites-button" id="select-button">Select Recipe</button>
+                <button class="favorites-button" id="cancel-button">cancel</button>
+                <button class="favorites-button" id="remove-button">Remove</button>
+            </div>
+            <div class="recipes-container">
+                
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
