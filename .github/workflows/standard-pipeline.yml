@@ -1,11 +1,5 @@
 name: standard-pipeline
-on:
-  push:
-      branches:
-        - CI-testing-2
-  pull_request:
-    branches:
-      - CI-testing-2
+on: [push, pull_request]
 jobs:
   dowwnload-dependencies:
     runs-on: ubuntu-latest
@@ -19,4 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: 'echo ":testing stage"'
+
   
