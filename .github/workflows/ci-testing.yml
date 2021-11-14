@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '14'
       - run: 'echo "::debug::Set the Octocat variable"'
-      - run: npm install jest --save
+      - run: npm install jest
       - run: jest -v
   run-tests:
     runs-on: ubuntu-latest
