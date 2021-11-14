@@ -1,4 +1,4 @@
-CSS for navbar start * {
+* {
   margin: 0;
   padding: 0;
 
@@ -6,9 +6,15 @@ CSS for navbar start * {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* background-color: aquamarine; */
 }
+
+.global-container {
+  width: 100%;
+  height: 100%;
+}
 .navbar {
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: space-between;
   background-color: #bababa;
 
@@ -17,8 +23,11 @@ CSS for navbar start * {
   height: 6.4rem;
   position: sticky;
   top: 0px;
-  padding: 0 30px;
+  /* padding: 0 30px; */
   transition: 0.5s ease-in;
+}
+.logo {
+  margin-left: 3rem;
 }
 ul {
   /* Removes the bullet points in the ul */
@@ -28,13 +37,26 @@ ul {
   text-decoration: none;
   color: white;
   background-color: #bababa;
-  /* font-size: 2rem; */
-  padding: 2rem 3rem;
-  padding-top: 4rem;
+  font-size: 2rem;
+  height: 100%;
+
+  /* padding: 2rem 2rem; */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  padding-top: 2rem;
+  padding-bottom: 1.85rem;
+  height: 100%;
   /* width: 150rem; */
   /* margin: 0 5px; */
   /* height: 100%; */
 }
+/* .search-container input{
+width:20rem;
+} */
+/* li{
+  height: 100%;
+} */
 .navbar ul {
   display: flex;
   flex-basis: auto;
@@ -42,7 +64,7 @@ ul {
   align-items: space-between;
   flex-direction: row;
 }
-li :hover {
+.navbar li :hover {
   background-color: #aaaaaa;
   color: #6b6b6b;
 }
@@ -58,11 +80,7 @@ li :hover {
   border-radius: 1rem;
   margin-top: 1rem;
 }
-.fa-home {
-  font-size: 2.5rem;
-  margin: 0;
-  padding: 0;
-}
+
 .navtext {
   font-size: 2rem;
 }
@@ -87,11 +105,15 @@ li :hover {
   /* background-color: salmon; */
   text-align: center;
   width: 100%;
+  margin: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   /* padding-left: 4rem;
   padding-right: 4rem; */
 }
+
 .filter-container * {
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
   background-color: #b0b0b0;
   /* padding: 1rem 3rem; */
   /* padding: 1.5rem; */
@@ -99,15 +121,24 @@ li :hover {
   /* padding: 0;
   margin: 0; */
   font-size: 2rem;
+  padding-bottom: 0.5rem;
 }
+/* .filter-container li{
+padding-bottom: 3rem;
+} */
 .recipes-container {
   background-color: purple;
-  padding: 40rem;
+  /* creates grid of recipes */
+  display: grid;
+  /* creates 4 columns within grid */
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
   padding-left: 35rem;
 }
 .filter-and-recipe-container {
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  flex-direction: row;
   /* align-items: flex-start; */
   width: 100%;
   height: 100%;
@@ -152,6 +183,7 @@ Styling for favorites buttons
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  width: 100%;
 }
 .button-container {
   background-color: blue;
@@ -163,7 +195,8 @@ Styling for favorites buttons
   display: flex;
   background-color: #e8e8e8;
   width: 100%;
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .favorites-button {
   width: 13rem;
@@ -176,7 +209,7 @@ Styling for favorites buttons
   padding: 0px;
   border: none;
 }
-.favorites-button :hover {
+button.favorites-button:hover {
   background-color: #aaaaaa;
   color: #6b6b6b;
 }
