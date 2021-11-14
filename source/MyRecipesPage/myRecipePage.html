@@ -27,20 +27,26 @@
             <a href="#fridge">What's in My Fridge?</a>
             <a href="#myRecipes">MyRecipes</a>
         </div> -->
-    <div class ="o">
+
+    <div class = "global-container">
+
         <div class="navbar" id="navbar">
 
             <!-- The logo with title (left hand side of the navbar) -->
             <h1 class=logo>
-
                 LOGO
             </h1>
             <div class="search-container">
-                <input type="text" placeholder="Search.." name="search" class="search-bar">
+                <input type="text" placeholder="  Search..." name="search" class="search-bar">
                 <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <!-- The button section of the navbar -->
+
+            <!--TODO1: nav not aligned with div class='div' when scroll to up-->
+
+            <!--TODO2: if have time, let it be responsive when zoom-in-->
+
             <nav>
                 <ul>
                     <li><a href="#home"><i class="fas fa-home"></i></a></li>
@@ -53,7 +59,11 @@
 
         <!-- Filter div -->
 
+        <!--TODO4: design choice: should recipes fill up brown area when zoom-out? -->
+
         <div class="filter-and-recipe-container">
+
+            <!--TODO5: design choice: should filters stays at left when scroll down? eg stiky-->
 
             <!-- Filter div -->
             <div class="filter-container">
@@ -101,6 +111,9 @@
                 </details>
             </div>
             <!-- displayed recipes -->
+
+            <!--TODO3: The entire contain should extend to the edge of parent container-->
+
             <div class = "flex-column-container">
             <div class="favorites-button-container">
                 <button class="favorites-button" id="add-button">+ Add Recipe</button>
