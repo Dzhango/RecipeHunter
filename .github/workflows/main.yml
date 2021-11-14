@@ -11,3 +11,5 @@ jobs:
           node-version: '14'
       - name: install jest
         run: npm install --save jest
+      - name: run jest tests
+        run: npm run test
