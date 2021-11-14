@@ -1,5 +1,5 @@
 const template = document.createElement('template');
-template.innerHTML=`
+template.innerHTML = `
 
 <style>
 h3{
@@ -58,15 +58,15 @@ h3{
 </div>
 
 
-`
-class IngredientCard extends HTMLElement{
-    constructor(){
+`;
+class IngredientCard extends HTMLElement {
+    constructor() {
         super();
 
-        this.attachShadow({mode:'open'});
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         // this.innerHTML = `<h1>${this.getAttribute('name')}</h1>`;
-        this.shadowRoot.querySelector("h3").innerText = this.getAttribute('name');
+        this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
         // this.shadowRoot.querySelector(".delete").addEventListener("click",()=>{
         //     console.log(`Delete ${this.getAttribute('name')}` );
         //     //add logic to remove the ingredient from the inner data structure
@@ -80,30 +80,26 @@ class IngredientCard extends HTMLElement{
     }
 }
 
+const addToDoButton = document.getElementById('addIngredient');
+const ingredientList = document.getElementById('ingredientList');
+const inputField = document.getElementById('inputField');
 
-   
-let addToDoButton = document.getElementById('addIngredient');
-let ingredientList = document.getElementById('ingredientList');
-let inputField = document.getElementById('inputField');
-
-
-//Event Listener for creating a ingredient item
-addToDoButton.addEventListener('click', function(){
-    //initialize custom component
-    var ingredient = document.createElement('ingredient-card');
-    //set components name attribute to ingredient
-    ingredient.setAttribute("name",inputField.value);
-    //set inner text to the inputted ingredient
-    ingredient.shadowRoot.querySelector("h3").innerText = inputField.value;
+// Event Listener for creating a ingredient item
+addToDoButton.addEventListener('click', () => {
+    // initialize custom component
+    const ingredient = document.createElement('ingredient-card');
+    // set components name attribute to ingredient
+    ingredient.setAttribute('name', inputField.value);
+    // set inner text to the inputted ingredient
+    ingredient.shadowRoot.querySelector('h3').innerText = inputField.value;
     // console.log("Name");
-    ingredient.shadowRoot.querySelector(".delete").addEventListener("click",()=>{
+    ingredient.shadowRoot.querySelector('.delete').addEventListener('click', () => {
         ingredientList.removeChild(ingredient);
-    })
+    });
     ingredientList.appendChild(ingredient);
-    inputField.value = "";
+    inputField.value = '';
     // ingredient.addEventListener('click', function(){
     //     paragraph.style.textDecoration = "line-through";
     // })
-    
-})
-window.customElements.define(`ingredient-card`,IngredientCard)
+});
+window.customElements.define('ingredient-card', IngredientCard);

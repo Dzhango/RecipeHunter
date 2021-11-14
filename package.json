@@ -17,6 +17,8 @@
     },
     "homepage": "https://github.com/Dzhango/cse-110-team-6#readme",
     "devDependencies": {
-        "eslint": "^8.2.0"
+        "eslint": "^8.2.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.3"
     }
 }

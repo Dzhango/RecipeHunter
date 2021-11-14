@@ -1,5 +1,5 @@
 const template = document.createElement('template');
-template.innerHTML=`
+template.innerHTML = `
 <style>
 * {
   margin: 0;
@@ -34,14 +34,14 @@ template.innerHTML=`
 <div class = "recipe-card">
     <span></span>
 </div>
-`
-class RecipeCard extends HTMLElement{
-    constructor(){
+`;
+class RecipeCard extends HTMLElement {
+    constructor() {
         super();
-        this.attachShadow({mode:'open'});
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         this.shadowRoot.querySelector('span').innerText = this.getAttribute('name');
-        this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
+        this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`;
     }
 }
 
