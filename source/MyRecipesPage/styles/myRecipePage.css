@@ -5,10 +5,9 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* background-color: aquamarine; */
-
 }
 
-.global-container{
+.global-container {
   width: 100%;
   height: 100%;
 }
@@ -27,7 +26,7 @@
   /* padding: 0 30px; */
   transition: 0.5s ease-in;
 }
-.logo{
+.logo {
   margin-left: 3rem;
 }
 ul {
@@ -40,7 +39,7 @@ ul {
   background-color: #bababa;
   font-size: 2rem;
   height: 100%;
-  
+
   /* padding: 2rem 2rem; */
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -68,7 +67,7 @@ width:20rem;
 .navbar li :hover {
   background-color: #aaaaaa;
   color: #6b6b6b;
-} 
+}
 .search-bar {
   width: 18rem;
   height: 2.5rem;
@@ -107,8 +106,8 @@ width:20rem;
   text-align: center;
   width: 100%;
   margin: 0;
-  padding-top:1.5rem;
-  padding-bottom:1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   /* padding-left: 4rem;
   padding-right: 4rem; */
 }
@@ -122,15 +121,19 @@ width:20rem;
   /* padding: 0;
   margin: 0; */
   font-size: 2rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 /* .filter-container li{
 padding-bottom: 3rem;
 } */
 .recipes-container {
   background-color: purple;
-  
+  /* creates grid of recipes */
+  display: grid;
+  /* creates 4 columns within grid */
+  grid-template-columns: repeat(4, 1fr);
   width: 100%;
+  padding-left: 35rem;
 }
 .filter-and-recipe-container {
   display: flex;
@@ -192,8 +195,8 @@ Styling for favorites buttons
   display: flex;
   background-color: #e8e8e8;
   width: 100%;
-  padding-top:1rem;
-  padding-bottom:1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .favorites-button {
   width: 13rem;
