@@ -74,15 +74,52 @@
 
   .photo {
     background-size: contain;
+    /* background-size: auto; */
+    border-radius: 30px;
+    /*min-height: 20em;*/
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+
+  .notes {
+    background-size: contain;
     background-size: cover;
     border-radius: 30px;
     /*min-height: 20em;*/
     background-repeat: no-repeat;
+   
   }
+
+
+
   img {
     border-radius: 30;
-    max-width: 100%;
-
+    /* max-width: 100%;
+    max-height: 100%; */
+    /* max-width: 50%; */
+    height: 100%; 
+    width: 100%; 
+    object-fit: contain;
+    height: auto;
+  }
+  .notes-button {
+    float: right;
+    font-size: medium;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
+  .image-button{
+     float: right;
+    font-size: medium;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
   }
 
   /* CSS for recipe info */
@@ -104,6 +141,7 @@
 
   .photo {
     margin: 1em 0 0 1em;
+    
   }
 
   .recipe-info-container {
@@ -218,8 +256,15 @@
 
   img {
     border-radius: 30;
+    
+  }
+
+  textarea {
+    margin: 2rem;
+    font-size: 1.5rem;
   }
 
 
-
-
+.hide{
+  display:none;
+}
