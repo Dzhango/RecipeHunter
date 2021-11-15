@@ -43,7 +43,7 @@ let searchText = ''
 }
 
 function fetchCall(query){
-    fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=67931e62b88649359913dbc496b0ad08&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=67931e62b88649359913dbc496b0ad08&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
         return response.json();
     }).then((data) => {
         console.log(data.results);
