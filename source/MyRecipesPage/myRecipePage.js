@@ -43,7 +43,7 @@ let searchText = ''
 }
 
 function fetchCall(query){
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=67931e62b88649359913dbc496b0ad08&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
+    fetch(`https://api.spoonacular.com/recipes/autocomplete?apiKey=67931e62b88649359913dbc496b0ad08&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
         return response.json();
     }).then((data) => {
         console.log(data.results);
@@ -69,46 +69,24 @@ function bindButton(){
         const searchBar = document.querySelector('.search-bar');
         searchText = searchBar.value;
 
-        //type checkboxes
-        const cb_type_breakfast = document.getElementById('type-breakfast');
-        //add to list
-        if(cb_type_breakfast.checked){
-            type.push('breakfast');
-        }else{
-            //remove from list
-            const index = type.indexOf('breakfast');
-            if (index > -1) {
-            type.splice(index, 1);
-            }
-        }
-        const cb_type_lunch = document.getElementById('type-lunch');
-        if(cb_type_lunch.checked){
-            type.push('lunch');
-        }else{
-            const index = type.indexOf('lunch');
-            if (index > -1) {
-            type.splice(index, 1);
-            }
-        }
-        const cb_type_dinner = document.getElementById('type-dinner');
-        if(cb_type_dinner.checked){
-            type.push('dinner');
-        }else{
-            const index = type.indexOf('dinner');
-            if (index > -1) {
-            type.splice(index, 1);
-            }
-        }
-        const cb_type_snack = document.getElementById('type-snack');
-        if(cb_type_snack.checked){
-            type.push('snack');
-        }else{
-            const index = type.indexOf('snack');
-            if (index > -1) {
-            type.splice(index, 1);
+        //type checkbox
+        listed_types = ['breakfast', 'lunch', 'dinner', 'snack']
+        for(a of listed_types){
+            //type checkboxes
+            const cb_type = document.getElementById('type-' + a);
+            //add to list
+            if(cb_type.checked){
+                type.push(a);
+            }else{
+                //remove from list
+                const index = type.indexOf(a);
+                if (index > -1) {
+                type.splice(index, 1);
+                }
             }
         }
 
+        //time checkbox
         const inputRange = document.getElementById('time');
         timeMax = inputRange.value;
 
@@ -172,6 +150,14 @@ function bindButton(){
     });
 }
 
+function displayTime() {
+    const inputRange = document.getElementById('time');
+    const displayDiv = document.querySelector('.selectedTime');
+    const timeValue = inputRange.value;
+    displayDiv.innerHTML = `Under ${timeValue} Minutes`;
+  }
+
 async function init() {
     bindButton()
+    document.getElementById('time').addEventListener('input', displayTime);
 }
