@@ -31,9 +31,9 @@ function createRecipeCards (recipeData) {
   // clear loaded recipe cards
   const recipesContainer = document.querySelector('.recipes-container')
   while (recipesContainer.firstChild) {
-    recipesContainer.removeChild(recipesContainer.firstChild);
+    recipesContainer.removeChild(recipesContainer.firstChild)
   }
-  for(let i=0; i<recipeData.length; i++) {
+  for (let i = 0; i < recipeData.length; i++) {
     // delegates the creation of recipe-card and its content to RecipeCard.js
     const recipeCard = document.createElement('recipe-card')
     recipeCard.data = recipeData[i]
@@ -90,21 +90,21 @@ function fetchCall (query) {
  * Populates mainPage with default recipes
  * @param {Object} recipeData the object containing JSON recipe data
  */
-// function defaultRecipes (recipeData) {
-//   for (let i=0; i<recipeData.length; i++) {
-//       // delegates the creation of recipe-card and its content to RecipeCard.js
-//       const recipeCard = document.createElement('recipe-card');
-//       recipeCard.data = recipeData[i];
-//       console.log(recipeData[i]['title']);
-//       document.querySelector('.recipes-container').appendChild(recipeCard);
-  
-//       recipeCard.setAttribute('name', recipeData[i]['title']);
-//       recipeCard.setAttribute('image', recipeData[i]['image']);
+function defaultRecipes (recipeData) {
+  for (let i=0; i<recipeData.length; i++) {
+      // delegates the creation of recipe-card and its content to RecipeCard.js
+      const recipeCard = document.createElement('recipe-card')
+      recipeCard.data = recipeData[i]
+      console.log(recipeData[i].title)
+      document.querySelector('.recipes-container').appendChild(recipeCard)
 
-//       recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i]['title'];
-//       recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i]['image']})`;
-//   }
-// }
+      recipeCard.setAttribute('name', recipeData[i].title)
+      recipeCard.setAttribute('image', recipeData[i].image)
+
+      recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i].title
+      recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i].image})`
+  }
+}
 
 /**
  * Get filter and search information from input and call fetchCall function
@@ -112,8 +112,7 @@ function fetchCall (query) {
  */
 function bindButton () {
   const SearchButton = document.querySelector('.search-button')
-  SearchButton.addEventListener('click', function(event){
-
+  SearchButton.addEventListener('click', function (event) {
     type = []
     timeMax = MAX_RECIPE_TIME
     allergies = []
@@ -124,74 +123,74 @@ function bindButton () {
 
     // type checkbox
     const listedTypes = ['breakfast', 'lunch', 'dinner', 'snack']
-    for (let a of listedTypes) {
+    for (const a of listedTypes) {
       // type checkboxes
       const cbType = document.getElementById('type-' + a)
       // add to list
       if (cbType.checked) {
-          type.push(a)
+        type.push(a)
       } else {
         // remove from list
         const index = type.indexOf(a)
         if (index > -1) {
-        type.splice(index, 1)
+          type.splice(index, 1)
         }
       }
     }
 
-    //time checkbox
+    // time checkbox
     const inputRange = document.getElementById('time')
     timeMax = inputRange.value
 
-    //treenut?
+    // treenut?
     const listedAllergies = ['lactose', 'egg', 'seafood', 'shellfish', 'peanut', 'wheat', 'soy', 'tree-nut']
-    for (let a of listedAllergies) {
+    for (const a of listedAllergies) {
       const cbAllergies = document.getElementById('allergies-' + a)
       if (cbAllergies.checked) {
         allergies.push(a)
       } else {
         const index = allergies.indexOf(a)
         if (index > -1) {
-        allergies.splice(index, 1)
+          allergies.splice(index, 1)
         }
       }
     }
 
-    //Diet need to be make sure that only one checkbox is checked at a time
+    // Diet need to be make sure that only one checkbox is checked at a time
     const cbDiets = document.getElementsByName('r-diet')
     for (let i = 0; i < cbDiets.length; i++) {
       if (cbDiets[i].checked) {
         diet = cbDiets[i].value
       }
     }
-    if (diet == 'none') {
+    if (diet === 'none') {
       diet = ''
     }
-    //matching with API: diets
-    //in design channel graph - input to the API
-    //keto - ketogenic
-    //paleo - paleo
-    //vegetarian - vegetarain
-    //mediterranean - not exist
-    //raw - not exsit
-    //low carb - gluten free
-    //no sugar - not exist
+    // matching with API: diets
+    // in design channel graph - input to the API
+    // keto - ketogenic
+    // paleo - paleo
+    // vegetarian - vegetarain
+    // mediterranean - not exist
+    // raw - not exsit
+    // low carb - gluten free
+    // no sugar - not exist
 
-    //matching with API: allergies / intolerance
-    //in design channel graph - input to the API
-    //fish - seafood
-    //dairy - dairy
-    //tree nut - tree nut
-    //shellfish - shellfish
-    //eggs - egg
-    //peanut - peanut
-    //soy - soy
-    //wheat - wheat
+    // matching with API: allergies / intolerance
+    // in design channel graph - input to the API
+    // fish - seafood
+    // dairy - dairy
+    // tree nut - tree nut
+    // shellfish - shellfish
+    // eggs - egg
+    // peanut - peanut
+    // soy - soy
+    // wheat - wheat
 
     //Filter recipes according to list content
     //if use spoonacular API:
 
-    console.log('query=' + searchText + '&' + 'intolerances=' + allergies.join(',') + "&" +
+    console.log('query=' + searchText + '&' + 'intolerances=' + allergies.join(',') + '&' +
     'type=' + type.join(',') + '&' +
     'maxReadyTime=' + timeMax + '&' +
     'diet=' + diet)
@@ -200,7 +199,7 @@ function bindButton () {
     'type=' + type.join(',') + '&' +
     'maxReadyTime=' + timeMax + '&' +
     'diet=' + diet)
-  });
+  })
 }
 
 function init () {
