@@ -2,7 +2,7 @@
 ## Date: Nov 16, 2021. 1:30pm - 2:10pm
 ## Meeting method: zoom
 
-### Attendence:
+### Attendence
 Antonia <br>
 David <br>
 Dzhangir <br>
