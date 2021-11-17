@@ -194,3 +194,21 @@ width:20rem;
   width: 10rem;
   margin-top: 0;
 }
+
+/* button from favorites page used in frige page */
+.favorites-button {
+  width: 13rem;
+  height: 4rem;
+  border-radius: 1.8rem;
+  background-color: #cfc3c3;
+  color: #6b6b6b;
+  font-size: 1.9rem;
+  margin: auto;
+  margin-right: 4rem;
+  padding: 0px;
+  border: none;
+}
+button.favorites-button:hover {
+  background-color: #aaaaaa;
+  color: #6b6b6b;
+}

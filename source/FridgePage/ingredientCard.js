@@ -84,7 +84,7 @@ class IngredientCard extends HTMLElement{
    
 let addToDoButton = document.getElementById('addIngredient');
 let ingredientList = document.getElementById('ingredientList');
-let inputField = document.getElementById('inputField');
+let inputField = document.getElementById('myInput');
 
 
 //Event Listener for creating a ingredient item
