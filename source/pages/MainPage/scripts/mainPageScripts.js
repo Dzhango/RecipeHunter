@@ -63,8 +63,8 @@ function getDefaultRecipes () {
     return response.json()
   }).then((data) => {
     const recipeData = data.results
-    // defaultRecipes(recipeData)
-    createRecipeCards(recipeData)
+    defaultRecipes(recipeData)
+    // createRecipeCards(recipeData)
     storeToSessionStorage(recipeData)
   })
 }
