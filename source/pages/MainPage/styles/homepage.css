@@ -172,7 +172,7 @@ input[type="checkbox"] {
 input[type="range"] {
   width: 8rem;
 }
-.selectedTime {
+.selected-time {
   font-size: 1.8rem;
   text-align: center;
 }
