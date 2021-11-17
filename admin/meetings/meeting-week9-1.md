@@ -21,7 +21,7 @@ N/A
 
 ### New dishes in this meeting
 1. go over issues and separate it into tasks on GitHub:
-   1. Connect main page to the general recipe page pt 3 
+   1. Connect main page to the general recipe page pt 3
      - home icon
      - recipe icon
    2. Connect fridgepage input to fridgepage output pt 5
