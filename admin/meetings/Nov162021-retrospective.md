@@ -1,8 +1,8 @@
 # Team Meeting
-### Date: Nov 16, 2021. 1:30pm - 2:10pm
-### Meeting method: zoom
+## Date: Nov 16, 2021. 1:30pm - 2:10pm
+## Meeting method: zoom
 
-#### Attendence:
+### Attendence:
 Antonia <br>
 David <br>
 Dzhangir <br>
@@ -11,7 +11,7 @@ Niya <br>
 Richard <br>
 Ryan Hero <br>
 
-#### Main Dish:
+### Main Dish:
 We use Retrium for sprint retrospective meeting: [Team Radar - Work Happiness](https://app.retrium.com/team-room/3a3841c6-503d-47d9-9dcf-9bd42b866421/history) [Mad, Sad, Glad](https://app.retrium.com/team-room/9cc85e32-440f-490c-ac67-3ed52ed03c1d/history)
 
 ![Team Radar - Work Happiness](Nov162021-retrospective-1.PNG)
