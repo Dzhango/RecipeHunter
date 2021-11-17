@@ -1,3 +1,5 @@
+//A Sandbox, none functions are called in html
+
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
@@ -21,29 +23,4 @@ function searchAndRender(event) {
         let recipeData = data.results;
         createRecipeCards(recipeData);
     });
-}
-
-/**
- * Alters the recipe cards on the main page to display the recipes retrieved by search 
- * @param {Object} recipeData the object containing JSON recipe data
- */
-function createRecipeCards(recipeData) {
-    // clear loaded recipe cards
-    const recipesContainer = document.querySelector('.recipes-container');
-    while (recipesContainer.firstChild) {
-        recipesContainer.removeChild(recipesContainer.firstChild);
-    }
-    for(let i=0; i<recipeData.length; i++) {
-        // delegates the creation of recipe-card and its content to RecipeCard.js
-        const recipeCard = document.createElement('recipe-card');
-        recipeCard.data = recipeData[i];
-        console.log(recipeData[i]['title']);
-        document.querySelector('.recipes-container').appendChild(recipeCard);
-    
-        recipeCard.setAttribute('name', recipeData[i]['title']);
-        recipeCard.setAttribute('image', recipeData[i]['image']);
-
-        recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i]['title'];
-        recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i]['image']})`;
-    }
 }
