@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 6 Homepage</title>
+    <link rel="stylesheet" href="./styles/homepage.css">
+    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <!--<script src = "./scripts/mainPageScripts.js"></script>
+<script src = "./scripts/search.js"></script>-->
+
+    <script src="scripts/RecipeCard.js"></script>
+    <script src="\source\MyRecipesPage\myRecipePage.js"></script>
+
+</head>
+
+<body>
+
+    <div class="global-container">
+        <div class="navbar" id="navbar">
+
+            <!-- The logo with title (left hand side of the navbar) -->
+            <h1 class=logo>
+
+                LOGO
+            </h1>
+            <div class="search-container">
+                <input type="text" placeholder="Search.." name="search" class="search-bar">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- The button section of the navbar -->
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i></a></li>
+                    <li><a href="#fridge" class="navtext">My Fridge</a></li>
+                    <li><a href="#myRecipes" class="navtext">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- Filter div -->
+
+        <div class="filter-and-recipe-container">
+
+            <!-- Filter div -->
+            <div class="filter-container">
+                <h2>Filters</h2>
+                <details class="type">
+                    <summary>Type</summary>
+                    <ul>
+                        <li><label><input type="checkbox" id='type-breakfast'><span>breakfast</span></label></li>
+                        <li><label><input type="checkbox" id='type-lunch'><span>lunch</span></label></li>
+                        <li><label><input type="checkbox" id='type-snack'><span>snack</span></label></li>
+                        <li><label><input type="checkbox" id='type-dinner'><span>dinner</span></label></li>
+                    </ul>
+
+                </details>
+                <details class="time">
+                    <summary>Time</summary>
+
+                    <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" />
+
+
+
+                    <div class="selectedTime">Under 100 minutes</div>
+                </details>
+                <details class="allergies">
+                    <summary>Allergies</summary>
+                    <ul>
+                        <li><label><input type="checkbox" id='allergies-lactose'><span>lactose</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-egg'><span>egg</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-seafood'><span>fish</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-shellfish'><span>shellfish</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-peanut'><span>peanuts</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-tree-nut'><span>tree nuts</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-wheat'><span>wheat</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-soy'><span>soy</span></label></li>
+                    </ul>
+                </details>
+                <details class="diet">
+                    <summary>Diet</summary>
+                    <ul>
+                        <li><label><input type="radio" id="diet-none" name="r-diet" value='none' checked><span>none</span></label></li>
+                        <li><label><input type="radio" id="diet-vegan" name="r-diet" value='vegan'><span>vegan</span></label></li>
+                        <li><label><input type="radio" id='diet-vegenatian' name="r-diet" value='vegetarian'><span>vegenatian</span></label></li>
+                        <li><label><input type="radio" id='diet-ketogenic' name="r-diet" value='ketogenic'><span>keto</span></label></li>
+                    </ul>
+                </details>
+            </div>
+            <!-- displayed recipes -->
+            <div class="recipes-container">
+                <recipe-card name='Acai Bowl' image='https://www.jessicagavin.com/wp-content/uploads/2020/01/acai-bowl-10-1200.jpg'></recipe-card>
+                <recipe-card name='Carne Asada Tacos' image='https://mycrazygoodlife.com/wp-content/uploads/2019/02/Carne-Asada-In-Process-6.jpg'></recipe-card>
+                <recipe-card name='Vegan Cesar Salad' image='https://yupitsvegan.com/wp-content/uploads/2019/02/vegan-caesar-salad-dressing-blackened-chickpeas-square.jpg'></recipe-card>
+                <recipe-card name='Pumpkin Bread' image='https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2017/11/Paleo-Pumpkin-Bread.jpg'></recipe-card>
+                <recipe-card name='Acai Bowl' image='https://www.jessicagavin.com/wp-content/uploads/2020/01/acai-bowl-10-1200.jpg'>
+                </recipe-card>
+                <recipe-card name='Carne Asada Tacos' image='https://mycrazygoodlife.com/wp-content/uploads/2019/02/Carne-Asada-In-Process-6.jpg'></recipe-card>
+                <recipe-card name='Vegan Cesar Salad' image='https://yupitsvegan.com/wp-content/uploads/2019/02/vegan-caesar-salad-dressing-blackened-chickpeas-square.jpg'>
+                </recipe-card>
+                <recipe-card name='Pumpkin Bread' image='https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2017/11/Paleo-Pumpkin-Bread.jpg'></recipe-card>
+                <recipe-card name='Acai Bowl' image='https://www.jessicagavin.com/wp-content/uploads/2020/01/acai-bowl-10-1200.jpg'>
+                </recipe-card>
+                <recipe-card name='Carne Asada Tacos' image='https://mycrazygoodlife.com/wp-content/uploads/2019/02/Carne-Asada-In-Process-6.jpg'></recipe-card>
+                <recipe-card name='Vegan Cesar Salad' image='https://yupitsvegan.com/wp-content/uploads/2019/02/vegan-caesar-salad-dressing-blackened-chickpeas-square.jpg'>
+                </recipe-card>
+                <recipe-card name='Pumpkin Bread' image='https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2017/11/Paleo-Pumpkin-Bread.jpg'></recipe-card>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

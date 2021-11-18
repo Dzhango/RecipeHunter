@@ -8,7 +8,8 @@
     <title>Team 6 Homepage</title>
     <link rel="stylesheet" href="./styles/myRecipePage.css">
     <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
-    <script src="./scripts/mainPageScripts.js"></script>
+    <script src="./myRecipePage.js"></script>
+    <script src="/source/MainPage/scripts/RecipeCard.js"></script>
 
 </head>
 
@@ -59,10 +60,10 @@
                 <details class="type">
                     <summary>Type</summary>
                     <ul>
-                        <li><label><input type="checkbox"><span>breakfast</span></label></li>
-                        <li><label><input type="checkbox"><span>lunch</span></label></li>
-                        <li><label><input type="checkbox"><span>snack</span></label></li>
-                        <li><label><input type="checkbox"><span>dinner</span></label></li>
+                        <li><label><input type="checkbox" id='type-breakfast'><span>breakfast</span></label></li>
+                        <li><label><input type="checkbox" id='type-lunch'><span>lunch</span></label></li>
+                        <li><label><input type="checkbox" id='type-snack'><span>snack</span></label></li>
+                        <li><label><input type="checkbox" id='type-dinner'><span>dinner</span></label></li>
                     </ul>
 
 
@@ -79,22 +80,23 @@
                 <details class="allergies">
                     <summary>Allergies</summary>
                     <ul>
-                        <li><label><input type="checkbox"><span>lactose</span></label></li>
-                        <li><label><input type="checkbox"><span>egg</span></label></li>
-                        <li><label><input type="checkbox"><span>fish</span></label></li>
-                        <li><label><input type="checkbox"><span>shellfish</span></label></li>
-                        <li><label><input type="checkbox"><span>peanuts</span></label></li>
-                        <li><label><input type="checkbox"><span>tree nuts</span></label></li>
-                        <li><label><input type="checkbox"><span>wheat</span></label></li>
-                        <li><label><input type="checkbox"><span>soy</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-lactose'><span>lactose</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-egg'><span>egg</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-seafood'><span>fish</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-shellfish'><span>shellfish</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-peanut'><span>peanuts</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-tree-nut'><span>tree nuts</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-wheat'><span>wheat</span></label></li>
+                        <li><label><input type="checkbox" id='allergies-soy'><span>soy</span></label></li>
                     </ul>
                 </details>
                 <details class="diet">
                     <summary>Diet</summary>
                     <ul>
-                        <li><label><input type="checkbox"><span>vegan</span></label></li>
-                        <li><label><input type="checkbox"><span>vegenatian</span></label></li>
-                        <li><label><input type="checkbox"><span>keto</span></label></li>
+                        <li><label><input type="radio" id="diet-none" name="r-diet" value='none' checked><span>none</span></label></li>
+                        <li><label><input type="radio" id="diet-vegan" name="r-diet" value='vegan'><span>vegan</span></label></li>
+                        <li><label><input type="radio" id='diet-vegenatian' name="r-diet" value='vegetarian'><span>vegenatian</span></label></li>
+                        <li><label><input type="radio" id='diet-ketogenic' name="r-diet" value='ketogenic'><span>keto</span></label></li>
                     </ul>
                 </details>
             </div>

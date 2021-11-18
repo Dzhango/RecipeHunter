@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/recipepage.css">
     <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <script src="scripts/recipePageScripts.js"></script>
 </head>
 <body class="wrapper">
     <div class = "global-container">
@@ -40,11 +41,19 @@
 
         <!-- Picture of recipe, same as recipe card -->
         <div class="photo" style="background-image: url('https://www.jessicagavin.com/wp-content/uploads/2020/01/acai-bowl-10-1200.jpg');">   
-            <!-- <img src="" alt="recipe-photo"> -->
-
+          
             <div class="recipe-notes">
                 <!-- Button to view rcipe notes, only visible if recipe is in MyRecipes -->
-                <button class="notes-button" style="display: none;"> Recipe Notes </button>
+                <button class="notes-button"> Recipe Notes </button>
+            </div>
+        </div>
+
+        <div class="notes hide">
+            <textarea name="comments" id="additional_comments" cols="30" rows="10"></textarea>
+        
+            <div class="recipe-notes">
+                <!-- Button to view rcipe notes, only visible if recipe is in MyRecipes -->
+                <button class="image-button"> Close </button>
             </div>
         </div>
 
