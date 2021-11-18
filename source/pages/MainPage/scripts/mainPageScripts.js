@@ -112,7 +112,10 @@ function defaultRecipes (recipeData) {
  */
 function bindButton () {
   const SearchButton = document.querySelector('.search-button')
-  SearchButton.addEventListener('click', function (event) {
+  const FilterButton = document.querySelector('.filters-button')
+  SearchButton.addEventListener('click', filterRecipes)
+  FilterButton.addEventListener('click', filterRecipes)
+  function filterRecipes(event) {
     type = []
     timeMax = MAX_RECIPE_TIME
     allergies = []
@@ -199,7 +202,7 @@ function bindButton () {
     'type=' + type.join(',') + '&' +
     'maxReadyTime=' + timeMax + '&' +
     'diet=' + diet)
-  })
+  }
 }
 
 function init () {
