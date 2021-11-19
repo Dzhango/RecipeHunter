@@ -123,6 +123,16 @@ width:20rem;
   font-size: 2rem;
   padding-bottom: 0.5rem;
 }
+
+.filters-button {
+  float: right;
+  font-size: medium;
+  height: 3rem;
+  width: 7rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
 /* .filter-container li{
 padding-bottom: 3rem;
 } */
@@ -172,7 +182,7 @@ input[type="checkbox"] {
 input[type="range"] {
   width: 8rem;
 }
-.selectedTime {
+.selected-time {
   font-size: 1.8rem;
   text-align: center;
 }
