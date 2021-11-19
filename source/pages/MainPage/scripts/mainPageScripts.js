@@ -63,7 +63,6 @@ function getDefaultRecipes () {
     return response.json()
   }).then((data) => {
     const recipeData = data.results
-    // defaultRecipes(recipeData)
     createRecipeCards(recipeData)
     storeToSessionStorage(recipeData)
   })
@@ -84,26 +83,6 @@ function fetchCall (query) {
     createRecipeCards(recipeData)
     storeToSessionStorage(recipeData)
   })
-}
-
-/**
- * Populates mainPage with default recipes
- * @param {Object} recipeData the object containing JSON recipe data
- */
-function defaultRecipes (recipeData) {
-  for (let i=0; i<recipeData.length; i++) {
-      // delegates the creation of recipe-card and its content to RecipeCard.js
-      const recipeCard = document.createElement('recipe-card')
-      recipeCard.data = recipeData[i]
-      console.log(recipeData[i].title)
-      document.querySelector('.recipes-container').appendChild(recipeCard)
-
-      recipeCard.setAttribute('name', recipeData[i].title)
-      recipeCard.setAttribute('image', recipeData[i].image)
-
-      recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i].title
-      recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i].image})`
-  }
 }
 
 /**
