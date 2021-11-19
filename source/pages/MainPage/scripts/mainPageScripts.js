@@ -94,7 +94,7 @@ function bindButton () {
   const FilterButton = document.querySelector('.filters-button')
   SearchButton.addEventListener('click', filterRecipes)
   FilterButton.addEventListener('click', filterRecipes)
-  function filterRecipes(event) {
+  function filterRecipes (event) {
     type = []
     timeMax = MAX_RECIPE_TIME
     allergies = []
@@ -148,29 +148,6 @@ function bindButton () {
     if (diet === 'none') {
       diet = ''
     }
-    // matching with API: diets
-    // in design channel graph - input to the API
-    // keto - ketogenic
-    // paleo - paleo
-    // vegetarian - vegetarain
-    // mediterranean - not exist
-    // raw - not exsit
-    // low carb - gluten free
-    // no sugar - not exist
-
-    // matching with API: allergies / intolerance
-    // in design channel graph - input to the API
-    // fish - seafood
-    // dairy - dairy
-    // tree nut - tree nut
-    // shellfish - shellfish
-    // eggs - egg
-    // peanut - peanut
-    // soy - soy
-    // wheat - wheat
-
-    //Filter recipes according to list content
-    //if use spoonacular API:
 
     console.log('query=' + searchText + '&' + 'intolerances=' + allergies.join(',') + '&' +
     'type=' + type.join(',') + '&' +
