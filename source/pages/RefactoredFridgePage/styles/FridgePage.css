@@ -1,0 +1,37 @@
+#content-container {
+    height: 80vh;
+}
+
+.card-columns {
+    column-count: 3;
+}
+
+#ingredient-card-container {
+    max-height: 27vh;
+    overflow-y: scroll;
+}
+
+@media (max-width: 575.98px){
+    .card-columns {
+        column-count: 1;
+    }
+    .card-img-bottom {
+        display: none;
+    }
+}
+
+@media (min-width: 660px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+@media (min-width: 768px){
+    .card-columns {
+        column-count: 2;
+    }
+    #ingredient-card-container {
+        max-height: 70vh;
+        overflow-y: scroll;
+    }
+}
