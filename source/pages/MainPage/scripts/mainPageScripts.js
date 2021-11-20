@@ -88,26 +88,6 @@ function fetchCall (query) {
 }
 
 /**
- * Populates mainPage with default recipes
- * @param {Object} recipeData the object containing JSON recipe data
- */
-function defaultRecipes (recipeData) {
-  for (let i=0; i<recipeData.length; i++) {
-      // delegates the creation of recipe-card and its content to RecipeCard.js
-      const recipeCard = document.createElement('recipe-card')
-      recipeCard.data = recipeData[i]
-      console.log(recipeData[i].title)
-      document.querySelector('.recipes-container').appendChild(recipeCard)
-
-      recipeCard.setAttribute('name', recipeData[i].title)
-      recipeCard.setAttribute('image', recipeData[i].image)
-
-      recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i].title
-      recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i].image})`
-  }
-}
-
-/**
  * Get filter and search information from input and call fetchCall function
  * to retrieve recipe.
  */
@@ -116,7 +96,7 @@ function bindButton () {
   const FilterButton = document.querySelector('.filters-button')
   SearchButton.addEventListener('click', filterRecipes)
   FilterButton.addEventListener('click', filterRecipes)
-  function filterRecipes(event) {
+  function filterRecipes (event) {
     type = []
     timeMax = MAX_RECIPE_TIME
     allergies = []
@@ -170,29 +150,6 @@ function bindButton () {
     if (diet === 'none') {
       diet = ''
     }
-    // matching with API: diets
-    // in design channel graph - input to the API
-    // keto - ketogenic
-    // paleo - paleo
-    // vegetarian - vegetarain
-    // mediterranean - not exist
-    // raw - not exsit
-    // low carb - gluten free
-    // no sugar - not exist
-
-    // matching with API: allergies / intolerance
-    // in design channel graph - input to the API
-    // fish - seafood
-    // dairy - dairy
-    // tree nut - tree nut
-    // shellfish - shellfish
-    // eggs - egg
-    // peanut - peanut
-    // soy - soy
-    // wheat - wheat
-
-    //Filter recipes according to list content
-    //if use spoonacular API:
 
     console.log('query=' + searchText + '&' + 'intolerances=' + allergies.join(',') + '&' +
     'type=' + type.join(',') + '&' +
