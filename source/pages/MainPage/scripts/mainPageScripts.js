@@ -51,8 +51,21 @@ function createRecipeCards (recipeData) {
 function storeToSessionStorage (recipeData) {
   sessionStorage.clear()
   for (let i = 0; i < recipeData.length; i++) {
-    sessionStorage.setItem(recipeData[i].id, recipeData[i])
+    sessionStorage.setItem(recipeData[i].id, JSON.stringify(recipeData[i]))
+    //console.log(JSON.stringify(recipeData[i]))
   }
+}
+
+function populateFromSession () {
+  // refresh the page through repopulating page from session storage
+  let list_recipes = []
+  for (let i = 0; i < sessionStorage.length; i++) {
+      let recipe = sessionStorage.getItem(sessionStorage.key(i))
+      console.log(recipe)
+      list_recipes.push(JSON.parse(recipe))
+  }    
+  createRecipeCards(list_recipes)
+
 }
 
 /**
@@ -180,7 +193,13 @@ function init () {
 
   // Making div display time selected from slider
   document.getElementById('time').addEventListener('input', displayTime)
-  getDefaultRecipes()
+  if(sessionStorage.length < 10){
+    getDefaultRecipes()
+  }
+  else{
+    //getDefaultRecipes()
+    populateFromSession()
+  }
   bindButton()
   bindRecipes()
 }
