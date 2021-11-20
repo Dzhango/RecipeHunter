@@ -95,7 +95,6 @@
 
   img {
     border-radius: 30;
-<<<<<<< HEAD:source/pages/GeneralRecipePage/styles/recipepage.css
     /* max-width: 100%;
     max-height: 100%; */
     /* max-width: 50%; */
@@ -103,9 +102,7 @@
     width: 100%; 
     object-fit: contain;
     height: auto;
-=======
     max-width: 100%;
->>>>>>> 3552958a6c77387e3fea5c6942b50dfd76489642:source/GeneralRecipePage/styles/recipepage.css
   }
   .notes-button {
     float: right;
@@ -114,7 +111,6 @@
     width: 7rem;
     border-radius: 1rem;
     margin-top: 1rem;
-<<<<<<< HEAD:source/pages/GeneralRecipePage/styles/recipepage.css
     margin-right: 1rem;
   }
   .image-button{
@@ -125,8 +121,6 @@
     border-radius: 1rem;
     margin-top: 1rem;
     margin-right: 1rem;
-=======
->>>>>>> 3552958a6c77387e3fea5c6942b50dfd76489642:source/GeneralRecipePage/styles/recipepage.css
   }
 
   /* CSS for recipe info */
@@ -170,15 +164,7 @@
   }
   .time-info {
     justify-content: center;
-    display: flex;
   }
-  .prep-time {
-    margin-right: .5em;
-  }
-  .cook-time {
-    margin-left: .5em;
-  }
-
   .recipe-tags span {
     padding: .5em;
     margin-top: .5em;

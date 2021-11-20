@@ -28,9 +28,9 @@
         <!-- The button section of the navbar -->
         <nav>
             <ul>
-                <li><a href="#home"><i class="fas fa-home"></i></a></li>
-                <li><a href="#fridge" class="navtext">My Fridge</a></li>
-                <li><a href="#myRecipes" class="navtext">My Recipes</a></li>
+                <li><a href="./myRecipePage.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="../FridgePage/FridgePage.html" class="navtext">My Fridge</a></li>
+                <li><a href="../MyRecipesPage/myRecipePage.html" class="navtext">My Recipes</a></li>
             </ul>
         </nav>
     </div>
@@ -48,21 +48,13 @@
             </div>
         </div>
 
-<<<<<<< HEAD:source/pages/GeneralRecipePage/recipepage.html
         <div class="notes hide">
             <textarea name="comments" id="additional_comments" cols="30" rows="10"></textarea>
         
             <div class="recipe-notes">
                 <!-- Button to view rcipe notes, only visible if recipe is in MyRecipes -->
                 <button class="image-button"> Close </button>
-=======
-            <div class="notes-button">
-                <!-- Button to view rcipe notes, only visible if recipe is in MyRecipes -->
-                <button class="notes-button" style="display: none;" --></button>> Recipe Notes </button>
->>>>>>> 3552958a6c77387e3fea5c6942b50dfd76489642:source/GeneralRecipePage/recipepage.html
             </div>
-
-            
         </div>
 
         <div class="recipe-info-container">
@@ -78,23 +70,14 @@
                 <h3 class="name">Recipe Name</h3>
 
                 <div class="time-info">
-                    <!-- Prep time -->
-                    <div class="prep-time">
-                        <span>Prep Time:</span> 
-                        <span><b>Time</b></span>
-                    </div>
-
-                    <!-- Cook time -->
-                    <div class="cook-time">
-                        <span>Cook Time:</span> 
-                        <span><b>Time</b></span><br>
-                    </div>
+                    <span>Total Time: </span> 
+                    <span><b id="time">10 min</b></span>   
                 </div>
                
                 <!-- Calories -->
                 <div class="calories">
                     <span>Calories Per Serving:</span> 
-                    <span><b>Cals</b></span>
+                    <span><b id="cals">Cals</b></span>
                 </div>
 
                 <!-- Filter tags for a recioe  -->
@@ -105,7 +88,7 @@
 
                 <!-- Paragraph description of a recipe  -->
                 <div class="description">
-                    <p>short description of recipe</p>
+                    <p id="summary">short description of recipe</p>
                 </div>
             </div>
 
@@ -123,7 +106,7 @@
             <div class="serving-size">
                 <span>Servings:</span>
                 <button class="minus-button">-</button>
-                <span class="num-servings"><b>1</b></span>
+                <span class="num-servings"><b id="servings">1</b></span>
                 <button class="plus-button">+</button>
             </div>
 
@@ -145,7 +128,7 @@
             <!-- info about equipment needed for recipe -->
             <div class="equipment">
                 <span>Equipment:</span>
-                <span><b>necessary equipment</b></span>
+                <span><b id="equipment-list">necessary equipment</b></span>
             </div>
 
             <!-- Ordered list of directions -->

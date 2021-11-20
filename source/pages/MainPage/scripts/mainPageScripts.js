@@ -59,10 +59,12 @@ function storeToSessionStorage (recipeData) {
 * Makes an API call to retrieve JSON recipe data
 */
 function getDefaultRecipes () {
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=67931e62b88649359913dbc496b0ad08&instructionsRequired=true&addRecipeInformation=true').then((response) => {
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&instructionsRequired=true&addRecipeInformation=true').then((response) => {
     return response.json()
   }).then((data) => {
     const recipeData = data.results
+    console.log(recipeData)
+    // defaultRecipes(recipeData)
     createRecipeCards(recipeData)
     storeToSessionStorage(recipeData)
   })
@@ -74,7 +76,7 @@ function getDefaultRecipes () {
  * @param {String} query the string specify filter and search information
  */
 function fetchCall (query) {
-  fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=67931e62b88649359913dbc496b0ad08&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
+  fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
     return response.json()
   }).then((data) => {
     console.log(data.results)
@@ -161,6 +163,17 @@ function bindButton () {
   }
 }
 
+function bindRecipes () {
+  // Add event listener to each recipe card
+  let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
+  for (let i = 0; i < recipeCardList.length; i++){
+    recipeCardList[i].addEventListener("click",(e)=>{
+      sessionStorage.setItem('curr', recipeCardList.data.id)
+      location.href = "hrefTotheGeneralRecipePage";
+    })
+  }
+}
+
 function init () {
   // eslint-disable-next-line no-console
   console.log('Called')
@@ -169,6 +182,7 @@ function init () {
   document.getElementById('time').addEventListener('input', displayTime)
   getDefaultRecipes()
   bindButton()
+  bindRecipes()
 }
 
 window.addEventListener('DOMContentLoaded', init)
