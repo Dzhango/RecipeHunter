@@ -269,7 +269,24 @@ class RecipeExpand extends HTMLElement {
         this.shadowRoot.getElementById('cals').innerHTML = calories;
 
         // set racipe tags
+        const diets = ['vegan', 'vegetarian', 'ketogenic', 'gluten free', 'paleo', 'pescetarian'];
+        const dietArr = data['diets'];
+        const dishTypeArr = data['dishTypes'];
+        const tagsContainer = this.shadowRoot.querySelector('.recipe-tags');
+        for (const item of dietArr) {
+            if (diets.includes(item)) {
+                const tag = document.createElement('span');
+                tag.innerHTML = item;
+                tagsContainer.appendChild(tag);
+            }
+        }
+        for (const item of dishTypeArr) {
+            const tag = document.createElement('span');
+            tag.innerHTML = item;
+            tagsContainer.appendChild(tag);
+        }
         
+        // iterate over 'diets' and 'dishTypes' to set tags
 
         // set description
         const description = data['summary'] // need to find this
@@ -280,7 +297,7 @@ class RecipeExpand extends HTMLElement {
         this.shadowRoot.getElementById('servings').innerHTML = servings;
 
         // set ingredient list
-        const ingredients = data[''];
+        // const ingredients = data['']; // need to do a new api call probably
 
 
         // set necessary equipment
