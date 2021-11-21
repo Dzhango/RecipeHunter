@@ -7,7 +7,12 @@ function init() {
     // populate page with JSON data
     const dataKey = sessionStorage.getItem('curr');
     const recipeData = JSON.parse(sessionStorage.getItem(dataKey));
-    document.querySelector('recipe-ecpand').data = recipeData;
+
+    const recipeExpand = document.createElement('recipe-expand')
+    recipeExpand.data = recipeData
+    //console.log(recipeExpand.data)
+    document.querySelector('body').appendChild(recipeExpand)
+    // document.querySelector('recipe-expand').data = recipeData;
     
   // Making div display time selected from slider
 
