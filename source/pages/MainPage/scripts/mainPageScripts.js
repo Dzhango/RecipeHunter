@@ -60,12 +60,17 @@ function populateFromSession () {
   // refresh the page through repopulating page from session storage
   let list_recipes = []
   for (let i = 0; i < sessionStorage.length; i++) {
-      let recipe = sessionStorage.getItem(sessionStorage.key(i))
-      console.log(recipe)
-      list_recipes.push(JSON.parse(recipe))
+    key = sessionStorage.key(i)
+    if (key == 'IsThisFirstTime_Log_From_LiveServer' || key == 'curr') {
+      continue
+    }
+    //console.log(typeof(sessionStorage.key(i)))
+    let recipe = sessionStorage.getItem(sessionStorage.key(i))
+    //console.log(recipe)
+    list_recipes.push(JSON.parse(recipe))
   }    
   createRecipeCards(list_recipes)
-
+  bindRecipes()
 }
 
 /**
@@ -76,9 +81,10 @@ function getDefaultRecipes () {
     return response.json()
   }).then((data) => {
     const recipeData = data.results
-    console.log(recipeData)
+    // console.log(recipeData)
     // defaultRecipes(recipeData)
     createRecipeCards(recipeData)
+    bindRecipes()
     storeToSessionStorage(recipeData)
   })
 }
@@ -96,6 +102,7 @@ function fetchCall (query) {
     const recipeData = data.results
     console.log(recipeData)
     createRecipeCards(recipeData)
+    bindRecipes()
     storeToSessionStorage(recipeData)
   })
 }
@@ -181,7 +188,7 @@ function bindRecipes () {
   let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
   for (let i = 0; i < recipeCardList.length; i++){
     recipeCardList[i].addEventListener("click",(e)=>{
-      sessionStorage.setItem('curr', recipeCardList.data.id)
+      sessionStorage.setItem('curr', recipeCardList[i].data.id)
       location.href = "hrefTotheGeneralRecipePage";
     })
   }
@@ -193,7 +200,7 @@ function init () {
 
   // Making div display time selected from slider
   document.getElementById('time').addEventListener('input', displayTime)
-  if(sessionStorage.length < 10){
+  if(sessionStorage.length < 3){
     getDefaultRecipes()
   }
   else{
@@ -201,7 +208,6 @@ function init () {
     populateFromSession()
   }
   bindButton()
-  bindRecipes()
 }
 
 window.addEventListener('DOMContentLoaded', init)
