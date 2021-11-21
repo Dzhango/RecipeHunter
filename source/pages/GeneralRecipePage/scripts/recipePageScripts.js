@@ -2,8 +2,13 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   // eslint-disable-next-line no-console
-  console.log('Called');
+    console.log('Called');
 
+    // populate page with JSON data
+    const dataKey = sessionStorage.getItem('curr');
+    const recipeData = JSON.parse(sessionStorage.getItem(dataKey));
+    document.querySelector('recipe-ecpand').data = recipeData;
+    
   // Making div display time selected from slider
 
     document.querySelector('.notes-button').addEventListener('click', openNotes);
