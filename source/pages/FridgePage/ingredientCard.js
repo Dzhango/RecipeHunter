@@ -1,5 +1,5 @@
-const template = document.createElement('template');
-template.innerHTML=`
+const template = document.createElement('template')
+template.innerHTML = `
 
 <style>
 h3{
@@ -59,51 +59,47 @@ h3{
 
 
 `
-class IngredientCard extends HTMLElement{
-    constructor(){
-        super();
+class IngredientCard extends HTMLElement {
+  constructor () {
+    super()
 
-        this.attachShadow({mode:'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-        // this.innerHTML = `<h1>${this.getAttribute('name')}</h1>`;
-        this.shadowRoot.querySelector("h3").innerText = this.getAttribute('name');
-        // this.shadowRoot.querySelector(".delete").addEventListener("click",()=>{
-        //     console.log(`Delete ${this.getAttribute('name')}` );
-        //     //add logic to remove the ingredient from the inner data structure
-        //     // let elem = document.querySelector('.ingredient-list');
-        //     // elem.parentNode.removeChild(elem);
+    this.attachShadow({ mode: 'open' })
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // this.innerHTML = `<h1>${this.getAttribute('name')}</h1>`;
+    this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name')
+    // this.shadowRoot.querySelector(".delete").addEventListener("click",()=>{
+    //     console.log(`Delete ${this.getAttribute('name')}` );
+    //     //add logic to remove the ingredient from the inner data structure
+    //     // let elem = document.querySelector('.ingredient-list');
+    //     // elem.parentNode.removeChild(elem);
 
-        //     let ingredList = document.querySelector("fridge-div ingredient-list");
-        //     ingredList.removeChild(this);
-        //     // let remove = doclu
-        // })
-    }
+    //     let ingredList = document.querySelector("fridge-div ingredient-list");
+    //     ingredList.removeChild(this);
+    //     // let remove = doclu
+    // })
+  }
 }
 
+const addToDoButton = document.getElementById('addIngredient')
+const ingredientList = document.getElementById('ingredientList')
+const inputField = document.getElementById('inputField')
 
-   
-let addToDoButton = document.getElementById('addIngredient');
-let ingredientList = document.getElementById('ingredientList');
-let inputField = document.getElementById('inputField');
-
-
-//Event Listener for creating a ingredient item
-addToDoButton.addEventListener('click', function(){
-    //initialize custom component
-    var ingredient = document.createElement('ingredient-card');
-    //set components name attribute to ingredient
-    ingredient.setAttribute("name",inputField.value);
-    //set inner text to the inputted ingredient
-    ingredient.shadowRoot.querySelector("h3").innerText = inputField.value;
-    // console.log("Name");
-    ingredient.shadowRoot.querySelector(".delete").addEventListener("click",()=>{
-        ingredientList.removeChild(ingredient);
-    })
-    ingredientList.appendChild(ingredient);
-    inputField.value = "";
-    // ingredient.addEventListener('click', function(){
-    //     paragraph.style.textDecoration = "line-through";
-    // })
-    
+// Event Listener for creating a ingredient item
+addToDoButton.addEventListener('click', function () {
+  // initialize custom component
+  const ingredient = document.createElement('ingredient-card')
+  // set components name attribute to ingredient
+  ingredient.setAttribute('name', inputField.value)
+  // set inner text to the inputted ingredient
+  ingredient.shadowRoot.querySelector('h3').innerText = inputField.value
+  // console.log("Name");
+  ingredient.shadowRoot.querySelector('.delete').addEventListener('click', () => {
+    ingredientList.removeChild(ingredient)
+  })
+  ingredientList.appendChild(ingredient)
+  inputField.value = ''
+  // ingredient.addEventListener('click', function(){
+  //     paragraph.style.textDecoration = "line-through";
+  // })
 })
-window.customElements.define(`ingredient-card`,IngredientCard)
+window.customElements.define('ingredient-card', IngredientCard)

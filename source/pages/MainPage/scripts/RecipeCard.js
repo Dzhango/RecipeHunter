@@ -1,5 +1,5 @@
-const template = document.createElement('template');
-template.innerHTML=`
+const template = document.createElement('template')
+template.innerHTML = `
 <style>
 * {
   margin: 0;
@@ -35,14 +35,14 @@ template.innerHTML=`
     <span></span>
 </div>
 `
-class RecipeCard extends HTMLElement{
-    constructor(){
-        super();
-        this.attachShadow({mode:'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector('span').innerText = this.getAttribute('name');
-        this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
-    }
+class RecipeCard extends HTMLElement {
+  constructor () {
+    super()
+    this.attachShadow({ mode: 'open' })
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.shadowRoot.querySelector('span').innerText = this.getAttribute('name')
+    this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
+  }
 }
 
-window.customElements.define('recipe-card', RecipeCard);
+window.customElements.define('recipe-card', RecipeCard)

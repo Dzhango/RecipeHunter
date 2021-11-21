@@ -1,18 +1,18 @@
-function displayTime() {
-  const inputRange = document.getElementById('time');
-  const displayDiv = document.querySelector('.selectedTime');
+function displayTime () {
+  const inputRange = document.getElementById('time')
+  const displayDiv = document.querySelector('.selectedTime')
 
-  const timeValue = inputRange.value;
+  const timeValue = inputRange.value
 
-  displayDiv.innerHTML = `Under ${timeValue} Minutes`;
+  displayDiv.innerHTML = `Under ${timeValue} Minutes`
 }
 
-function init() {
+function init () {
   // eslint-disable-next-line no-console
-  console.log('Called');
+  console.log('Called')
 
   // Making div display time selected from slider
-  document.getElementById('time').addEventListener('input', displayTime);
+  document.getElementById('time').addEventListener('input', displayTime)
 }
 
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', init)
