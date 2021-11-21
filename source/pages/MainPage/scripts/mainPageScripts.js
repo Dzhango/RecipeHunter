@@ -189,7 +189,7 @@ function bindRecipes () {
   for (let i = 0; i < recipeCardList.length; i++){
     recipeCardList[i].addEventListener("click",(e)=>{
       sessionStorage.setItem('curr', recipeCardList[i].data.id)
-      location.href = "hrefTotheGeneralRecipePage";
+      location.href = "http://127.0.0.1:5500/" + "source/pages/GeneralRecipePage/recipepage.html";
     })
   }
 }

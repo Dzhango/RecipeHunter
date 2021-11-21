@@ -32,6 +32,8 @@ template.innerHTML=`
     text-align: center;
     vertical-align: middle;
     line-height: 30px; 
+
+    // overflow-x: scroll;
   }
 </style>
 

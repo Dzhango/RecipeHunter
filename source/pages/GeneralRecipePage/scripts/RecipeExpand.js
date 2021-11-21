@@ -9,120 +9,187 @@ class RecipeExpand extends HTMLElement {
         const styles = document.createElement('style');
         const article = document.createElement('article');
 
+
         // style for article
         // same as recipepage.css, so should we even use a shadow DOM?
         styles.innerHTML = `
-            .photo {
-                margin: 1em 0 0 1em;
-            }
-            .recipe-info-container {
-                display: grid;
-                grid-template-columns: 1fr 10fr 1fr;
-                margin: 1em 1em 0 0 ;
-                text-align: center;
-            }
-            .recipe-info {
-                padding: 1em;
-                margin: 1em;
-            }
-            .name {
-                margin-bottom: .5em;
-            }
-            .recipe-info > div {
-                padding: .5em;
-            }
-            .time-info {
-                justify-content: center;
-            }
-            .recipe-tags span {
-                padding: .5em;
-                margin-top: .5em;
-                background-color: #c4c4c4;
-                border-radius: 1em;
-            }
-            .recipe-info-container > div > button {
-                font-size: medium;
-                height: 3rem;
-                width: 7rem;
-                border-radius: 1rem;
-                margin-top: 1rem;
-            }
-            .back-to-search {
-                margin-left: 1em;
-            }
-            .add-to-myrecipes {
-                margin-right: 1em;
-            }
+*::-webkit-scrollbar {
+  width: 12px;
+}
 
-            .ingredients {
-                margin-left: 1em;
-            }
-            .ingredients > * {
-                margin-left: 1em;
-            }
-            .ingredients > h3 {
-                display: inline-block;
-                margin-top: 1em;
-                margin-right: 1em;
-                padding-bottom: .5em;
-            }
-            .serving-size {
-                display: inline-block;
-                margin-left: 0;
-            }
-            .ingredients > div > button {
-                font-size: medium;
-                height: 1.5rem;
-                width: 1.5rem;
-                border-radius: .5rem;
-                /* margin-top: 1rem; */
-            }
-            ul {
-                margin-bottom: 1em;
-            }
-            li {
-                padding: .5em;
-                list-style-position: inside;
-            }
-            
-            ol li {
-                list-style-type: decimal; 
-                padding-left: 2em;
-            }
-            .directions {
-                margin-right: 1em;
-            }
-            .directions > * {
-                margin-left: 1em;
-            }
-            .directions > h3 {
-                display: inline-block;
-                margin-top: 1em;
-                margin-right: 1em;
-                padding-bottom: .5em;
-            }
-            .equipment {
-                display: inline-block;
-                margin-left: 0;
-            }
-            ol {
-                margin-bottom: 1em;
-            }
-            
-            img {
-                border-radius: 30;
-            }
-            textarea {
-                margin: 2rem;
-                font-size: 1.5rem;
-            }
-            .hide{
-            display:none;
-            }
+*::-webkit-scrollbar-track {
+  background: #C4C4C4;
+  border-radius: 10rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #6B6B6B;
+  
+  border: 3px solid  #C4C4C4;
+border-radius: 10rem;
+
+}
+.photo {
+    margin: 1em 0 0 1em;
+    background-size: cover;
+    /* background-size: auto; */
+    
+    /*min-height: 20em;*/
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.notes-button {
+    float: right;
+    font-size: medium;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
+  .image-button{
+     float: right;
+    font-size: medium;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
+.recipe-info-container {
+    height: 18rem;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    margin: 1em 1em 0 0 ;
+    text-align: center;
+    overflow-y: auto;
+}
+.recipe-info {
+    padding: 1em;
+    margin: 1em;
+}
+.description{
+    overflow-y: auto;
+}
+.name {
+    margin-bottom: .5em;
+}
+.recipe-info > div {
+    padding: .5em;
+}
+.time-info {
+    justify-content: center;
+}
+.recipe-tags span {
+    padding: .5em;
+    margin-top: .5em;
+    background-color: #c4c4c4;
+    border-radius: 1em;
+}
+.recipe-info-container > div > button {
+    font-size: medium;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+.back-to-search {
+    margin-left: 1em;
+}
+.add-to-myrecipes {
+    margin-right: 1em;
+}
+
+.ingredients {
+    margin-left: 1em;
+     height:22rem;
+}
+.ingredients > * {
+    margin-left: 1em;
+}
+.ingredients > h3 {
+    display: inline-block;
+    margin-top: 1em;
+    margin-right: 1em;
+    padding-bottom: .5em;
+}
+.serving-size {
+    display: inline-block;
+    margin-left: 0;
+}
+.ingredients > div > button {
+    font-size: medium;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: .5rem;
+    /* margin-top: 1rem; */
+}
+ul {
+    margin-bottom: 1em;
+}
+li {
+    padding: .5em;
+    list-style-position: inside;
+}
+
+ol li {
+    list-style-type: decimal; 
+    padding-left: 2em;
+}
+.directions {
+    margin-right: 1em;
+    overflow-y: auto;
+    height:22rem;
+}
+.directions > * {
+    margin-left: 1em;
+}
+.directions > h3 {
+    display: inline-block;
+    margin-top: 1em;
+    margin-right: 1em;
+    padding-bottom: .5em;
+}
+.equipment {
+    display: inline-block;
+    margin-left: 0;
+}
+ol {
+    margin-bottom: 1em;
+}
+
+img {
+    border-radius: 30;
+}
+textarea {
+    margin: 2rem;
+    font-size: 1.5rem;
+}
+.hide{
+    display:none;
+}
+
+  .recipe-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-gap: 1em;
+  }
+
+  .recipe-content > div {
+    background-color: #d4d4d4;
+    border-radius: 30px;
+    overflow-y: auto;
+  }
+  .recipe-info-container > button{
+    position: fixed;
+    top:0rem;
+  }
+
         `;
 
         // skeleton code for recipe that will be filled in
         article.innerHTML = `
+         <div class="recipe-content">
             <div class="photo" style=""> 
                 <div class="recipe-notes">
                     <button class="notes-button">Recipe Notes</button>
@@ -178,6 +245,7 @@ class RecipeExpand extends HTMLElement {
                 <ol>      
                 </ol>
             </div>
+        </div>
         `;
 
         // append style and article to shadow root 
@@ -193,6 +261,7 @@ class RecipeExpand extends HTMLElement {
         // reset article to be empty so we can populate it 
         // fill in with same html as in constructor
         this.shadowRoot.querySelector('article').innerHTML = `
+         <div class="recipe-content">
             <div class="photo" style=""> 
                 <div class="recipe-notes">
                     <button class="notes-button">Recipe Notes</button>
@@ -210,9 +279,9 @@ class RecipeExpand extends HTMLElement {
                 </div>
                 <div class="recipe-info">
                     <h3 class="name"></h3>
-                    <div class="time-info">                   
+                    <div class="time-info">
                         <span>Total Time: </span> 
-                        <span><b id="time"></b></span>   
+                        <span><b id="time"></b></span>
                     </div>              
                     <div class="calories">
                         <span>Calories Per Serving:</span> 
@@ -248,6 +317,7 @@ class RecipeExpand extends HTMLElement {
                 <ol>      
                 </ol>
             </div>
+        </div>
         `;
 
         // TODO: set all data
@@ -297,8 +367,17 @@ class RecipeExpand extends HTMLElement {
         this.shadowRoot.getElementById('servings').innerHTML = servings;
 
         // set ingredient list
-        // const ingredients = data['']; // need to do a new api call probably
+        // let recipeInfo;
+        // fetch(`https://api.spoonacular.com/recipes/${data['id']}/information?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&includeNutrition=true`)
+        // .then((response) => {
+        //     return response.json()
+        //   }).then((data) => {
+        //     recipeInfo = data.results;
+        //   })
+        
 
+   
+        
 
         // set necessary equipment
         const equipmentSet = new Set();
