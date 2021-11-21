@@ -12,6 +12,7 @@ async function init() {
     document.getElementById('submit-filter').addEventListener('click', () => {
         // User click submit button
         // Selected ingredients are stored in array selectedIngredients
+        findRecipes();
     })
     document.getElementById('remove-filter').addEventListener('click', () => {
         removeFilter();
@@ -136,4 +137,18 @@ function removeFilter() {
         deleteSelected(igd);
     }
     toDeleteIngredients.clear();
+}
+
+function findRecipes() {
+    let ingredients = '';
+    for (let i = 0; i < selectedIngredients.length; i++) {
+        ingredients += selectedIngredients[i];
+        if (i != selectedIngredients.length - 1) {
+            ingredients += ',+';
+        }
+    }
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&apiKey=dc78a83ae8644578a0d98c3c8b6d5796`)
+        .then(response => response.json())
+        // TODO: Populate recipe cards using "data". call "createRecipeCards(data)"
+        .then(data => console.log(data));
 }
