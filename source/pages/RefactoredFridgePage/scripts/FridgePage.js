@@ -136,7 +136,7 @@ function findRecipes () {
   let ingredients = ''
   for (let i = 0; i < selectedIngredients.length; i++) {
     ingredients += selectedIngredients[i]
-    if (i != selectedIngredients.length - 1) {
+    if (i !== selectedIngredients.length - 1) {
       ingredients += ',+'
     }
   }
