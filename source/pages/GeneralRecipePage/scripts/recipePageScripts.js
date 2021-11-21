@@ -7,6 +7,7 @@ function init() {
     // populate page with JSON data
     const dataKey = sessionStorage.getItem('curr');
     const recipeData = JSON.parse(sessionStorage.getItem(dataKey));
+    console.log(recipeData)
 
     const recipeExpand = document.createElement('recipe-expand')
     recipeExpand.data = recipeData
@@ -15,29 +16,25 @@ function init() {
     // document.querySelector('recipe-expand').data = recipeData;
     
   // Making div display time selected from slider
-
-    document.querySelector('.notes-button').addEventListener('click', openNotes);
-
-    document.querySelector('.image-button').addEventListener('click', openImage);
+    recipeExpand.shadowRoot.querySelector('.notes-button').addEventListener('click', openNotes);
+    //document.querySelector('.notes-button').addEventListener('click', openNotes);
+    recipeExpand.shadowRoot.querySelector('.image-button').addEventListener('click', openImage)
+    //document.querySelector('.image-button').addEventListener('click', openImage);
 }
 
 function openNotes(){   
-
-    document.querySelector('.photo').classList.add('hide');
-    document.querySelector('.notes').classList.remove('hide');
+    const recipeExpand = document.querySelector('recipe-expand')
+    recipeExpand.shadowRoot.querySelector('.photo').classList.add('hide');
+    recipeExpand.shadowRoot.querySelector('.notes').classList.remove('hide');
 }
 
 
 
 // Set notes div display:none and remove display
 function openImage(){
-
-
-    document.querySelector('.notes').classList.add('hide');
-    document.querySelector('.photo').classList.remove('hide');
-
-    // document.querySelector('.notes').classList.toggle('hide');
-    // document.querySelector('.photo').classList.toggle('hide');
+  const recipeExpand = document.querySelector('recipe-expand')
+  recipeExpand.shadowRoot.querySelector('.notes').classList.add('hide');
+  recipeExpand.shadowRoot.querySelector('.photo').classList.remove('hide');
 }
 
 
