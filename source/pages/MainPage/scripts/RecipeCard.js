@@ -15,6 +15,10 @@ template.innerHTML=`
     background-size: contain;
     background-size: cover;
     border-radius: 30px;
+    
+  }
+  .grey{
+    filter: grayscale(100%);
   }
   
   .recipe-card > span {
@@ -36,6 +40,7 @@ template.innerHTML=`
 </div>
 `
 class RecipeCard extends HTMLElement{
+
     constructor(){
         super();
         this.attachShadow({mode:'open'});
