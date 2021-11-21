@@ -7,8 +7,8 @@ jobs:
             - name: JSdocs
               uses: andstor/jsdoc-action@v1
               with:
-                  source_dir: ./source
-                  recurse: true
+#                   source_dir: ./source
+#                   recurse: true
                   output_dir: ./out
 #     lint-code-base:
 #         # Set the agent to run on
