@@ -17,6 +17,12 @@ jobs:
                   VALIDATE_ALL_CODEBASE: false
                   DEFAULT_BRANCH: main
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: JSdocs
+              uses: andstor/jsdoc-action@v1
+                  with:
+                      source_dir: ./source
+                      recurse: true
+                      output_dir: ./out
 
     # code-climate:
     #     runs-on: ubuntu-latest
