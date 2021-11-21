@@ -98,6 +98,7 @@ img {
   width: 100%;
   object-fit: contain;
   height: auto;
+  max-width: 100%;
 }
 .notes-button {
   float: right;
@@ -130,19 +131,24 @@ h3 {
   grid-gap: 1em;
 }
 
+/* CSS for recipe info */
+h3 {
+  font-size: x-large;
+}
+
+.recipe-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  /* grid-auto-rows: auto; */
+  grid-gap: 1em;
+}
+
 .recipe-content > div {
   background-color: #d4d4d4;
 }
 
 .photo {
   margin: 1em 0 0 1em;
-}
-
-.recipe-info-container {
-  display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
-  margin: 1em 1em 0 0;
-  text-align: center;
 }
 
 .recipe-info {
@@ -157,13 +163,12 @@ h3 {
 }
 .time-info {
   justify-content: center;
-  display: flex;
 }
-.prep-time {
-  margin-right: 0.5em;
-}
-.cook-time {
-  margin-left: 0.5em;
+.recipe-tags span {
+  padding: 0.5em;
+  margin-top: 0.5em;
+  background-color: #c4c4c4;
+  border-radius: 1em;
 }
 
 .recipe-tags span {
