@@ -133,6 +133,8 @@ function removeFilter () {
 }
 
 function findRecipes () {
+  sessionStorage.clear()
+  foundRcps = []
   let ingredients = ''
   for (let i = 0; i < selectedIngredients.length; i++) {
     ingredients += selectedIngredients[i]
@@ -140,8 +142,26 @@ function findRecipes () {
       ingredients += ',+'
     }
   }
-  fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&apiKey=dc78a83ae8644578a0d98c3c8b6d5796`)
-    .then(response => response.json())
-  // TODO: Populate recipe cards using "data". call "createRecipeCards(data)"
-    .then(data => console.log(data))
+  fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}
+  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&apiKey=499635639e0248f99f4e582775705f64`).then((response) => {
+    return response.json()
+  }).then((data) => {
+    console.log(data)
+    for(rcp of data){
+      foundRcps.push(rcp)
+    }
+    sessionStorage.setItem('foundRcps',JSON.stringify(foundRcps))
+    console.log(sessionStorage.getItem('foundRcps'))
+  })
+  sleep(1000);
+  window.location.href = "/source/pages/MainPage/mainPage.html"
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
