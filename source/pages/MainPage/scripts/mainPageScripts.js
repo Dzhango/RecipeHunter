@@ -189,7 +189,7 @@ function bindRecipes () {
   for (let i = 0; i < recipeCardList.length; i++){
     recipeCardList[i].addEventListener("click",(e)=>{
       sessionStorage.setItem('curr', recipeCardList[i].data.id)
-      location.href = "https://focused-lewin-0ee25c.netlify.app/" + "pages/GeneralRecipePage/recipepage.html";
+      location.href = "/source/pages/GeneralRecipePage/recipepage.html";
     })
   }
 }
