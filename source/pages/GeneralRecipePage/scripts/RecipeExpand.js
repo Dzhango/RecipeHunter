@@ -203,7 +203,7 @@ textarea {
             </div>
             <div class="recipe-info-container">
                 <div class="back-to-search">
-                    <button>Back to Search</button>
+                    <button id="back-button">Back to Search</button>
                 </div>
                 <div class="recipe-info">
                     <h3 class="name"></h3>
@@ -275,7 +275,7 @@ textarea {
             </div>
             <div class="recipe-info-container">
                 <div class="back-to-search">
-                    <button>Back to Search</button>
+                    <button id="back-button">Back to Search</button>
                 </div>
                 <div class="recipe-info">
                     <h3 class="name"></h3>
