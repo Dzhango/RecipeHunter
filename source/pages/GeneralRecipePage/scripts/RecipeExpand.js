@@ -418,6 +418,10 @@ textarea {
       favoriteButton.innerHTML = 'Add to MyRecipes'
     }
   }
+
+  set data () {
+    return this.json
+  }
 }
 
 customElements.define('recipe-expand', RecipeExpand)
