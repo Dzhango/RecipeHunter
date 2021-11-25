@@ -51,7 +51,7 @@ N/A
 
 ### Task assigned
 * Assign issue to people -Dzhangir
-* CI/CD pipeline JSDocs -Dzhangir
+* CI/CD pipeline JSDoc -Dzhangir
 * Finish assigned dev tasks -everyone
 * Finish assigned unit test tasks -everyone
 * GitHub readme.md -Dzhangir
