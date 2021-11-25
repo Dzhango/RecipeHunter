@@ -203,7 +203,7 @@ textarea {
             </div>
             <div class="recipe-info-container">
                 <div class="back-to-search">
-                    <button>Back to Search</button>
+                    <button id="back-button">Back to Search</button>
                 </div>
                 <div class="recipe-info">
                     <h3 class="name"></h3>
@@ -275,7 +275,7 @@ textarea {
             </div>
             <div class="recipe-info-container">
                 <div class="back-to-search">
-                    <button>Back to Search</button>
+                    <button id="back-button">Back to Search</button>
                 </div>
                 <div class="recipe-info">
                     <h3 class="name"></h3>
@@ -334,10 +334,6 @@ textarea {
         const totalTime = data['readyInMinutes'];
         this.shadowRoot.getElementById('time').innerHTML = totalTime + ' min';
 
-        // set calories
-        const calories = data[''] // need to find this
-        this.shadowRoot.getElementById('cals').innerHTML = calories;
-
         // set racipe tags
         const diets = ['vegan', 'vegetarian', 'ketogenic', 'gluten free', 'paleo', 'pescetarian'];
         const dietArr = data['diets'];
@@ -366,18 +362,26 @@ textarea {
         const servings = data['servings'];
         this.shadowRoot.getElementById('servings').innerHTML = servings;
 
-        // set ingredient list
-        // let recipeInfo;
-        // fetch(`https://api.spoonacular.com/recipes/${data['id']}/information?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&includeNutrition=true`)
-        // .then((response) => {
-        //     return response.json()
-        //   }).then((data) => {
-        //     recipeInfo = data.results;
-        //   })
-        
+        // fetch recipe ingredient and nutrition info 
+        let recipeInfo;
+        fetch(`https://api.spoonacular.com/recipes/${data['id']}/information?apiKey=99a52ef738514021ab33c7e15116c1ca&includeNutrition=true`).then((response) => {
+            return response.json();
+          }).then((data) => {
+                recipeInfo = data;
+                console.log(recipeInfo);
 
-   
-        
+                // set calories
+                const calories = Math.floor(recipeInfo['nutrition'].nutrients[0].amount / servings);
+                this.shadowRoot.getElementById('cals').innerHTML = calories;
+
+                // set ingredient list
+                let ingredientsList = this.shadowRoot.querySelector('ul');
+                for (const item of recipeInfo['extendedIngredients']) {
+                    const ingred = document.createElement('li');
+                    ingred.innerHTML = item['originalString'];
+                    ingredientsList.appendChild(ingred);
+                }
+          })
 
         // set necessary equipment
         const equipmentSet = new Set();

@@ -76,8 +76,8 @@ function populateFromSession () {
 /**
 * Makes an API call to retrieve JSON recipe data
 */
-function getDefaultRecipes () {
-  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&instructionsRequired=true&addRecipeInformation=true').then((response) => {
+function getDefaultRecipes () { 
+  fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=99a52ef738514021ab33c7e15116c1ca&instructionsRequired=true&addRecipeInformation=true').then((response) => {
     return response.json()
   }).then((data) => {
     const recipeData = data.results
@@ -95,7 +95,7 @@ function getDefaultRecipes () {
  * @param {String} query the string specify filter and search information
  */
 function fetchCall (query) {
-  fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
+  fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=99a52ef738514021ab33c7e15116c1ca&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
     return response.json()
   }).then((data) => {
     console.log(data.results)
@@ -189,7 +189,7 @@ function bindRecipes () {
   for (let i = 0; i < recipeCardList.length; i++){
     recipeCardList[i].addEventListener("click",(e)=>{
       sessionStorage.setItem('curr', recipeCardList[i].data.id)
-      location.href = "http://127.0.0.1:5500/" + "source/pages/GeneralRecipePage/recipepage.html";
+      location.href = "/source/pages/GeneralRecipePage/recipepage.html";
     })
   }
 }
