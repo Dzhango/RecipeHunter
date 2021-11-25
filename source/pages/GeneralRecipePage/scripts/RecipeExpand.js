@@ -419,7 +419,7 @@ textarea {
     }
   }
 
-  set data () {
+  get data () {
     return this.json
   }
 }
