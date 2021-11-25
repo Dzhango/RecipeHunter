@@ -1,18 +1,17 @@
 // RecipeExpand.js
 
 class RecipeExpand extends HTMLElement {
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' });
+  constructor () {
+    super()
+    this.attachShadow({ mode: 'open' })
 
-        // create elements for style and an article to hold html
-        const styles = document.createElement('style');
-        const article = document.createElement('article');
+    // create elements for style and an article to hold html
+    const styles = document.createElement('style')
+    const article = document.createElement('article')
 
-
-        // style for article
-        // same as recipepage.css, so should we even use a shadow DOM?
-        styles.innerHTML = `
+    // style for article
+    // same as recipepage.css, so should we even use a shadow DOM?
+    styles.innerHTML = `
 *::-webkit-scrollbar {
   width: 12px;
 }
@@ -185,10 +184,10 @@ textarea {
     top:0rem;
   }
 
-        `;
+        `
 
-        // skeleton code for recipe that will be filled in
-        article.innerHTML = `
+    // skeleton code for recipe that will be filled in
+    article.innerHTML = `
          <div class="recipe-content">
             <div class="photo" style=""> 
                 <div class="recipe-notes">
@@ -246,21 +245,21 @@ textarea {
                 </ol>
             </div>
         </div>
-        `;
+        `
 
-        // append style and article to shadow root 
-        this.shadowRoot.append(styles, article);
-    }
+    // append style and article to shadow root
+    this.shadowRoot.append(styles, article)
+  }
 
-    /*
+  /*
      * populates the article child of <recipe-expand> with selected recipe data
      */
-    set data(data) {
-        this.json = data;
+  set data (data) {
+    this.json = data
 
-        // reset article to be empty so we can populate it 
-        // fill in with same html as in constructor
-        this.shadowRoot.querySelector('article').innerHTML = `
+    // reset article to be empty so we can populate it
+    // fill in with same html as in constructor
+    this.shadowRoot.querySelector('article').innerHTML = `
          <div class="recipe-content">
             <div class="photo" style=""> 
                 <div class="recipe-notes">
@@ -318,109 +317,107 @@ textarea {
                 </ol>
             </div>
         </div>
-        `;
+        `
 
-        // TODO: set all data
+    // TODO: set all data
 
-        // set image 
-        const recipeImage = data['image'];
-        this.shadowRoot.querySelector('.photo').style = `background-image: url(${recipeImage})`;
+    // set image
+    const recipeImage = data.image
+    this.shadowRoot.querySelector('.photo').style = `background-image: url(${recipeImage})`
 
-        // set recipe title
-        const recipeTitle = data['title'];
-        this.shadowRoot.querySelector('.name').innerHTML = recipeTitle;
+    // set recipe title
+    const recipeTitle = data.title
+    this.shadowRoot.querySelector('.name').innerHTML = recipeTitle
 
-        // set total time
-        const totalTime = data['readyInMinutes'];
-        this.shadowRoot.getElementById('time').innerHTML = totalTime + ' min';
+    // set total time
+    const totalTime = data.readyInMinutes
+    this.shadowRoot.getElementById('time').innerHTML = totalTime + ' min'
 
-        // set racipe tags
-        const diets = ['vegan', 'vegetarian', 'ketogenic', 'gluten free', 'paleo', 'pescetarian'];
-        const dietArr = data['diets'];
-        const dishTypeArr = data['dishTypes'];
-        const tagsContainer = this.shadowRoot.querySelector('.recipe-tags');
-        for (const item of dietArr) {
-            if (diets.includes(item)) {
-                const tag = document.createElement('span');
-                tag.innerHTML = item;
-                tagsContainer.appendChild(tag);
-            }
-        }
-        for (const item of dishTypeArr) {
-            const tag = document.createElement('span');
-            tag.innerHTML = item;
-            tagsContainer.appendChild(tag);
-        }
-        
-        // iterate over 'diets' and 'dishTypes' to set tags
-
-        // set description
-        const description = data['summary'] // need to find this
-        this.shadowRoot.getElementById('summary').innerHTML = description;
-
-        //set serving size
-        const servings = data['servings'];
-        this.shadowRoot.getElementById('servings').innerHTML = servings;
-
-        // fetch recipe ingredient and nutrition info 
-        let recipeInfo;
-        fetch(`https://api.spoonacular.com/recipes/${data['id']}/information?apiKey=99a52ef738514021ab33c7e15116c1ca&includeNutrition=true`).then((response) => {
-            return response.json();
-          }).then((data) => {
-                recipeInfo = data;
-                console.log(recipeInfo);
-
-                // set calories
-                const calories = Math.floor(recipeInfo['nutrition'].nutrients[0].amount / servings);
-                this.shadowRoot.getElementById('cals').innerHTML = calories;
-
-                // set ingredient list
-                let ingredientsList = this.shadowRoot.querySelector('ul');
-                for (const item of recipeInfo['extendedIngredients']) {
-                    const ingred = document.createElement('li');
-                    ingred.innerHTML = item['originalString'];
-                    ingredientsList.appendChild(ingred);
-                }
-          })
-
-        // set necessary equipment
-        const equipmentSet = new Set();
-        const recipeSteps = data['analyzedInstructions'][0].steps;
-        for (let i = 0; i < recipeSteps.length; i++) {
-            const equipmentArr = recipeSteps[i].equipment;
-            for (let j = 0; j < equipmentArr.length; j++) {
-                equipmentSet.add(equipmentArr[j].name);
-            }
-        }
-        let count = 1;
-        let equipmentList = this.shadowRoot.getElementById('equipment-list');
-        for (const item of equipmentSet) {
-            if (count == equipmentSet.size) {
-                equipmentList.innerHTML += item;
-            } else {
-                equipmentList.innerHTML = equipmentList.innerHTML + item + ', ';
-            }
-            count++;
-        }
-
-        // set directions list
-        const directions = data['analyzedInstructions'][0].steps;
-        let directionsList = this.shadowRoot.querySelector('ol');
-        for (let i = 0; i < directions.length; i++) {
-            const dir = document.createElement('li');
-            dir.innerHTML = directions[i].step;
-            directionsList.appendChild(dir);
-        }
-
-        let favoriteButton = this.shadowRoot.querySelector('.add-to-myrecipes button')
-        if (localStorage.getItem(data['id']) != null){
-            favoriteButton.innerHTML = 'Remove from MyRecipes'
-        } 
-        else {
-            favoriteButton.innerHTML = 'Add to MyRecipes'
-        }
+    // set racipe tags
+    const diets = ['vegan', 'vegetarian', 'ketogenic', 'gluten free', 'paleo', 'pescetarian']
+    const dietArr = data.diets
+    const dishTypeArr = data.dishTypes
+    const tagsContainer = this.shadowRoot.querySelector('.recipe-tags')
+    for (const item of dietArr) {
+      if (diets.includes(item)) {
+        const tag = document.createElement('span')
+        tag.innerHTML = item
+        tagsContainer.appendChild(tag)
+      }
     }
+    for (const item of dishTypeArr) {
+      const tag = document.createElement('span')
+      tag.innerHTML = item
+      tagsContainer.appendChild(tag)
+    }
+
+    // iterate over 'diets' and 'dishTypes' to set tags
+
+    // set description
+    const description = data.summary // need to find this
+    this.shadowRoot.getElementById('summary').innerHTML = description
+
+    // set serving size
+    const servings = data.servings
+    this.shadowRoot.getElementById('servings').innerHTML = servings
+
+    // fetch recipe ingredient and nutrition info
+    let recipeInfo
+    fetch(`https://api.spoonacular.com/recipes/${data.id}/information?apiKey=99a52ef738514021ab33c7e15116c1ca&includeNutrition=true`).then((response) => {
+      return response.json()
+    }).then((data) => {
+      recipeInfo = data
+      console.log(recipeInfo)
+
+      // set calories
+      const calories = Math.floor(recipeInfo.nutrition.nutrients[0].amount / servings)
+      this.shadowRoot.getElementById('cals').innerHTML = calories
+
+      // set ingredient list
+      const ingredientsList = this.shadowRoot.querySelector('ul')
+      for (const item of recipeInfo.extendedIngredients) {
+        const ingred = document.createElement('li')
+        ingred.innerHTML = item.originalString
+        ingredientsList.appendChild(ingred)
+      }
+    })
+
+    // set necessary equipment
+    const equipmentSet = new Set()
+    const recipeSteps = data.analyzedInstructions[0].steps
+    for (let i = 0; i < recipeSteps.length; i++) {
+      const equipmentArr = recipeSteps[i].equipment
+      for (let j = 0; j < equipmentArr.length; j++) {
+        equipmentSet.add(equipmentArr[j].name)
+      }
+    }
+    let count = 1
+    const equipmentList = this.shadowRoot.getElementById('equipment-list')
+    for (const item of equipmentSet) {
+      if (count === equipmentSet.size) {
+        equipmentList.innerHTML += item
+      } else {
+        equipmentList.innerHTML = equipmentList.innerHTML + item + ', '
+      }
+      count++
+    }
+
+    // set directions list
+    const directions = data.analyzedInstructions[0].steps
+    const directionsList = this.shadowRoot.querySelector('ol')
+    for (let i = 0; i < directions.length; i++) {
+      const dir = document.createElement('li')
+      dir.innerHTML = directions[i].step
+      directionsList.appendChild(dir)
+    }
+
+    const favoriteButton = this.shadowRoot.querySelector('.add-to-myrecipes button')
+    if (window.localStorage.getItem(data.id) != null) {
+      favoriteButton.innerHTML = 'Remove from MyRecipes'
+    } else {
+      favoriteButton.innerHTML = 'Add to MyRecipes'
+    }
+  }
 }
 
-customElements.define('recipe-expand', RecipeExpand);
-
+customElements.define('recipe-expand', RecipeExpand)
