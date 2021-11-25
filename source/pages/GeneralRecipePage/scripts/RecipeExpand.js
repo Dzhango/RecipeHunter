@@ -411,6 +411,14 @@ textarea {
             dir.innerHTML = directions[i].step;
             directionsList.appendChild(dir);
         }
+
+        let favoriteButton = this.shadowRoot.querySelector('.add-to-myrecipes button')
+        if (localStorage.getItem(data['id']) != null){
+            favoriteButton.innerHTML = 'Remove from MyRecipes'
+        } 
+        else {
+            favoriteButton.innerHTML = 'Add to MyRecipes'
+        }
     }
 }
 
