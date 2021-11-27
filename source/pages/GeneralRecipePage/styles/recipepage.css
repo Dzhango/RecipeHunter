@@ -102,6 +102,7 @@
     width: 100%; 
     object-fit: contain;
     height: auto;
+    max-width: 100%;
   }
   .notes-button {
     float: right;
@@ -163,15 +164,7 @@
   }
   .time-info {
     justify-content: center;
-    display: flex;
   }
-  .prep-time {
-    margin-right: .5em;
-  }
-  .cook-time {
-    margin-left: .5em;
-  }
-
   .recipe-tags span {
     padding: .5em;
     margin-top: .5em;

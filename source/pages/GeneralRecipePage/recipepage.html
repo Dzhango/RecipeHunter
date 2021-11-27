@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/recipepage.css">
+    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+    <script src="scripts/recipePageScripts.js"></script>
+    <script src='scripts/RecipeExpand.js'></script>
+</head>
+<body class="wrapper">
+    
+    <div class="navbar" id="navbar">
+
+        <!--TODO2: If we have time, maybe make the navigation bar responsive?-->
+
+        <!-- The logo with title (left hand side of the navbar) -->
+        <h1 class=logo>
+
+            LOGO
+        </h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search.." name="search" class="search-bar">
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <!-- The button section of the navbar -->
+        <nav>
+            <ul>
+                <li><a href="../MainPage/mainPage.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="../FridgePage/FridgePage.html" class="navtext">My Fridge</a></li>
+                <li><a href="../MyRecipesPage/myRecipePage.html" class="navtext">My Recipes</a></li>
+            </ul>
+        </nav>
+    </div>
+     <!-- Custom component that will populate with recipe info from session storage -->
+
+</body>
+</html>
