@@ -9,16 +9,15 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Fridge</title>
     <link rel="stylesheet" href="./styles/FridgePage.css">
-    <script src="./scripts/FridgePage.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapseNav">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-nav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapseNav">
+        <div class="collapse navbar-collapse" id="collapse-nav">
             <div class="navbar-nav">
                 <a href="../MainPage/mainPage.html" class="nav-item nav-link">Home</a>
                 <a href="./FridgePage.html" class="nav-item nav-link active">Fridge</a>
@@ -40,7 +39,7 @@
                     <div class="card-body bg-light">
                         <input class="form-control" id="ingredient-filter-input" type="text" placeholder="I have...">
                         <br>
-                        <div class="container-fluid" id="ingredient-card-container">
+                        <div class="container-fluid ingredient-card-container">
                             <div class="card-columns" id="filter-columns">
                                 <!-- Need to populate this list -->
                             </div>
@@ -54,7 +53,7 @@
                         <b>Selected Ingredients</b>
                     </div>
                     <div class="card-body bg-light">
-                        <div class="container-fluid" id="ingredient-card-container">
+                        <div class="container-fluid ingredient-card-container">
                             <div class="card-columns" id="selected-columns">
                                 <!-- Need to populate this list -->
                             </div>
@@ -66,11 +65,11 @@
             </div>
         </div>
     </div>
-    
+    <script src="./scripts/FridgePage.js"></script>
     <template id="ingredient-card">
         <div class="card" style="margin-bottom: 10px;">
             <div class="card-header"></div>
-            <img class="card-img-bottom" src="">
+            <img class="card-img-bottom" alt="Recipe image">
         </div>
     </template>
 </body>
