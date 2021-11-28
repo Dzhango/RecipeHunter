@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team 6 Homepage</title>
+
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+
+  <!-- Custom styling -->
+
+  <!-- Bootstrap cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Quick styling -->
+  <style> 
+    ul {
+      list-style-type: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main class="w-100 overflow-hidden">
+    <div class="row">
+      <!-- SIDEBAR -->
+      <div class="sidebar col-2 d-flex">
+        <div class="p-3 bg-light w-100" style="min-height: 100vh;">
+          <a href="/"
+            class="d-flex align-items-center text-center pt-2 pb-3 mb-2 link-light text-decoration-none border-bottom">
+            <img src="../../assets/images/PierreCook.png" alt="logo" width="72" height="72"
+              class=" text-center mx-auto d-inline-block align-top rounded-circle">
+          </a>
+
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <h5 class="text-center ms-2 mt-3 fw-bold text-secondary">Filters</h5>
+            </li>
+
+            <!-- FILTER SECTION -->
+            <li class="border-top my-2"></li>
+             <!-- Filter div -->
+             <div class="filter-container">
+              <details class="type">
+                  <summary>Type</summary>
+                  <ul>
+                      <li><label><input type="checkbox" id="type-breakfast" class = "me-1"><span>breakfast</span></label></li>
+                      <li><label><input type="checkbox" id="type-lunch" class = "me-1"><span>lunch</span></label></li>
+                      <li><label><input type="checkbox" id="type-snack" class = "me-1"><span>snack</span></label></li>
+                      <li><label><input type="checkbox" id="type-dinner" class = "me-1"><span>dinner</span></label></li>
+                  </ul>
+
+              </details>
+              <details class="time">
+                  <summary>Time</summary>
+
+                  <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" />
+
+
+
+                  <div class="selected-time">Under 100 minutes</div>
+              </details>
+              <details class="allergies">
+                  <summary>Allergies</summary>
+                  <ul>
+                      <li><label><input type="checkbox" id="allergies-lactose" class = "me-1"><span>lactose</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-egg" class = "me-1"><span>egg</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-seafood" class = "me-1"><span>fish</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-shellfish" class = "me-1"><span>shellfish</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-peanut" class = "me-1"><span>peanuts</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-tree-nut" class = "me-1"><span>tree nuts</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-wheat"class = "me-1"><span>wheat</span></label></li>
+                      <li><label><input type="checkbox" id="allergies-soy"class = "me-1"><span>soy</span></label></li>
+                  </ul>
+              </details>
+              <details class="diet">
+                  <summary>Diet</summary>
+                  <ul>
+                      <li><label><input type="radio" id="diet-none" name="r-diet" value="none" checked><span>none</span></label></li>
+                      <li><label><input type="radio" id="diet-vegan" name="r-diet" value="vegan"class = "me-1"><span>vegan</span></label></li>
+                      <li><label><input type="radio" id="diet-vegenatian" name="r-diet" value="vegetarian"class = "me-1"><span>vegenatian</span></label></li>
+                      <li><label><input type="radio" id="diet-ketogenic" name="r-diet" value="ketogenic"class = "me-1"><span>keto</span></label></li>
+                  </ul>
+              </details>
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary rounded-pill">Apply Filters</button>
+              </div>
+          </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MAIN SECTION -->
+      <div class = "col-10 ps-0 ">
+        <!-- HEADER section-->
+        <header>
+          <!-- MAIN navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">LOGO</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home pe-1"></i> Home</a>
+                  </li>
+                  <li class="nav-item pe-3">
+                    <a class="nav-link" href="#">My Fridge</a>
+                  </li>
+                  <li class="nav-item pe-3">
+                    <a class="nav-link" href="#">My Recipes</a>
+                  </li>
+                  <li class = "nav-item">
+                    <form class="d-flex">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form> 
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>  
+        </header>
+
+        <!-- SECONDARY HEADER -->
+        <div class = "row mt-4 px-4">
+          <div class = "col-6">
+            <button class = "btn btn-primary rounded-pill px-3 me-2">
+              + Add Recipe
+            </button>
+            <button class = "btn btn-success rounded-pill px-3 me-2">
+              + Select Recipe
+            </button>
+            <button class = "btn btn-danger rounded-pill px-3 me-2">
+              + Cancel
+            </button>
+            <button class = "btn btn-warning rounded-pill px-3">
+              + Remove
+            </button>
+          </div>
+          
+        </div>
+
+        <!-- MAIN SECTION -->
+        <div class = "row mt-4 recipes-container px-4">
+          <div class = "col-md-3 recipe-card">
+            <div class="card rounded">
+              <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2019/05/san-diego-1.png" class="card-img-top">
+              <div class="card-body">
+                <p class="card-text text-center recipe-title"><b> Spicy Chicken Sandwich</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+      
+    </div>
+  </main>
+
+
+  <footer>
+
+  </footer>
+</body>
+
+</html>
