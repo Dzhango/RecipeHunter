@@ -5,11 +5,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: JSdocs
-              uses: andstor/jsdoc-action@v1
+              uses: andstor/jsdoc-action@v1.2.0
               with:
-#                   source_dir: ./source
-#                   recurse: true
-                  output_dir: ./out
+                  source_dir: ./source
+                  recurse: true
+                  output_dir: ./source/documentation
     lint-code-base:
         # Set the agent to run on
         runs-on: ubuntu-latest
