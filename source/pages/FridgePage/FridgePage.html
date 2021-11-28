@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="FridgePage.css">
-    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="homepage.css">
-    <title>FridgePage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Fridge</title>
+    <link rel="stylesheet" href="./styles/FridgePage.css">
+    <script src="./scripts/FridgePage.js"></script>
 </head>
+
 <body>
-    
-<div class = "global-container">
-<div class= "container">
-
-    <!-- TODO: IMPLEMENT NAVBAR-->
-
-        <div class="navbar top" id="navbar">
-        
-            <!-- The logo with title (left hand side of the navbar) -->
-            <h1 class=logo>
-        
-                LOGO
-            </h1>
-            <div class="search-container">
-                <input type="text" placeholder="Search.." name="search" class="search-bar">
-                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-                </form>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapseNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapseNav">
+            <div class="navbar-nav">
+                <a href="../MainPage/mainPage.html" class="nav-item nav-link">Home</a>
+                <a href="./FridgePage.html" class="nav-item nav-link active">Fridge</a>
+                <a href="../MyRecipesPage/myRecipePage.html" class="nav-item nav-link">My Recipe</a>
             </div>
-            <!-- The button section of the navbar -->
-            <nav>
-                <ul>
-                    <li><a href="../MainPage/mainPage.html"><i class="fas fa-home"></i></a></li>
-                    <li><a href="../FridgePage/FridgePage.html" class="navtext">My Fridge</a></li>
-                    <li><a href="../MyRecipesPage/myRecipePage.html" class="navtext">My Recipes</a></li>
-                </ul>
-            </nav>
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Go</button>
+            </form>
         </div>
+<<<<<<< HEAD
 
     <section class = "fridge-section">
         <div >
@@ -70,34 +63,52 @@
             <div class = "fridge-div ingredient-list" id = "ingredientList">
                 <!-- <div class="description">My Ingredients:</div> -->
                     <!-- <ingredient-card></ingredient-card> -->
+=======
+    </nav>
+    <div class="container-fluid d-flex flex-column" id="content-container">
+        <div class="row" style="margin: 0;">
+            <div class="col-12 col-md-6" style="padding: 0;">
+                <div class="card" style="margin: 2% 2% 0px 2%;">
+                    <div class="card-header bg-secondary text-white">
+                        <b>What's in your fridge?</b>
+                    </div>
+                    <div class="card-body bg-light">
+                        <input class="form-control" id="ingredient-filter-input" type="text" placeholder="I have...">
+                        <br>
+                        <div class="container-fluid" id="ingredient-card-container">
+                            <div class="card-columns" id="filter-columns">
+                                <!-- Need to populate this list -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
+            <div class="col-12 col-md-6" style="padding: 0;">
+                <div class="card" style="margin: 2% 2% 0px 2%;">
+                    <div class="card-header bg-secondary text-white">
+                        <b>Selected Ingredients</b>
+                    </div>
+                    <div class="card-body bg-light">
+                        <div class="container-fluid" id="ingredient-card-container">
+                            <div class="card-columns" id="selected-columns">
+                                <!-- Need to populate this list -->
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-info" hidden id="submit-filter">Find recipes for me!</button>
+                    <button class="btn btn-danger" hidden id="remove-filter">I don't have these ingredients...</button>
+                </div>
+>>>>>>> fedae221b14cb0c2e8324155615c0d49aee894f3
+            </div>
         </div>
-
-        <div>
-            <button class="fridge-button">Show Recipe</button>
-        </div>
-    </section>
-
-
+    </div>
     
-</div>
-</div>
-<script src="ingredientCard.js"></script>
+    <template id="ingredient-card">
+        <div class="card" style="margin-bottom: 10px;">
+            <div class="card-header"></div>
+            <img class="card-img-bottom" src="">
+        </div>
+    </template>
 </body>
+
 </html>
-
-
-    <!-- <div>
-            <h1>Navbar PlaceHolder</h1>
-        </div>
-    </section>
-    <section class= "fridgeSection">
-        <div class="flex-box-columns">
-            <div class="item_1"></div>
-            <div class="item_1"></div>
-    
-        </div>
-        <div>
-            <button class = "fridge-Button">Click Me</button>
-        </div> -->

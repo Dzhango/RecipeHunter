@@ -189,7 +189,13 @@ function bindRecipes () {
   for (let i = 0; i < recipeCardList.length; i++){
     recipeCardList[i].addEventListener("click",(e)=>{
       sessionStorage.setItem('curr', recipeCardList[i].data.id)
-      location.href = "hrefTotheGeneralRecipePage";
+      //console.log(location.origin)
+      //if on live server
+      if (location.origin == 'http://127.0.0.1:5500'){
+        location.href = "/source/pages/GeneralRecipePage/recipepage.html";
+      } else {
+        location.href = "/pages/GeneralRecipePage/recipepage.html";
+      }
     })
   }
 }

@@ -1,4 +1,5 @@
 const template = document.createElement('template');
+/*
 template.innerHTML=`
 <style>
 * {
@@ -32,6 +33,8 @@ template.innerHTML=`
     text-align: center;
     vertical-align: middle;
     line-height: 30px; 
+
+    // overflow-x: scroll;
   }
 </style>
 
@@ -39,15 +42,28 @@ template.innerHTML=`
     <span></span>
 </div>
 `
-class RecipeCard extends HTMLElement{
+*/
 
+template.innerHTML=`
+<div class = "col-md-3 recipe-card">
+  <div class="card rounded">
+    <img src="" class="card-img-top">
+    <div class="card-body">
+      <p class="card-text text-center recipe-title"></p>
+    </div>
+  </div>
+</div>
+`
+
+class RecipeCard extends HTMLElement{
     constructor(){
         super();
         this.attachShadow({mode:'open'});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector('span').innerText = this.getAttribute('name');
-        this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
+        this.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
+        this.shadowRoot.querySelector('card-img-top').src = `url(${this.getAttribute('image')})`
     }
 }
+
 
 window.customElements.define('recipe-card', RecipeCard);

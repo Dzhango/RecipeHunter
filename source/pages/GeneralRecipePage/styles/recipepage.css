@@ -262,6 +262,11 @@ textarea {
   font-size: 1.5rem;
 }
 
+<<<<<<< HEAD
 .hide {
   display: none;
+=======
+.hide{
+  display:none;
+>>>>>>> fedae221b14cb0c2e8324155615c0d49aee894f3
 }
