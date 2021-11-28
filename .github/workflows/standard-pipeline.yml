@@ -4,6 +4,8 @@ jobs:
     generate-docs:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Code
+              uses: actions/checkout@v2
             - name: JSdocs
               uses: andstor/jsdoc-action@v1.2.0
               with:
