@@ -3,7 +3,7 @@ const selectedIngredients = []
 const displayedIngredients = []
 const toDeleteIngredients = new Set()
 
-async function init() {
+async function init () {
   // Real-time filter suggestion
   const filterInputEle = document.getElementById('ingredient-filter-input')
   filterInputEle.addEventListener('keyup', () => {
@@ -19,13 +19,13 @@ async function init() {
   })
 }
 
-function autocompleteIgd(inputValue) {
+function autocompleteIgd (inputValue) {
   fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${inputValue}&number=10&apiKey=dc78a83ae8644578a0d98c3c8b6d5796`)
     .then(response => response.json())
     .then(data => createIgdCard(data))
 }
 
-function createIgdCard(igdData) {
+function createIgdCard (igdData) {
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
   const igdToAdd = igdData.filter(ele => !displayedIngredients.includes(ele.name))
@@ -65,7 +65,7 @@ function createIgdCard(igdData) {
   }
 }
 
-function addSelected(igdData) {
+function addSelected (igdData) {
   if (selectedIngredients.includes(igdData.name)) {
     // TODO: Error handling
   } else {
@@ -98,7 +98,7 @@ function addSelected(igdData) {
   }
 }
 
-function deleteSelected(igdName) {
+function deleteSelected (igdName) {
   const indexToRemove = selectedIngredients.indexOf(igdName)
   if (indexToRemove === -1) {
     // TODO: Error handling
@@ -116,7 +116,7 @@ function deleteSelected(igdName) {
   }
 }
 
-function removeFilter() {
+function removeFilter () {
   const toDeleteArray = Array.from(toDeleteIngredients)
   const filterContainerEle = document.querySelector('#filter-columns')
   for (const child of filterContainerEle.children) {
@@ -133,7 +133,7 @@ function removeFilter() {
   toDeleteIngredients.clear()
 }
 
-function findRecipes() {
+function findRecipes () {
   sessionStorage.clear()
   const foundRcps = []
   let ingredients = ''
@@ -158,7 +158,7 @@ function findRecipes() {
   window.location.href = '/source/pages/MainPage/mainPage.html'
 }
 
-function sleep(milliseconds) {
+function sleep (milliseconds) {
   const start = new Date().getTime()
   for (let i = 0; i < 1e7; i++) {
     if ((new Date().getTime() - start) > milliseconds) {

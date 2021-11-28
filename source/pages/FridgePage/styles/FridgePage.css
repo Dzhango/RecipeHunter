@@ -3,6 +3,8 @@
 #content-container {
   padding: 0;
   margin-top: 56px;
+  /* Fridge page */
+  height: 80vh;
 }
 
 .sidebar {
@@ -31,7 +33,7 @@
 }
 
 .filter-toggle::before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Free", serif;
   font-weight: 900;
   content: "\f105";
   margin-right: 9px;
@@ -43,40 +45,36 @@
 
 @media (max-width: 768px) {
   .sidebar {
-      position: fixed;
-      top: 56px;
-      bottom: 0;
-      left: 0;
-      z-index: 999;
-      width: 100px;
-      overflow: visible;
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100px;
+    overflow: visible;
   }
 
   .large-size-sidebar {
-      display: none;
+    display: none;
   }
 
   .medium-size-sidebar {
-      display: block;
+    display: block;
   }
 }
 
 @media (min-width: 768px) {
   .large-size-sidebar {
-      display: block;
+    display: block;
   }
 
   .medium-size-sidebar {
-      display: none;
+    display: none;
   }
 }
 
 
 /* Fridge Page css */
-
-#content-container {
-  height: 80vh;
-}
 
 .card-columns {
   column-count: 3;
@@ -89,27 +87,27 @@
 
 @media (max-width: 575.98px) {
   .card-columns {
-      column-count: 1;
+    column-count: 1;
   }
 
   .card-img-bottom {
-      display: none;
+    display: none;
   }
 }
 
 @media (min-width: 660px) {
   .card-columns {
-      column-count: 4;
+    column-count: 4;
   }
 }
 
 @media (min-width: 768px) {
   .card-columns {
-      column-count: 2;
+    column-count: 2;
   }
-  
+
   .ingredient-card-container {
-      max-height: 70vh;
-      overflow-y: scroll;
+    max-height: 70vh;
+    overflow-y: scroll;
   }
 }
