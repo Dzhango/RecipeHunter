@@ -42,9 +42,11 @@ function createRecipeCards(recipeData) {
 
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
-
-        recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i].title
-        recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i].image})`
+        // recipeCard.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
+        // recipeCard.shadowRoot.querySelector('.card-img-top').src = `url(${this.getAttribute('image')})`
+        recipeCard.shadowRoot.querySelector('.recipe-title').innerText = recipeData[i].title
+        recipeCard.shadowRoot.querySelector('.card-img-top').setAttribute('src', recipeData[i].image)
+        // src = `url(${recipeData[i].image})`
     }
 }
 
@@ -99,9 +101,9 @@ function fetchCall(query) {
     fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
         return response.json()
     }).then((data) => {
-        console.log(data.results)
+        //console.log(data.results)
         const recipeData = data.results
-        console.log(recipeData)
+        //console.log(recipeData)
         createRecipeCards(recipeData)
         bindRecipes()
         storeToSessionStorage(recipeData)
@@ -126,6 +128,7 @@ function bindButton() {
 
         const searchBar = document.querySelector('.search-bar')
         searchText = searchBar.value
+        console.log("searchText: " + searchText)
 
         // type checkbox
         const listedTypes = ['breakfast', 'lunch', 'dinner', 'snack']

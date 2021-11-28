@@ -63,7 +63,8 @@ function DeleteFromFavID(id){
  * Selected: if in the select mode, the recipe 
  */
 function bindRemoveButton () {
-    document.getElementById("remove-button").addEventListener("click", ()=>{
+    document.querySelector(".remove-button").addEventListener("click", ()=>{
+
         let removalArray = []
         let recipes_selected = []
         //const select = document.getElementsById('select-button')
@@ -77,11 +78,14 @@ function bindRemoveButton () {
         }
         for (let recipeID of removalArray) {
             DeleteFromFavID(recipeID)
+            
         }
 
         populateMyRecipe()
         greyOut(false)
         selected = false
+        document.querySelector(".cancel-button").classList.add("hide")
+        document.querySelector(".remove-button").classList.add("hide")
     })
 }
 
@@ -144,14 +148,14 @@ function greyOut(on){
     if (on){
         
         for(let i=0;i<recipeCardList.length;i++){
-           recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.add("grey")
+            recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.add("grey")
         }
             
 
     }else{
         //otherwise (if false is passed in), remove the grey class from each recipe card
         for(let i=0;i<recipeCardList.length;i++){
-           recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.remove("grey")
+            recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.remove("grey")
         }
     }
 }
@@ -179,8 +183,10 @@ function greyOut(on){
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
 
-        recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i].title
-        recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i].image})`
+        // recipeCard.shadowRoot.querySelector('span').innerText = recipeData[i].title
+        // recipeCard.shadowRoot.querySelector('div').style.backgroundImage = `url(${recipeData[i].image})`
+        recipeCard.shadowRoot.querySelector('.recipe-title').innerText = recipeData[i].title
+        recipeCard.shadowRoot.querySelector('.card-img-top').setAttribute('src', recipeData[i].image)
         console.log(recipeCard.id)
     }
     
@@ -215,8 +221,9 @@ async function init() {
     
     // document.querySelector('recipe-card').shadowRoot.querySelector('.recipe-card').classList.add("grey") 
     // document.querySelector('recipe-card').shadowRoot.querySelector('.recipe-card').classList.remove("grey")
-    document.getElementById("select-button").addEventListener("click", () => {
-
+    document.querySelector(".select-button").addEventListener("click", () => {
+        document.querySelector(".cancel-button").classList.remove("hide")
+        document.querySelector(".remove-button").classList.remove("hide")
         //grey all of the recipe-card
         greyOut(true);
         //set selected to true;
@@ -225,8 +232,9 @@ async function init() {
     })
 
     // logic for cancel button
-    document.getElementById("cancel-button").addEventListener("click", () => {
-        
+    document.querySelector(".cancel-button").addEventListener("click", () => {
+        document.querySelector(".cancel-button").classList.add("hide")
+        document.querySelector(".remove-button").classList.add("hide")
         // remove all the grey class
         greyOut(false);  
         // set selected to false
