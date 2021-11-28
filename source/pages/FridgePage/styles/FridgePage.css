@@ -1,110 +1,115 @@
 /* Navbar and sidebar base css */
 
 #content-container {
-    padding: 0;
-    margin-top: 56px;
+  padding: 0;
+  margin-top: 56px;
 }
 
 .sidebar {
-    position: fixed;
-    top: 56px;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    width: 180px;
-    overflow-x: hidden;
-    overflow-y: auto;
+  position: fixed;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 180px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .filter-toggle {
-    display: inline-flex;
-    align-items: center;
-    font-size: large;
-    font-weight: 500;
-    color: white;
-    background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  font-size: large;
+  font-weight: 500;
+  color: white;
+  background-color: transparent;
 }
 
 .filter-toggle:hover,
 .filter-toggle:focus {
-    color: white;
+  color: white;
 }
 
 .filter-toggle::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f105";
-    margin-right: 9px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f105";
+  margin-right: 9px;
 }
 
 .filter-toggle[aria-expanded="true"]::before {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        position: fixed;
-        top: 56px;
-        bottom: 0;
-        left: 0;
-        z-index: 999;
-        width: 100px;
-        overflow: visible;
-    }
-    .large-size-sidebar {
-        display: none;
-    }
-    .medium-size-sidebar {
-        display: block;
-    }
+  .sidebar {
+      position: fixed;
+      top: 56px;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      width: 100px;
+      overflow: visible;
+  }
+
+  .large-size-sidebar {
+      display: none;
+  }
+
+  .medium-size-sidebar {
+      display: block;
+  }
 }
 
 @media (min-width: 768px) {
-    .large-size-sidebar {
-        display: block;
-    }
-    .medium-size-sidebar {
-        display: none;
-    }
+  .large-size-sidebar {
+      display: block;
+  }
+
+  .medium-size-sidebar {
+      display: none;
+  }
 }
 
 
 /* Fridge Page css */
 
 #content-container {
-    height: 80vh;
+  height: 80vh;
 }
 
 .card-columns {
-    column-count: 3;
+  column-count: 3;
 }
 
 .ingredient-card-container {
-    max-height: 27vh;
-    overflow-y: scroll;
+  max-height: 27vh;
+  overflow-y: scroll;
 }
 
 @media (max-width: 575.98px) {
-    .card-columns {
-        column-count: 1;
-    }
-    .card-img-bottom {
-        display: none;
-    }
+  .card-columns {
+      column-count: 1;
+  }
+
+  .card-img-bottom {
+      display: none;
+  }
 }
 
 @media (min-width: 660px) {
-    .card-columns {
-        column-count: 4;
-    }
+  .card-columns {
+      column-count: 4;
+  }
 }
 
 @media (min-width: 768px) {
-    .card-columns {
-        column-count: 2;
-    }
-    .ingredient-card-container {
-        max-height: 70vh;
-        overflow-y: scroll;
-    }
+  .card-columns {
+      column-count: 2;
+  }
+  
+  .ingredient-card-container {
+      max-height: 70vh;
+      overflow-y: scroll;
+  }
 }

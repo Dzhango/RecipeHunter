@@ -14,18 +14,18 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-nav">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsenav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapse-nav">
+        <div class="collapse navbar-collapse" id="collapsenav">
             <div class="navbar-nav">
                 <a href="../MainPage/mainPage.html" class="nav-item nav-link">Home</a>
                 <a href="./FridgePage.html" class="nav-item nav-link active">Fridge</a>
                 <a href="../MyRecipesPage/myRecipePage.html" class="nav-item nav-link">My Recipe</a>
             </div>
-            <form class="form-inline ml-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Go</button>
+            <form class="form-inline ml-auto flex-nowrap">
+                <input class="form-control mr-2 d-inline-flex" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0 d-inline-flex" type="submit">Go</button>
             </form>
         </div>
     </nav>
@@ -66,6 +66,9 @@
         </div>
     </div>
     <script src="./scripts/FridgePage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <template id="ingredient-card">
         <div class="card" style="margin-bottom: 10px;">
             <div class="card-header"></div>
