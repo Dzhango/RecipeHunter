@@ -44,7 +44,7 @@ template.innerHTML=`
 `
 */
 
-template.innerHTML=`
+template.innerHTML = `
 <div class = "col-md-3 recipe-card">
   <div class="card rounded">
     <img src="" class="card-img-top">
@@ -55,13 +55,19 @@ template.innerHTML=`
 </div>
 `
 
-class RecipeCard extends HTMLElement{
-    constructor(){
+class RecipeCard extends HTMLElement {
+    constructor() {
+        // super();
+        // // console.log(this.)
+        // this.attachShadow({ mode: 'open' });
+        // this.shadowRoot.appendChild(template.content.cloneNode(true));
+        // this.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
+        // this.shadowRoot.querySelector('card-img-top').src = `url(${this.getAttribute('image')})`
         super();
-        this.attachShadow({mode:'open'});
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
-        this.shadowRoot.querySelector('card-img-top').src = `url(${this.getAttribute('image')})`
+        this.shadowRoot.querySelector('span').innerText = this.getAttribute('name');
+        this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
     }
 }
 
