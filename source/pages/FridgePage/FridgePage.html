@@ -8,24 +8,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Fridge</title>
     <link rel="stylesheet" href="./styles/FridgePage.css">
-    <script src="./scripts/FridgePage.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapseNav">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsenav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapseNav">
+        <div class="collapse navbar-collapse" id="collapsenav">
             <div class="navbar-nav">
                 <a href="../MainPage/mainPageBootstrap.html" class="nav-item nav-link">Home</a>
                 <a href="./FridgePage.html" class="nav-item nav-link active">Fridge</a>
                 <a href="../MyRecipesPage/myRecipePageBootstrap.html" class="nav-item nav-link">My Recipe</a>
             </div>
-            <form class="form-inline ml-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Go</button>
+            <form class="form-inline ml-auto flex-nowrap">
+                <input class="form-control mr-2 d-inline-flex" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0 d-inline-flex" type="submit">Go</button>
             </form>
         </div>
     </nav>
@@ -33,13 +32,13 @@
         <div class="row" style="margin: 0;">
             <div class="col-12 col-md-6" style="padding: 0;">
                 <div class="card" style="margin: 2% 2% 0px 2%;">
-                    <div class="card-header bg-secondary text-white">
-                        <b>What's in your fridge?</b>
+                    <div class="card-header bg-light text-dark">
+                        What's in your fridge?
                     </div>
                     <div class="card-body bg-light">
                         <input class="form-control" id="ingredient-filter-input" type="text" placeholder="I have...">
                         <br>
-                        <div class="container-fluid" id="ingredient-card-container">
+                        <div class="container-fluid ingredient-card-container">
                             <div class="card-columns" id="filter-columns">
                                 <!-- Need to populate this list -->
                             </div>
@@ -49,11 +48,11 @@
             </div>
             <div class="col-12 col-md-6" style="padding: 0;">
                 <div class="card" style="margin: 2% 2% 0px 2%;">
-                    <div class="card-header bg-secondary text-white">
-                        <b>Selected Ingredients</b>
+                    <div class="card-header bg-light text-dark">
+                        Selected Ingredients
                     </div>
                     <div class="card-body bg-light">
-                        <div class="container-fluid" id="ingredient-card-container">
+                        <div class="container-fluid ingredient-card-container">
                             <div class="card-columns" id="selected-columns">
                                 <!-- Need to populate this list -->
                             </div>
@@ -65,11 +64,14 @@
             </div>
         </div>
     </div>
-
+    <script src="./scripts/FridgePage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <template id="ingredient-card">
         <div class="card" style="margin-bottom: 10px;">
             <div class="card-header"></div>
-            <img class="card-img-bottom" src="">
+            <img class="card-img-bottom" alt="Recipe image">
         </div>
     </template>
 </body>

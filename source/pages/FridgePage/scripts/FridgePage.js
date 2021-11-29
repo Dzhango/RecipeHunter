@@ -57,6 +57,7 @@ function createIgdCard (igdData) {
     })
     igdCard.querySelector('.card-header').textContent = igd.name
     igdCard.querySelector('.card-img-bottom').src = `https://spoonacular.com/cdn/ingredients_250x250/${igd.image}`
+    igdCard.querySelector('.card-img-bottom').alt = `Image of recipe ${igd.name}`
     if (selectedIngredients.includes(igd.name)) {
       cardEle.classList.add('bg-success')
       cardEle.classList.add('text-white')
@@ -70,10 +71,10 @@ function addSelected (igdData) {
     // TODO: Error handling
   } else {
     selectedIngredients.push(igdData.name)
-    const igdContainerEle = document.querySelector('#selected-columns')
-    const igdTemplate = document.querySelector('#ingredient-card')
-    const igdCard = igdTemplate.content.cloneNode(true)
-    const cardEle = igdCard.querySelector('.card')
+    const _igdContainerEle = document.querySelector('#selected-columns')
+    const _igdTemplate = document.querySelector('#ingredient-card')
+    const _igdCard = _igdTemplate.content.cloneNode(true)
+    const cardEle = _igdCard.querySelector('.card')
     cardEle.addEventListener('click', () => {
       const cardClasses = cardEle.classList
       if (cardClasses.contains('bg-danger')) {
@@ -92,9 +93,9 @@ function addSelected (igdData) {
         document.getElementById('remove-filter').hidden = false
       }
     })
-    igdCard.querySelector('.card-header').textContent = igdData.name
-    igdCard.querySelector('.card-img-bottom').src = `https://spoonacular.com/cdn/ingredients_250x250/${igdData.image}`
-    igdContainerEle.appendChild(igdCard)
+    _igdCard.querySelector('.card-header').textContent = igdData.name
+    _igdCard.querySelector('.card-img-bottom').src = `https://spoonacular.com/cdn/ingredients_250x250/${igdData.image}`
+    _igdContainerEle.appendChild(_igdCard)
   }
 }
 
