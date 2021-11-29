@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', init)
 const selectedIngredients = []
 const displayedIngredients = []
 const toDeleteIngredients = new Set()
+const sessionStorage = window.sessionStorage
 
 async function init () {
   // Real-time filter suggestion
@@ -26,7 +27,7 @@ function autocompleteIgd (inputValue) {
 }
 
 function createIgdCard (igdData) {
-  igdName = igdData.map(ele => ele.name)
+  const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
   const igdToAdd = igdData.filter(ele => !displayedIngredients.includes(ele.name))
   const igdContainerEle = document.querySelector('#filter-columns')
@@ -46,7 +47,7 @@ function createIgdCard (igdData) {
         cardClasses.remove('bg-success')
         cardClasses.remove('text-white')
         deleteSelected(igd.name)
-        if (selectedIngredients.length == 0) { document.getElementById('submit-filter').hidden = true }
+        if (selectedIngredients.length === 0) { document.getElementById('submit-filter').hidden = true }
       } else {
         cardClasses.add('bg-success')
         cardClasses.add('text-white')
@@ -79,9 +80,9 @@ function addSelected (igdData) {
         cardClasses.remove('bg-danger')
         cardClasses.remove('text-white')
         toDeleteIngredients.delete(igdData.name)
-        if (toDeleteIngredients.size == 0) {
+        if (toDeleteIngredients.size === 0) {
           document.getElementById('remove-filter').hidden = true
-          if (selectedIngredients.length != 0) { document.getElementById('submit-filter').hidden = false }
+          if (selectedIngredients.length !== 0) { document.getElementById('submit-filter').hidden = false }
         }
       } else {
         cardClasses.add('bg-danger')
@@ -98,17 +99,17 @@ function addSelected (igdData) {
 }
 
 function deleteSelected (igdName) {
-  indexToRemove = selectedIngredients.indexOf(igdName)
-  if (indexToRemove == -1) {
+  const indexToRemove = selectedIngredients.indexOf(igdName)
+  if (indexToRemove === -1) {
     // TODO: Error handling
   } else {
     selectedIngredients.splice(indexToRemove, 1)
     const igdContainerEle = document.querySelector('#selected-columns')
     toDeleteIngredients.delete(igdName)
     igdContainerEle.removeChild(igdContainerEle.children[indexToRemove])
-    if (toDeleteIngredients.size == 0) {
+    if (toDeleteIngredients.size === 0) {
       document.getElementById('remove-filter').hidden = true
-      if (selectedIngredients.length != 0) {
+      if (selectedIngredients.length !== 0) {
         document.getElementById('submit-filter').hidden = false
       }
     }
@@ -116,16 +117,16 @@ function deleteSelected (igdName) {
 }
 
 function removeFilter () {
-  toDeleteArray = Array.from(toDeleteIngredients)
+  const toDeleteArray = Array.from(toDeleteIngredients)
   const filterContainerEle = document.querySelector('#filter-columns')
-  for (child of filterContainerEle.children) {
+  for (const child of filterContainerEle.children) {
     // remove from filter column
     if (toDeleteIngredients.has(child.querySelector('.card-header').textContent)) {
       child.classList.remove('bg-success')
       child.classList.remove('text-white')
     }
   }
-  for (igd of toDeleteArray) {
+  for (const igd of toDeleteArray) {
     // remove from selected column
     deleteSelected(igd)
   }
@@ -134,7 +135,7 @@ function removeFilter () {
 
 function findRecipes () {
   sessionStorage.clear()
-  foundRcps = []
+  const foundRcps = []
   let ingredients = ''
   for (let i = 0; i < selectedIngredients.length; i++) {
     ingredients += selectedIngredients[i]
@@ -147,21 +148,25 @@ function findRecipes () {
     return response.json()
   }).then((data) => {
     console.log(data)
-    for(rcp of data){
+    for (const rcp of data) {
       foundRcps.push(rcp)
     }
-    sessionStorage.setItem('foundRcps',JSON.stringify(foundRcps))
-    console.log(sessionStorage.getItem('foundRcps'))
+    // console.log(recipe.id)
+    foundRcps.forEach(recipe => {
+      sessionStorage.setItem(recipe.id, JSON.stringify(recipe))
+      console.log(sessionStorage.getItem(recipe.id))
+    })
+    // sessionStorage.setItem('foundRcps', JSON.stringify(foundRcps))
   })
-  sleep(1000);
-  window.location.href = "/source/pages/MainPage/mainPage.html"
+  sleep(1000)
+  window.location.href = '/source/pages/MainPage/mainPageBootstrap.html'
 }
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
+function sleep (milliseconds) {
+  const start = new Date().getTime()
+  for (let i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds) {
+      break
     }
   }
 }
