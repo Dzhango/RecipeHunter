@@ -213,11 +213,6 @@ button.favorites-button:hover {
   background-color: #aaaaaa;
   color: #6b6b6b;
 }
-<<<<<<< HEAD
 .hide {
-  display: none;
-=======
-.hide{
-  display:none !Important;
->>>>>>> 9b13002e31dd05819e291c850491efbf55a8d48a
+  display: none !important;
 }
