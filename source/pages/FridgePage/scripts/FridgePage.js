@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', init)
 const selectedIngredients = []
 const displayedIngredients = []
 const toDeleteIngredients = new Set()
+const sessionStorage = window.sessionStorage
 
 async function init () {
   // Real-time filter suggestion
@@ -151,11 +152,15 @@ function findRecipes () {
     for (const rcp of data) {
       foundRcps.push(rcp)
     }
-    sessionStorage.setItem('foundRcps', JSON.stringify(foundRcps))
-    console.log(sessionStorage.getItem('foundRcps'))
+    // console.log(recipe.id)
+    foundRcps.forEach(recipe => {
+      sessionStorage.setItem(recipe.id, JSON.stringify(recipe))
+      console.log(sessionStorage.getItem(recipe.id))
+    })
+    // sessionStorage.setItem('foundRcps', JSON.stringify(foundRcps))
   })
   sleep(1000)
-  window.location.href = '/source/pages/MainPage/mainPage.html'
+  window.location.href = '/source/pages/MainPage/mainPageBootstrap.html'
 }
 
 function sleep (milliseconds) {

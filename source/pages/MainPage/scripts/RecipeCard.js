@@ -1,4 +1,5 @@
 const template = document.createElement('template');
+/*
 template.innerHTML=`
 <style>
 * {
@@ -41,15 +42,43 @@ template.innerHTML=`
     <span></span>
 </div>
 `
-class RecipeCard extends HTMLElement{
+*/
 
-    constructor(){
+template.innerHTML = `
+<script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
+<link src = "./styles/myRecipePage.css" type="stylesheet"> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+  .grey{
+    filter: grayscale(100%);
+  }
+</style>
+<div class = "recipe-card">
+  <div class = "card rounded">
+    <img src="" class="card-img-top">
+    <div class = "card-body">
+      <p class = "card-text text-center recipe-title"></p>
+    </div>
+  </div>
+</div>
+`
+//<div class = "col-md-3 recipe-card">
+
+
+class RecipeCard extends HTMLElement {
+    constructor() {
         super();
-        this.attachShadow({mode:'open'});
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector('span').innerText = this.getAttribute('name');
-        this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
+        this.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
+        this.shadowRoot.querySelector('.card-img-top').src = `url(${this.getAttribute('image')})`
+        // super();
+        // this.attachShadow({ mode: 'open' });
+        // this.shadowRoot.appendChild(template.content.cloneNode(true));
+        // this.shadowRoot.querySelector('span').innerText = this.getAttribute('name');
+        // this.shadowRoot.querySelector('div').style.backgroundImage = `url(${this.getAttribute('image')})`
     }
 }
+
 
 window.customElements.define('recipe-card', RecipeCard);
