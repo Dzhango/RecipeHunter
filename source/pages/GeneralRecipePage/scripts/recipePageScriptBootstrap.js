@@ -64,7 +64,12 @@ function init () {
 
   // populate page with JSON data
   const dataKey = sessionStorage.getItem('curr')
-  const recipeData = JSON.parse(sessionStorage.getItem(dataKey))
+  let recipeData
+  if (sessionStorage.getItem(dataKey) == null) {
+    recipeData = JSON.parse(localStorage.getItem(dataKey))
+  } else {
+    recipeData = JSON.parse(sessionStorage.getItem(dataKey))
+  }
   // console.log(recipeData)
   const recipeExpand = document.createElement('recipe-expand-bootstrap')
   recipeExpand.data = recipeData
