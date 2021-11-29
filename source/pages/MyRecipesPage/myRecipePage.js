@@ -99,7 +99,6 @@ async function populateRecipe(N){
         for(let i = 0; i < N; i++){
             fetch(`https://api.spoonacular.com/recipes/random?apiKey=3e93b73153474c30b568c44760ca6620`)
                         .then((response) => {
-                //console.log(response);
                 return response.json();
             }).then((data) => {
                 recipes.push(data);
