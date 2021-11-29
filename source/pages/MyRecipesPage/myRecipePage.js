@@ -84,6 +84,7 @@ function bindRemoveButton () {
         populateMyRecipe()
         greyOut(false)
         selected = false
+        bindRecipeCards()
         document.querySelector(".cancel-button").classList.add("hide")
         document.querySelector(".remove-button").classList.add("hide")
     })
@@ -116,41 +117,88 @@ function populateMyRecipe () {
     for (let i = 0; i < localStorage.length; i++) {
         let recipe = localStorage.getItem(localStorage.key(i))
         list_recipes.push(JSON.parse(recipe))
-    }    
-    createRecipeCards(list_recipes)
-
-    // Add event listener to each recipe card
-    let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
-    for(let i=0;i<recipeCardList.length;i++){
-        recipeCardList[i].addEventListener("click",(e)=>{
-        //console.lo g(recipeCardList[i])
-        if(selected){
-            //if the grey class exist
-        // console.log(e)
-        if (recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.contains('grey')){
-            recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.remove('grey')
-        }else{       
-            recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.add('grey')    
-        }
     }
-    })
+    createRecipeCards(list_recipes)
+    bindRecipeCards()
 }
+
+function bindRecipeCards () {
+    console.log("test1")
+    // Add event listener to each recipe card
+    let recipeCardList = Array.from(document.querySelectorAll('recipe-card'))
+    for(let i=0;i<recipeCardList.length;i++){
+        if (selected) {
+            console.log("test2")
+            recipeCardList[i].removeEventListener("click", bindRecipeClick)
+            recipeCardList[i].addEventListener("click",  bindRecipeSelect)
+        } else {
+            console.log("test3")
+            recipeCardList[i].removeEventListener("click", bindRecipeSelect)
+            recipeCardList[i].addEventListener("click", bindRecipeClick)
+        }
+        // recipeCardList[i].addEventListener("click",(e)=>{
+        //     //console.lo g(recipeCardList[i])
+        //     if(selected){
+        //         // if the grey class exist
+        //         // console.log(e)
+        //         if (recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.contains('grey')){
+        //             recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.remove('grey')
+        //         }else{
+        //             recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.add('grey')    
+        //         }
+        //     }
+        // })
+    }
 }
+
+function bindRecipeSelect (event) {
+    const recipe = event.target
+    if (recipe.shadowRoot.querySelector('.recipe-card').classList.contains('grey')) {
+        recipe.shadowRoot.querySelector('.recipe-card').classList.remove('grey')
+    }else{
+        recipe.shadowRoot.querySelector('.recipe-card').classList.add('grey')
+    }
+}
+
+function bindRecipeClick (event) {
+    const recipe = event.target
+    sessionStorage.setItem('curr', recipe.data.id)
+    // if on live server
+    if (location.origin === 'http://127.0.0.1:5500') {
+        location.href = "/source/pages/GeneralRecipePage/recipePageBootstrap.html";
+    } else {
+        location.href = "/pages/GeneralRecipePage/recipePageBootstrap.html";
+    }
+}
+// function bindRecipeSelect (e, recipe) {
+//     if (recipe.shadowRoot.querySelector('.recipe-card').classList.contains('grey')) {
+//         recipe.shadowRoot.querySelector('.recipe-card').classList.remove('grey')
+//     }else{
+//         recipe.shadowRoot.querySelector('.recipe-card').classList.add('grey')
+//     }
+// }
+
+// function bindRecipeClick (e, recipe) {
+//     sessionStorage.setItem('curr', recipe.data.id)
+//     // if on live server
+//     if (location.origin === 'http://127.0.0.1:5500') {
+//         location.href = "/source/pages/GeneralRecipePage/recipePageBootstrap.html";
+//     } else {
+//         location.href = "/pages/GeneralRecipePage/recipePageBootstrap.html";
+//     }
+// }
 
 //if on == true; addes grey filter to every card's image
 //if(on ==false ) removes grey filter from every card's image
 function greyOut(on){
     //select all recipe cards
     let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
-    
     //if true is passed in, grey out every card by adding the grey class to each recipe card
     if (on){
         
         for(let i=0;i<recipeCardList.length;i++){
             recipeCardList[i].shadowRoot.querySelector('.recipe-card').classList.add("grey")
         }
-            
-
     }else{
         //otherwise (if false is passed in), remove the grey class from each recipe card
         for(let i=0;i<recipeCardList.length;i++){
@@ -193,6 +241,25 @@ function greyOut(on){
     
 }
 
+function bindRecipes() {
+    // Add event listener to each recipe card
+    const recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
+    for (let i = 0; i < recipeCardList.length; i++) {
+        recipeCardList[i].addEventListener('click', (e) => {
+            console.log('test1')
+            //if(selected === 'false') {
+                sessionStorage.setItem('curr', recipeCardList[i].data.id)
+                //if on live server
+                if (location.origin == 'http://127.0.0.1:5500') {
+                    location.href = "/source/pages/GeneralRecipePage/recipePageBootstrap.html";
+                } else {
+                    location.href = "/pages/GeneralRecipePage/recipePageBootstrap.html";
+                }
+            //}
+        })
+    }
+}
+
 //initiate the sandbox
 async function init() {
     //clear so that each run is clear
@@ -212,13 +279,11 @@ async function init() {
     // for (let recipe of recipes) {
     //     storeIntoFav(recipe['recipes'][0]);
     // }
-
     populateMyRecipe()
-
 
     console.log("GREY TEST" +document.querySelector('recipe-card'))
 
-    let  gflag = true;
+    let gflag = true;
     
     // document.querySelector('recipe-card').shadowRoot.querySelector('.recipe-card').classList.add("grey") 
     // document.querySelector('recipe-card').shadowRoot.querySelector('.recipe-card').classList.remove("grey")
@@ -226,10 +291,10 @@ async function init() {
         document.querySelector(".cancel-button").classList.remove("hide")
         document.querySelector(".remove-button").classList.remove("hide")
         //grey all of the recipe-card
-        greyOut(true);
+        greyOut(true)
         //set selected to true;
         selected = true
-
+        bindRecipeCards()
     })
 
     // logic for cancel button
@@ -237,9 +302,10 @@ async function init() {
         document.querySelector(".cancel-button").classList.add("hide")
         document.querySelector(".remove-button").classList.add("hide")
         // remove all the grey class
-        greyOut(false);  
+        greyOut(false)
         // set selected to false
-        selected = false;
+        selected = false
+        bindRecipeCards()
     })
 
 
