@@ -5,151 +5,181 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team 6 Homepage</title>
-
-    <!-- Font awesome -->
-    <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script>
-
-    <!-- Custom styling -->
-
-    <!-- Bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- quick stying -->
-    <style>
-        ul {
-            list-style-type: none;
-        }
-    </style>
-
+    <title>Mainpage Template</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/mainPage.css">
+    <script src="https://kit.fontawesome.com/ba28f70830.js" crossorigin="anonymous"></script>
+    <script src="scripts/mainPage.js"></script>
 </head>
 
 <body>
-    <main class="w-100 overflow-hidden">
-        <div class="row">
-            <!-- SIDEBAR -->
-            <div class="sidebar col-2 d-flex">
-                <div class="p-3 bg-light w-100" style="min-height: 100vh;">
-                    <a href="/" class="d-flex align-items-center text-center pt-2 pb-3 mb-2 link-light text-decoration-none border-bottom">
-                        <img src="../../assets/images/PierreCook.png" alt="logo" width="72" height="72" class=" text-center mx-auto d-inline-block align-top rounded-circle">
-                    </a>
-
-                    <ul class="list-unstyled ps-0">
-                        <li class="mb-1">
-                            <h5 class="text-center ms-2 mt-3 fw-bold text-secondary">Filters</h5>
-                        </li>
-
-                        <!-- FILTER SECTION -->
-                        <li class="border-top my-2"></li>
-                        <!-- Filter div -->
-                        <div class="filter-container">
-                            <details class="type">
-                                <summary>Type</summary>
-                                <ul>
-                                    <li><label><input type="checkbox" id="type-breakfast" class = "me-1"><span>breakfast</span></label></li>
-                                    <li><label><input type="checkbox" id="type-lunch" class = "me-1"><span>lunch</span></label></li>
-                                    <li><label><input type="checkbox" id="type-snack" class = "me-1"><span>snack</span></label></li>
-                                    <li><label><input type="checkbox" id="type-dinner" class = "me-1"><span>dinner</span></label></li>
-                                </ul>
-
-                            </details>
-                            <details class="time">
-                                <summary>Time</summary>
-
-                                <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" />
-
-
-
-                                <div class="selected-time">Under 100 minutes</div>
-                            </details>
-                            <details class="allergies">
-                                <summary>Allergies</summary>
-                                <ul>
-                                    <li><label><input type="checkbox" id="allergies-lactose" class = "me-1"><span>lactose</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-egg" class = "me-1"><span>egg</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-seafood" class = "me-1"><span>fish</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-shellfish" class = "me-1"><span>shellfish</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-peanut" class = "me-1"><span>peanuts</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-tree-nut" class = "me-1"><span>tree nuts</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-wheat"class = "me-1"><span>wheat</span></label></li>
-                                    <li><label><input type="checkbox" id="allergies-soy"class = "me-1"><span>soy</span></label></li>
-                                </ul>
-                            </details>
-                            <details class="diet">
-                                <summary>Diet</summary>
-                                <ul>
-                                    <li><label><input type="radio" id="diet-none" name="r-diet" value="none" checked><span>none</span></label></li>
-                                    <li><label><input type="radio" id="diet-vegan" name="r-diet" value="vegan"class = "me-1"><span>vegan</span></label></li>
-                                    <li><label><input type="radio" id="diet-vegenatian" name="r-diet" value="vegetarian"class = "me-1"><span>vegetarian</span></label></li>
-                                    <li><label><input type="radio" id="diet-ketogenic" name="r-diet" value="ketogenic"class = "me-1"><span>keto</span></label></li>
-                                </ul>
-                            </details>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-primary rounded-pill filters-button">Apply Filters</button>
-                            </div>
-                        </div>
-                    </ul>
-                </div>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+        <a class="d-flex align-items-center text-center mr-2">
+            <img src="../../assets/images/PierreCook.png" alt="logo" width="36" height="36"
+                class="text-center mx-auto d-inline-block align-top rounded-circle">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsenav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsenav">
+            <div class="navbar-nav">
+                <a href="../MainPage/mainPageBootstrap.html" class="nav-item nav-link active">Home</a>
+                <a href="../FridgePage/FridgePage.html" class="nav-item nav-link">Fridge</a>
+                <a href="../MyRecipesPage/myRecipePageBootstrap.html" class="nav-item nav-link">My Recipe</a>
             </div>
-
-            <!-- MAIN SECTION -->
-            <div class="col-10 ps-0 ">
-                <!-- HEADER section-->
-                <header>
-                    <!-- MAIN navbar -->
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="#">LOGO</a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-                            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="../MainPage/mainPageBootstrap.html"><i class="fas fa-home pe-1"></i> Home</a>
-                                    </li>
-                                    <li class="nav-item pe-3">
-                                        <a class="nav-link" href="../FridgePage/FridgePage.html">My Fridge</a>
-                                    </li>
-                                    <li class="nav-item pe-3">
-                                        <a class="nav-link" href="../MyRecipesPage/myRecipePageBootstrap.html">My Recipes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <div class="d-flex">
-                                            <input class="form-control me-2 search-bar" type="text" name="search" placeholder="Search" aria-label="Search">
-                                            <button class="btn btn-outline-success search-button" type="submit">Search</button>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </header>
-
-                <!-- MAIN SECTION -->
-                <div class="row mt-4 recipes-container px-4">
-                    <div class ="col-md-3">
-                        <div class="card rounded">
-                            <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2019/05/san-diego-1.png" class="card-img-top">
-                            <div class="card-body">
-                                <p class="card-text text-center recipe-title"><b> Spicy Chicken Sandwich</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+            <form class="form-inline ml-auto flex-nowrap">
+                <input class="form-control mr-2 d-inline-flex" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0 d-inline-flex" type="submit">Search</button>
+            </form>
         </div>
-    </main>
-
-
-  <!-- <script src="https://kit.fontawesome.com/16e1426982.js" crossorigin="anonymous"></script> -->
-  <script src = ".\scripts\mainPageScripts.js"></script>
-  <script src=".\scripts\RecipeCard.js"></script>
-
- 
-
+    </nav>
+    <!-- Everything below the navbar -->
+    <div class="container-fluid" id="content-container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="d-flex flex-column sidebar bg-light">
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="large-size-sidebar">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                                data-target="#collapseType" aria-expanded="true">
+                                Type
+                            </button>
+                            <div class="collapse show" id="collapseType">
+                                <ul class="btn-toggle-nav list-unstyled" style="margin-left: 10%;">
+                                    <li><label><input type="checkbox" id='type-breakfast'><span class="ml-1">breakfast</span></label></li>
+                                    <li><label><input type="checkbox" id='type-lunch'><span class="ml-1">lunch</span></label></li>
+                                    <li><label><input type="checkbox" id='type-snack'><span class="ml-1">snack</span></label></li>
+                                    <li><label><input type="checkbox" id='type-dinner'><span class="ml-1">dinner</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="medium-size-sidebar">
+                            <div class="btn-group dropright">
+                                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Type
+                                </button>
+                                <div class="dropdown-menu bg-light">
+                                    <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                                        <li><label><input type="checkbox" id='type-breakfast'><span class="ml-1">breakfast</span></label></li>
+                                        <li><label><input type="checkbox" id='type-lunch'><span class="ml-1">lunch</span></label></li>
+                                        <li><label><input type="checkbox" id='type-snack'><span class="ml-1">snack</span></label></li>
+                                        <li><label><input type="checkbox" id='type-dinner'><span class="ml-1">dinner</span></label></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="large-size-sidebar">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapseTime" aria-expanded="false">
+                                Time
+                            </button>
+                            <div class="collapse" id="collapseTime">
+                                <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" class="ml-3">
+                            </div>
+                        </div>
+                        <div class="medium-size-sidebar">
+                            <div class="btn-group dropright">
+                                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Time
+                                </button>
+                                <div class="dropdown-menu bg-light">
+                                    <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" class="ml-3">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="large-size-sidebar">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                                data-target="#collapseAllergies" aria-expanded="false">
+                                Allergies
+                            </button>
+                            <div class="collapse" id="collapseAllergies">
+                                <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                                    <li><label><input type="checkbox" id='allergies-lactose'><span class="ml-1">lactose</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-egg'><span class="ml-1">egg</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-seafood'><span class="ml-1">fish</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-shellfish'><span class="ml-1">shellfish</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-peanut'><span class="ml-1">peanuts</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-tree-nut'><span class="ml-1">treenuts</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-wheat'><span class="ml-1">wheat</span></label></li>
+                                    <li><label><input type="checkbox" id='allergies-soy'><span class="ml-1">soy</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="medium-size-sidebar">
+                            <div class="btn-group dropright">
+                                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Allergies
+                                </button>
+                                <div class="dropdown-menu bg-light">
+                                    <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                                        <li><label><input type="checkbox"id='allergies-lactose'><span class="ml-1">lactose</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-egg'><span class="ml-1">egg</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-seafood'><span class="ml-1">fish</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-shellfish'><span class="ml-1">shellfish</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-peanut'><span class="ml-1">peanuts</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-tree-nut'><span class="ml-1">tree nuts</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-wheat'><span class="ml-1">wheat</span></label></li>
+                                        <li><label><input type="checkbox" id='allergies-soy'><span class="ml-1">soy</span></label></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="large-size-sidebar">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                                data-target="#collapseDiet" aria-expanded="false">
+                                Diet
+                            </button>
+                            <div class="collapse" id="collapseDiet">
+                                <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                                    <li><label><input type="radio" id="diet-none" name="r-diet" value='none' checked><span class="ml-1">none</span></label></li>
+                                    <li><label><input type="radio" id="diet-vegan" name="r-diet" value='vegan'><span class="ml-1">vegan</span></label></li>
+                                    <li><label><input type="radio" id='diet-vegenatian' name="r-diet" value='vegetarian'><span class="ml-1">vegenatian</span></label></li>
+                                    <li><label><input type="radio" id='diet-ketogenic' name="r-diet" value='ketogenic'><span class="ml-1">keto</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="medium-size-sidebar">
+                            <div class="btn-group dropright">
+                                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Diet
+                                </button>
+                                <div class="dropdown-menu bg-light">
+                                    <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                                        <li><label><input type="radio" id="diet-none" name="r-diet" value='none' checked><span class="ml-1">none</span></label></li>
+                                        <li><label><input type="radio" id="diet-vegan" name="r-diet" value='vegan'><span class="ml-1">vegan</span></label></li>
+                                        <li><label><input type="radio" id='diet-vegenatian' name="r-diet" value='vegetarian'><span class="ml-1">vegenatian</span></label></li>
+                                        <li><label><input type="radio" id='diet-ketogenic' name="r-diet" value='ketogenic'><span class="ml-1">keto</span></label></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Main content -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
