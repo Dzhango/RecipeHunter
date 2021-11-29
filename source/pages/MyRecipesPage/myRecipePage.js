@@ -254,6 +254,70 @@ function createRecipeCards (recipeData) {
 //   }
 // }
 
+// Code for adding recipe by URL Buttons
+ function addButtonOnClick(){
+    //  alert('clicked')
+    document.querySelector('.addPage').classList.remove('hide');
+    document.querySelector('.recipes-container').classList.add('hide');
+}
+
+   function addRecipeURL(URL) {
+        console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
+    //make api call to spoonacular
+    fetch(`https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`)
+    .then((response) => {
+        //converting file to json format
+        return response.json()
+    }).then((recipeData) => {
+        //insert data into recipe array and repopulate local storage
+        const localStorage = window.localStorage
+        let inList = false
+        recipeData.id = hashing(recipeData.title)
+        console.log(recipeData.id)
+        //if there isnt a duplicate recipe, add it to myRecipe;
+        if (localStorage.getItem(recipeData.id) != null) {
+            console.log("DUPLICATE RECIPE")
+        } else {
+            localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
+            //repopulate myrecipepage
+            populateMyRecipe();
+            resolve(true);
+        }
+        // if(Object.keys(recipes).length == N){resolve(true);}
+    })
+    // .catch((error) => {
+    //     reject(false);
+    //     alert("invalid URl");
+    // })
+     document.querySelector('.addPage').classList.add('hide');
+    document.querySelector('.recipes-container').classList.remove('hide');
+}
+function hashing(string) {
+    //set variable hash as 0
+    var hash = 0;
+    // if the length of the string is 0, return 0
+    if (string.length == 0) return hash;
+    for (i = 0; i < string.length; i++) {
+        ch = string.charCodeAt(i);
+        hash = ((hash << 5) - hash) + ch;
+        hash = hash & hash;
+    }
+    return hash;
+
+}
+function addPageSubmitOnClick(){
+    let URL = document.querySelector('.addPageText').value;
+    console.log(URL);
+
+    addRecipeURL(URL)
+     document.querySelector('.addPageText').value ="";
+
+}
+function addPageCloseOnClick(){
+    document.querySelector('.addPageText').value ="";
+    document.querySelector('.addPage').classList.add('hide');
+    document.querySelector('.recipes-container').classList.remove('hide');
+}
 // initiate the sandbox
 async function init () {
   // clear so that each run is clear
@@ -299,6 +363,11 @@ async function init () {
     selected = false
     bindRecipeCards()
   })
+  //Code for adding recipe by URL:
+  document.querySelector('.add-button').addEventListener('click', ()=>{addButtonOnClick()})
+
+    document.querySelector('.addPageSubmit').addEventListener('click', ()=>{addPageSubmitOnClick()})
+    document.querySelector('.addPageClose').addEventListener('click', ()=>{addPageCloseOnClick()})
 
   //     //Code for adding myRecipePage event listener to each recipe card
   // let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
