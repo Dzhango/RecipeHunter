@@ -53,11 +53,11 @@ template.innerHTML = `
     filter: grayscale(100%);
   }
 </style>
-<div class = "col-md-3 recipe-card">
-  <div class="card rounded">
+<div class = "recipe-card">
+  <div class = "card rounded">
     <img src="" class="card-img-top">
-    <div class="card-body">
-      <p class="card-text text-center recipe-title"></p>
+    <div class = "card-body">
+      <p class = "card-text text-center recipe-title"></p>
     </div>
   </div>
 </div>

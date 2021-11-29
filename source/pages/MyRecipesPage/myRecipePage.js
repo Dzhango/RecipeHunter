@@ -178,6 +178,8 @@ function greyOut(on){
 
         console.log(recipeData[i].title)
 
+        recipeCard.classList.add('col-md-3')
+
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
         recipeCard.setAttribute('name', recipeData[i].title)

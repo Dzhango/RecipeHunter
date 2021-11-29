@@ -3,11 +3,11 @@ const MAX_RECIPE_TIME = 100
 // create lists of types checked
 // the types of recipes input: breakfast, lunch, main course, snack
 let type = []
-    // maximum cooking time
+// maximum cooking time
 let timeMax = MAX_RECIPE_TIME
-    // a list of allergies / intolerance
+// a list of allergies / intolerance
 let allergies = []
-    // the name of diet: there can only be one diet choosen.
+// the name of diet: there can only be one diet choosen.
 let diet = ''
 let searchText = ''
 
@@ -40,6 +40,7 @@ function createRecipeCards(recipeData) {
         console.log(recipeData[i].title)
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
+        recipeCard.classList.add('col-md-3')
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
         // recipeCard.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
@@ -197,9 +198,9 @@ function bindRecipes() {
                 //console.log(location.origin)
                 //if on live server
             if (location.origin == 'http://127.0.0.1:5500') {
-                location.href = "/source/pages/GeneralRecipePage/recipepage.html";
+                location.href = "/source/pages/GeneralRecipePage/recipePageBootstrap.html";
             } else {
-                location.href = "/pages/GeneralRecipePage/recipepage.html";
+                location.href = "/pages/GeneralRecipePage/recipePageBootstrap.html";
             }
         })
     }
