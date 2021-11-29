@@ -37,17 +37,15 @@ function createRecipeCards(recipeData) {
         // delegates the creation of recipe-card and its content to RecipeCard.js
         const recipeCard = document.createElement('recipe-card')
         recipeCard.data = recipeData[i]
-        console.log(recipeData[i].title)
+
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
         recipeCard.classList.add('col-md-3')
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
-        // recipeCard.shadowRoot.querySelector('.recipe-title').innerText = this.getAttribute('name');
-        // recipeCard.shadowRoot.querySelector('.card-img-top').src = `url(${this.getAttribute('image')})`
+        
         recipeCard.shadowRoot.querySelector('.recipe-title').innerText = recipeData[i].title
         recipeCard.shadowRoot.querySelector('.card-img-top').setAttribute('src', recipeData[i].image)
-        // src = `url(${recipeData[i].image})`
     }
 }
 
@@ -55,7 +53,6 @@ function storeToSessionStorage(recipeData) {
     sessionStorage.clear()
     for (let i = 0; i < recipeData.length; i++) {
         sessionStorage.setItem(recipeData[i].id, JSON.stringify(recipeData[i]))
-            //console.log(JSON.stringify(recipeData[i]))
     }
 }
 
@@ -67,12 +64,9 @@ function populateFromSession() {
         if (key == 'IsThisFirstTime_Log_From_LiveServer' || key == 'curr') {
             continue
         }
-        //console.log(typeof(sessionStorage.key(i)))
         let recipe = sessionStorage.getItem(sessionStorage.key(i))
-            // if (i === 0) console.log(recipe)
         list_recipes.push(JSON.parse(recipe))
     }
-    console.log(list_recipes)
     createRecipeCards(list_recipes)
     bindRecipes()
 }
@@ -81,12 +75,10 @@ function populateFromSession() {
  * Makes an API call to retrieve JSON recipe data
  */
 function getDefaultRecipes() {
-    fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&instructionsRequired=true&addRecipeInformation=true').then((response) => {
+    fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=99a52ef738514021ab33c7e15116c1ca&instructionsRequired=true&addRecipeInformation=true').then((response) => {
         return response.json()
     }).then((data) => {
         const recipeData = data.results
-            // console.log(recipeData)
-            // defaultRecipes(recipeData)
         createRecipeCards(recipeData)
         bindRecipes()
         storeToSessionStorage(recipeData)
@@ -99,12 +91,10 @@ function getDefaultRecipes() {
  * @param {String} query the string specify filter and search information
  */
 function fetchCall(query) {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=2937aa3dddaa4891808d0cbf0110d3ee&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=99a52ef738514021ab33c7e15116c1ca&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
         return response.json()
     }).then((data) => {
-        //console.log(data.results)
         const recipeData = data.results
-        //console.log(recipeData)
         createRecipeCards(recipeData)
         bindRecipes()
         storeToSessionStorage(recipeData)
@@ -129,7 +119,6 @@ function bindButton() {
 
         const searchBar = document.querySelector('.search-bar')
         searchText = searchBar.value
-        console.log("searchText: " + searchText)
 
         // type checkbox
         const listedTypes = ['breakfast', 'lunch', 'dinner', 'snack']
@@ -177,11 +166,6 @@ function bindButton() {
             diet = ''
         }
 
-        console.log('query=' + searchText + '&' + 'intolerances=' + allergies.join(',') + '&' +
-            'type=' + type.join(',') + '&' +
-            'maxReadyTime=' + timeMax + '&' +
-            'diet=' + diet)
-
         fetchCall('query=' + searchText + '&' + 'intolerances=' + allergies.join(',') + '&' +
             'type=' + type.join(',') + '&' +
             'maxReadyTime=' + timeMax + '&' +
@@ -195,7 +179,6 @@ function bindRecipes() {
     for (let i = 0; i < recipeCardList.length; i++) {
         recipeCardList[i].addEventListener("click", (e) => {
             sessionStorage.setItem('curr', recipeCardList[i].data.id)
-                //console.log(location.origin)
                 //if on live server
             if (location.origin == 'http://127.0.0.1:5500') {
                 location.href = "/source/pages/GeneralRecipePage/recipePageBootstrap.html";
@@ -208,7 +191,6 @@ function bindRecipes() {
 
 function init() {
     // eslint-disable-next-line no-console
-    console.log('Called')
 
     // Making div display time selected from slider
     document.getElementById('time').addEventListener('input', displayTime)
