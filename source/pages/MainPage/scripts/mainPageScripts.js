@@ -40,7 +40,10 @@ function createRecipeCards(recipeData) {
 
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
-        recipeCard.classList.add('col-md-3')
+        recipeCard.classList.add('col-6')
+        recipeCard.classList.add('col-sm-4')
+        recipeCard.classList.add('col-lg-3')
+        recipeCard.style.marginBottom = "10px";
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
         
@@ -124,9 +127,9 @@ function bindButton() {
         const listedTypes = ['breakfast', 'lunch', 'dinner', 'snack']
         for (const a of listedTypes) {
             // type checkboxes
-            const cbType = document.getElementById('type-' + a)
-                // add to list
-            if (cbType.checked) {
+            const cbTypes = Array.from(document.getElementsByName('type-' + a))
+            // add to list
+            if (cbTypes.some((tp) => tp.checked)) {
                 type.push(a)
             } else {
                 // remove from list
@@ -136,16 +139,23 @@ function bindButton() {
                 }
             }
         }
+        console.log("type filter: ", type)
 
         // time checkbox
-        const inputRange = document.getElementById('time')
-        timeMax = inputRange.value
+        const inputRanges = Array.from(document.getElementsByName('time'))
+        if (inputRanges[0].value < 100)
+            timeMax = inputRanges[0].value
+        else
+            timeMax = inputRanges[1].value
+
+        console.log("time filter: ", timeMax)
 
         // treenut?
         const listedAllergies = ['lactose', 'egg', 'seafood', 'shellfish', 'peanut', 'wheat', 'soy', 'tree-nut']
         for (const a of listedAllergies) {
-            const cbAllergies = document.getElementById('allergies-' + a)
-            if (cbAllergies.checked) {
+            const cbAllergies = Array.from(document.getElementsByName('allergies-' + a))
+            console.log(cbAllergies)
+            if (cbAllergies.some((alg) => alg.checked)) {
                 allergies.push(a)
             } else {
                 const index = allergies.indexOf(a)
@@ -154,6 +164,8 @@ function bindButton() {
                 }
             }
         }
+
+        console.log("allergies: ", allergies)
 
         // Diet need to be make sure that only one checkbox is checked at a time
         const cbDiets = document.getElementsByName('r-diet')
@@ -193,7 +205,9 @@ function init() {
     // eslint-disable-next-line no-console
 
     // Making div display time selected from slider
-    document.getElementById('time').addEventListener('input', displayTime)
+    times = document.getElementsByName('time')
+    for (let i=0; i < times.length; i++)
+        times[i].addEventListener('input', displayTime)
     if (sessionStorage.length < 3) {
         getDefaultRecipes()
     } else {

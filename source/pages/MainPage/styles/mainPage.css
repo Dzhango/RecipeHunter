@@ -17,6 +17,11 @@
   overflow-y: auto;
 }
 
+.recipes-container {
+  margin-left: 180px;
+  margin-right: 1px;
+}
+
 .filter-toggle {
   display: inline-flex;
   align-items: center;
@@ -45,6 +50,11 @@
     z-index: 999;
     width: 100px;
     overflow: visible;
+  }
+
+  .recipes-container {
+    margin-left: 100px;
+    margin-right: 1px;
   }
 
   .large-size-sidebar {
