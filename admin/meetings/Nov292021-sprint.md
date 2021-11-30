@@ -18,7 +18,7 @@ This is a technical review. List a number of achievements you have for the last 
 * Dzhangir
   * Finished 2nd part of the CICD pipeline
   * Helped troubleshoot new refactored UI
-  * Created Readme template and 
+  * Created Readme template
 
 * Jeremy
   * RecipeExpand component
@@ -50,11 +50,11 @@ This is a technical review. List a number of achievements you have for the last 
 
 * Ryan
   * Refactored 3 separate pages using the bootstrap library
-    * MainPage 
+    * MainPage
     * MyRecipesPage
-    * Recipe Page 
+    * Recipe Page
   * Refactored general components using bootstrap library
-    * Navbar 
+    * Navbar
     * Side navbar
     * General utility buttons
   * Helped resolve/iron out a solution for multiple bugs/issues: API logic for storing recipes in sessions

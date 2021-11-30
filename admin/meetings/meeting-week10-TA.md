@@ -21,7 +21,7 @@ N/A
       1. Fridge page button not functionning
       2. Different size images or uniform scale images? different sizes looks good for now, it could be cleaner. A design decision.
    3. Create "extract" recipes with link
-      1. Simple extract from website call satisfy create function
+      1. Simple extract from site call satisfy create function
       2. Not functioning if the user want to get family/traditional recipe
       3. Suggest first implement URL extract, then if have time, implements add from scratch
       4. Add from scratch: Blank template, UI intensive, upload image, many editable fields
@@ -32,9 +32,9 @@ N/A
    2. dont worry about e2e testing too much
    3. Make sure to write test cases, whether it pass or not is secondary
 3. UI: Try to make the APP good enough aesthetically
-4. Repo
+4. Repository
    1. README.md nice done
-      1. Add run-through of the repo in README.md
+      1. Add run-through of the repository in README.md
    2. Wiki nice done, keep populating
       1. add branches rules on wiki
       2. add contribution rules on wiki
@@ -46,8 +46,8 @@ N/A
    4. Add cards to project board, keep it consistent with issues
    5. add ADRs for bootstrap (!), refactoring, fridge, functionality (!), netlify (!). anything demonstrate critical thinking.
 5. CI/CD
-   1. current progress: Super Linter, Code Factor, human review, Jest, JSDocs
-   2. JSDocs not working
+   1. current progress: Super Linter, Code Factor, human review, Jest, JSDoc
+   2. JSDoc not working
    3. Post documentation on wiki or GitHub page.
 6. Video Assignments
    1. Public Final Video
@@ -76,18 +76,18 @@ N/A
    8. Treat it as the signals for contribution
    9. Out and due on Dec 8th
    10. Sooner get it done, quicker people can get clearified, get feedback and fix issues.
-9.  LightHouse performance testing
-    1. Two modes: Desktop / Mobile
-    2. Try to get accessibility to green
-    3. Fix easy problems
+9. LightHouse performance testing
+   1. Two modes: Desktop / Mobile
+   2. Try to get accessibility to green
+   3. Fix easy problems
 10. Cross Browser Testing
-    1. Lambdatest
-    2. Browser stack
-       1. Simulate website across browser
-       2. Different version of browser
-       3. Fairly easy to do
-       4. Very likely bad results
-    3. Treat it as diversities of testing besides unit testing to differientiate yourselves with your classmates
+   1. Lambdatest
+   2. Browser stack
+      1. Simulate site across browser
+      2. Different version of browser
+      3. Fairly easy to do
+      4. Very likely bad results
+   3. Treat it as diversities of testing besides unit testing to differientiate yourselves with your classmates
 11. Next meeting will be the last offical meeting, Wednesday at 2:00pm. More meeting is optional if needs some concrete feedback at the last week
 
 ### Task assigned
@@ -98,7 +98,7 @@ N/A
 * Finish unit testing
 * Individual Teammate Evaluations
 * Final video (public and private)
-* Organize Repo
+* Organize Repository
   * Keep project board updated with issues
   * README.md and wiki
   * Add branch rules and contribution rules, take a screenshot of branches before cleaning
@@ -109,10 +109,10 @@ Q: Contribution Rule?
 A: If a user request a feature, if the feature is assigned to a user, how do they go from implements a feature to incorporate that in the project.
 Create an issue, work on it, creach a branch with a PR, then PR will be linted and reviewed. PR passes manual approval. List flow
 
-Q: Hide api key?
+Q: Hide API key?
 
 A: yes. Protect it from external process. But won't will be grade down if you don't have it. If you do hide it it shows clearity of thinking.
-Github hiding fetch remote. Secrete Encryption. Encrpt your key and save it as it.
+GitHub hiding fetch remote. Secrete Encryption. Encrpt your key and save it as it.
 
 
 #### Project Timeline
