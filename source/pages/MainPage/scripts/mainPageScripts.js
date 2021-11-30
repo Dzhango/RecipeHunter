@@ -19,7 +19,7 @@ dropdownBtnTemplate.innerHTML = `
 
 const toggleBtnTemplate = document.createElement('template')
 toggleBtnTemplate.innerHTML = `
-<button class="btn filter-toggle align-items-center" data-toggle="collapse" aria-expanded="false">
+<button class="btn filter-toggle align-items-center" data-toggle="collapse">
 </button>
 `
 
@@ -65,8 +65,13 @@ function largeFilterDiv(name) {
     typeCheckboxDiv.classList.remove('dropdown-menu')
     typeCheckboxDiv.classList.remove('bg-light')
     typeCheckboxDiv.classList.add('collapse')
-    if (name === 'type')
+    if (name === 'type'){
         typeCheckboxDiv.classList.add('show')
+        typeBtnEle.setAttribute('aria-expanded', 'true')
+    }
+    else {
+        typeBtnEle.setAttribute('aria-expanded', 'false')
+    }
 }
 
 function changeSidebar(mq) {

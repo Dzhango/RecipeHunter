@@ -160,7 +160,7 @@ function findRecipes () {
     // sessionStorage.setItem('foundRcps', JSON.stringify(foundRcps))
   })
   sleep(1000)
-  window.location.href = '/source/pages/MainPage/mainPageBootstrap.html'
+  window.location.href = '../MainPage/mainPageBootstrap.html'
 }
 
 function sleep (milliseconds) {
