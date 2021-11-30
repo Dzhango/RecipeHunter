@@ -81,13 +81,13 @@ N/A
    2. Try to get accessibility to green
    3. Fix easy problems
 10. Cross Browser Testing
-   1. Lambdatest
-   2. Browser stack
-      1. Simulate site across browser
-      2. Different version of browser
-      3. Fairly easy to do
-      4. Very likely bad results
-   3. Treat it as diversities of testing besides unit testing to differientiate yourselves with your classmates
+    1.  Lambdatest
+    2.  Browser stack
+        1.  Simulate site across browser
+        2.  Different version of browser
+        3.  Fairly easy to do
+        4.  Very likely bad results
+    3.  Treat it as diversities of testing besides unit testing to differientiate yourselves with your classmates
 11. Next meeting will be the last offical meeting, Wednesday at 2:00pm. More meeting is optional if needs some concrete feedback at the last week
 
 ### Task assigned

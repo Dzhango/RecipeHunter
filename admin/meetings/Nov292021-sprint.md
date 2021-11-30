@@ -1,7 +1,6 @@
-# Productive Raccoons
-# Sprint Review
+# Productive Raccoons - Sprint Review
 ## Sprint duration: Nov 12 - Nov 30
-## Date: Nov 29, 2021
+### Date: Nov 29, 2021
 
 This is a technical review. List a number of achievements you have for the last sprint cycle, and explain any technical difficulties/questions/issues you have encountered. You can also provide suggestions for improvement.
 
