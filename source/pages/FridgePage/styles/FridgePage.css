@@ -1,7 +1,11 @@
 /* Navbar and sidebar base css */
+
 #content-container {
   padding: 0;
   margin-top: 56px;
+
+  /* Fridge page */
+  height: 80vh;
 }
 
 .sidebar {
@@ -30,7 +34,7 @@
 }
 
 .filter-toggle::before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Free", serif;
   font-weight: 900;
   content: "\f105";
   margin-right: 9px;
@@ -50,9 +54,11 @@
     width: 100px;
     overflow: visible;
   }
+
   .large-size-sidebar {
     display: none;
   }
+
   .medium-size-sidebar {
     display: block;
   }
@@ -62,46 +68,46 @@
   .large-size-sidebar {
     display: block;
   }
+
   .medium-size-sidebar {
     display: none;
   }
 }
 
 /* Fridge Page css */
-#content-container {
-  height: 80vh;
-}
 
 .card-columns {
   column-count: 3;
 }
 
-#ingredient-card-container {
+.ingredient-card-container {
   max-height: 27vh;
   overflow-y: scroll;
 }
 
-@media (max-width: 575.98px){
+@media (max-width: 575.98px) {
   .card-columns {
-      column-count: 1;
+    column-count: 1;
   }
+
   .card-img-bottom {
-      display: none;
+    display: none;
   }
 }
 
 @media (min-width: 660px) {
   .card-columns {
-      column-count: 4;
+    column-count: 4;
   }
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .card-columns {
-      column-count: 2;
+    column-count: 2;
   }
-  #ingredient-card-container {
-      max-height: 70vh;
-      overflow-y: scroll;
+
+  .ingredient-card-container {
+    max-height: 70vh;
+    overflow-y: scroll;
   }
 }
