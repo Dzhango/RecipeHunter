@@ -54,9 +54,9 @@ template.innerHTML = `
   }
 </style>
 <div class = "recipe-card">
-  <div class = "card rounded">
-    <img src="" class="card-img-top">
-    <div class = "card-body">
+  <div class = "card">
+    <img src="" class="card-img-top" alt="Recipe image">
+    <div class = "card-header">
       <p class = "card-text text-center recipe-title"></p>
     </div>
   </div>

@@ -11,6 +11,18 @@ let allergies = []
 let diet = ''
 let searchText = ''
 
+const dropdownBtnTemplate = document.createElement('template')
+dropdownBtnTemplate.innerHTML = `
+<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+</button>
+`
+
+const toggleBtnTemplate = document.createElement('template')
+toggleBtnTemplate.innerHTML = `
+<button class="btn filter-toggle align-items-center" data-toggle="collapse" aria-expanded="false">
+</button>
+`
+
 /**
  * Connect time label with the range input
  */
@@ -21,6 +33,56 @@ function displayTime() {
     const timeValue = inputRange.value
 
     displayDiv.innerHTML = `Under ${timeValue} Minutes`
+}
+
+function mediumFilterDiv(name) {
+    const filterDiv = document.getElementById(`${name}-filters`)
+    filterDiv.classList.add('btn-group')
+    filterDiv.classList.add('dropright')
+    filterDiv.removeChild(filterDiv.children[0])
+    const typeBtn = dropdownBtnTemplate.content.cloneNode(true)
+    const typeBtnEle = typeBtn.querySelector('.btn')
+    typeBtnEle.innerText = name
+    filterDiv.insertBefore(typeBtn, filterDiv.children[0])
+    const typeCheckboxDiv = document.getElementById(`collapse-${name}`)
+    typeCheckboxDiv.classList.remove('collapse')
+    typeCheckboxDiv.classList.remove('show')
+    typeCheckboxDiv.classList.add('dropdown-menu')
+    typeCheckboxDiv.classList.add('bg-light')
+}
+
+function largeFilterDiv(name) {
+    const typeDiv = document.getElementById(`${name}-filters`)
+    typeDiv.classList.remove('btn-group')
+    typeDiv.classList.remove('dropright')
+    typeDiv.removeChild(typeDiv.children[0])
+    const typeBtn = toggleBtnTemplate.content.cloneNode(true)
+    const typeBtnEle = typeBtn.querySelector('.btn')
+    typeBtnEle.innerText = name
+    typeBtnEle.setAttribute('data-target', `#collapse-${name}`)
+    typeDiv.insertBefore(typeBtn, typeDiv.children[0])
+    const typeCheckboxDiv = document.getElementById(`collapse-${name}`)
+    typeCheckboxDiv.classList.remove('dropdown-menu')
+    typeCheckboxDiv.classList.remove('bg-light')
+    typeCheckboxDiv.classList.add('collapse')
+    if (name === 'type')
+        typeCheckboxDiv.classList.add('show')
+}
+
+function changeSidebar(mq) {
+    if (mq.matches){
+        // screen size is smaller than 768px
+        mediumFilterDiv('type')
+        mediumFilterDiv('time')
+        mediumFilterDiv('allergies')
+        mediumFilterDiv('diet')
+    }
+    else {
+        largeFilterDiv('type')
+        largeFilterDiv('time')
+        largeFilterDiv('allergies')
+        largeFilterDiv('diet')
+    }
 }
 
 /**
@@ -40,7 +102,10 @@ function createRecipeCards(recipeData) {
 
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
-        recipeCard.classList.add('col-md-3')
+        recipeCard.classList.add('col-6')
+        recipeCard.classList.add('col-sm-4')
+        recipeCard.classList.add('col-lg-3')
+        recipeCard.style.marginBottom = "10px";
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
         
@@ -125,7 +190,7 @@ function bindButton() {
         for (const a of listedTypes) {
             // type checkboxes
             const cbType = document.getElementById('type-' + a)
-                // add to list
+            // add to list
             if (cbType.checked) {
                 type.push(a)
             } else {
@@ -136,11 +201,9 @@ function bindButton() {
                 }
             }
         }
-
         // time checkbox
         const inputRange = document.getElementById('time')
         timeMax = inputRange.value
-
         // treenut?
         const listedAllergies = ['lactose', 'egg', 'seafood', 'shellfish', 'peanut', 'wheat', 'soy', 'tree-nut']
         for (const a of listedAllergies) {
@@ -154,7 +217,6 @@ function bindButton() {
                 }
             }
         }
-
         // Diet need to be make sure that only one checkbox is checked at a time
         const cbDiets = document.getElementsByName('r-diet')
         for (let i = 0; i < cbDiets.length; i++) {
@@ -193,6 +255,9 @@ function init() {
     // eslint-disable-next-line no-console
 
     // Making div display time selected from slider
+    let smWindowSize = window.matchMedia('(max-width: 768px)')
+    changeSidebar(smWindowSize)
+    smWindowSize.addEventListener('change', () => changeSidebar(smWindowSize))
     document.getElementById('time').addEventListener('input', displayTime)
     if (sessionStorage.length < 3) {
         getDefaultRecipes()
