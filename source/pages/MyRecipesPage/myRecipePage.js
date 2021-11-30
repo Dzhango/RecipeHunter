@@ -262,34 +262,40 @@ function createRecipeCards (recipeData) {
 }
 
    function addRecipeURL(URL) {
-        console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
+        // console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
     //make api call to spoonacular
-    fetch(`https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`)
-    .then((response) => {
-        //converting file to json format
-        return response.json()
-    }).then((recipeData) => {
-        //insert data into recipe array and repopulate local storage
-        const localStorage = window.localStorage
-        let inList = false
-        recipeData.id = hashing(recipeData.title)
-        console.log(recipeData.id)
-        //if there isnt a duplicate recipe, add it to myRecipe;
-        if (localStorage.getItem(recipeData.id) != null) {
-            console.log("DUPLICATE RECIPE")
-        } else {
-            localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
-            //repopulate myrecipepage
-            populateMyRecipe();
-            resolve(true);
-        }
-        // if(Object.keys(recipes).length == N){resolve(true);}
-    })
+      
+      fetch(`https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`)
+      .then((response) => {
+          //converting file to json format
+          return response.json()
+      }).then((recipeData) => {
+          //insert data into recipe array and repopulate local storage
+          const localStorage = window.localStorage
+          let inList = false
+          recipeData.id = hashing(recipeData.title)
+          console.log(recipeData.id)
+          //if there isnt a duplicate recipe, add it to myRecipe;
+          if (localStorage.getItem(recipeData.id) != null) {
+              console.log("DUPLICATE RECIPE")
+          } else {
+              localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
+              //repopulate myrecipepage
+              populateMyRecipe();
+              // resolve(true);
+          }
+          // if(Object.keys(recipes).length == N){resolve(true);}
+    }).catch( error => alert("Invalid Recipe URL Please Try Again") )
+  // }catch(error){
+  //       console.log(error)
+  //       alert("invalid URL");
+  // }
+
     // .catch((error) => {
     //     reject(false);
     //     alert("invalid URl");
     // })
-     document.querySelector('.addPage').classList.add('hide');
+    document.querySelector('.addPage').classList.add('hide');
     document.querySelector('.recipes-container').classList.remove('hide');
 }
 function hashing(string) {
