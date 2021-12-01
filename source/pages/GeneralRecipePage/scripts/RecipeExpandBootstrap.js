@@ -204,17 +204,23 @@ class RecipeExpand extends HTMLElement {
   
       // fetch recipe ingredient and nutrition info
       let recipeInfo
-      fetch(`https://api.spoonacular.com/recipes/${data.id}/information?apiKey=99a52ef738514021ab33c7e15116c1ca&includeNutrition=true`).then((response) => {
+      fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${data.id}/information?&includeNutrition=true`, {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+          "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+        }
+      })
+      .then((response) => {
         return response.json()
       }).then((data) => {
         recipeInfo = data
         console.log(recipeInfo)
-  
         // set calories
         // TODO: no calorie
         // const calories = Math.floor(recipeInfo.nutrition.nutrients[0].amount / servings)
         // this.shadowRoot.getElementById('cals').innerHTML = calories
-  
+
         // set ingredient list
         const ingredientsList = this.shadowRoot.querySelector('ul.ingredients-list')
         for (const item of recipeInfo.extendedIngredients) {
@@ -226,12 +232,23 @@ class RecipeExpand extends HTMLElement {
   
       // set necessary equipment
       // TODO: no equipments
-      const equipmentSet = new Set()
-      const recipeSteps = data.analyzedInstructions[0].steps
-      for (let i = 0; i < recipeSteps.length; i++) {
-        const equipmentArr = recipeSteps[i].equipment
-        for (let j = 0; j < equipmentArr.length; j++) {
-          equipmentSet.add(equipmentArr[j].name)
+      if (data.analyzedInstructions[0] !== undefined) {
+        const equipmentSet = new Set()
+        const recipeSteps = data.analyzedInstructions[0].steps
+        for (let i = 0; i < recipeSteps.length; i++) {
+          const equipmentArr = recipeSteps[i].equipment
+          for (let j = 0; j < equipmentArr.length; j++) {
+            equipmentSet.add(equipmentArr[j].name)
+          }
+        }
+
+        // set directions list
+        const directions = data.analyzedInstructions[0].steps
+        const directionsList = this.shadowRoot.querySelector('ul.directions-list')
+        for (let i = 0; i < directions.length; i++) {
+          const dir = document.createElement('li')
+          dir.innerHTML = directions[i].step
+          directionsList.appendChild(dir)
         }
       }
 
@@ -245,15 +262,6 @@ class RecipeExpand extends HTMLElement {
     //     }
     //     count++
     //   }
-  
-      // set directions list
-      const directions = data.analyzedInstructions[0].steps
-      const directionsList = this.shadowRoot.querySelector('ul.directions-list')
-      for (let i = 0; i < directions.length; i++) {
-        const dir = document.createElement('li')
-        dir.innerHTML = directions[i].step
-        directionsList.appendChild(dir)
-      }
   
       const favoriteButton = this.shadowRoot.querySelector('.add-to-myrecipes')
       if (window.localStorage.getItem(data.id) != null) {
