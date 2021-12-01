@@ -177,9 +177,9 @@ function findRecipes () {
     }).then(() => {
       sleep(1000)
       if (window.location.origin === 'https://focused-lewin-0ee25c.netlify.app') {
-        window.location.href = "/pages/GeneralRecipePage/recipePageBootstrap.html";
+        window.location.href = "/pages/MainPage/mainPageBootstrap.html";
       } else {
-        window.location.href = "/source/pages/GeneralRecipePage/recipePageBootstrap.html";
+        window.location.href = "/source/pages/MainPage/mainPageBootstrap.html";
       }
     })
   })
