@@ -144,23 +144,41 @@ function findRecipes () {
       ingredients += ',+'
     }
   }
-  fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}
-  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&apiKey=499635639e0248f99f4e582775705f64`).then((response) => {
+  fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredients}
+  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+    }
+  }).then((response) => {
     return response.json()
   }).then((data) => {
     console.log(data)
-    for (const rcp of data) {
-      foundRcps.push(rcp)
+    const recipe = []
+    for (const r in data) {
+      console.log(data[r].id)
+      recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information')
     }
-    // console.log(recipe.id)
-    foundRcps.forEach(recipe => {
-      sessionStorage.setItem(recipe.id, JSON.stringify(recipe))
-      console.log(sessionStorage.getItem(recipe.id))
+    const recipePromises = recipe.map((url) =>
+      fetch(url, {
+        'method': 'GET',
+        'headers': {
+          'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+          'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
+        }
+      }).then((response) => response.json())
+    )
+
+    Promise.all(recipePromises).then((data) => {
+      for (const d in data) {
+        sessionStorage.setItem(data[d].id, JSON.stringify(data[d]))
+      }
+    }).then(() => {
+      sleep(1000)
+      window.location.href = '/source/pages/MainPage/mainPageBootstrap.html'
     })
-    // sessionStorage.setItem('foundRcps', JSON.stringify(foundRcps))
   })
-  sleep(1000)
-  window.location.href = '../MainPage/mainPageBootstrap.html'
 }
 
 function sleep (milliseconds) {

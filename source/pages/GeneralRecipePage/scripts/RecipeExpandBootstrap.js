@@ -226,12 +226,23 @@ class RecipeExpand extends HTMLElement {
   
       // set necessary equipment
       // TODO: no equipments
-      const equipmentSet = new Set()
-      const recipeSteps = data.analyzedInstructions[0].steps
-      for (let i = 0; i < recipeSteps.length; i++) {
-        const equipmentArr = recipeSteps[i].equipment
-        for (let j = 0; j < equipmentArr.length; j++) {
-          equipmentSet.add(equipmentArr[j].name)
+      if (data.analyzedInstructions[0] !== undefined) {
+        const equipmentSet = new Set()
+        const recipeSteps = data.analyzedInstructions[0].steps
+        for (let i = 0; i < recipeSteps.length; i++) {
+          const equipmentArr = recipeSteps[i].equipment
+          for (let j = 0; j < equipmentArr.length; j++) {
+            equipmentSet.add(equipmentArr[j].name)
+          }
+        }
+
+        // set directions list
+        const directions = data.analyzedInstructions[0].steps
+        const directionsList = this.shadowRoot.querySelector('ul.directions-list')
+        for (let i = 0; i < directions.length; i++) {
+          const dir = document.createElement('li')
+          dir.innerHTML = directions[i].step
+          directionsList.appendChild(dir)
         }
       }
 
@@ -245,15 +256,6 @@ class RecipeExpand extends HTMLElement {
     //     }
     //     count++
     //   }
-  
-      // set directions list
-      const directions = data.analyzedInstructions[0].steps
-      const directionsList = this.shadowRoot.querySelector('ul.directions-list')
-      for (let i = 0; i < directions.length; i++) {
-        const dir = document.createElement('li')
-        dir.innerHTML = directions[i].step
-        directionsList.appendChild(dir)
-      }
   
       const favoriteButton = this.shadowRoot.querySelector('.add-to-myrecipes')
       if (window.localStorage.getItem(data.id) != null) {
