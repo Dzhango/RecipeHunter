@@ -255,75 +255,104 @@ function createRecipeCards (recipeData) {
 // }
 
 // Code for adding recipe by URL Buttons
- function addButtonOnClick(){
-    //  alert('clicked')
-    document.querySelector('.addPage').classList.remove('hide');
-    document.querySelector('.recipes-container').classList.add('hide');
+function addButtonOnClick () {
+  // alert('clicked')
+  // document.querySelector('.addPage').classList.remove('hide')
+  document.querySelector('.recipes-container').classList.add('hide')
 }
 
-   function addRecipeURL(URL) {
-        // console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
-    //make api call to spoonacular
-      
-      fetch(`https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`)
-      .then((response) => {
-          //converting file to json format
-          return response.json()
-      }).then((recipeData) => {
-          //insert data into recipe array and repopulate local storage
-          const localStorage = window.localStorage
-          let inList = false
-          recipeData.id = hashing(recipeData.title)
-          console.log(recipeData.id)
-          //if there isnt a duplicate recipe, add it to myRecipe;
-          if (localStorage.getItem(recipeData.id) != null) {
-              console.log("DUPLICATE RECIPE")
-          } else {
-              localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
-              //repopulate myrecipepage
-              populateMyRecipe();
-              // resolve(true);
-          }
-          // if(Object.keys(recipes).length == N){resolve(true);}
-    }).catch( error => alert("Invalid Recipe URL Please Try Again") )
+function addRecipeURL (URL) {
+  // console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
+  // make api call to spoonacular
+  fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/extract?url=https%3A%2F%2Fwww.allrecipes.com%2Frecipe%2F21014%2Fgood-old-fashioned-pancakes%2F", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+		"x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+	}
+})
+  // .then(response => {
+  // 	console.log(response);
+  // })
+  // .catch(err => {
+  // 	console.error(err);
+  // });
+  // fetch(`https://api.spoonacular.com/recipes/extract?apiKey=c162770ae04a41fbb00c4029015c9000&url=${URL}`)
+  // fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/extract?url=${URL}`, {
+  //   "method": "GET",
+  //   "headers": {
+  //     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  //     "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+  //   }
+  // })
+    .then((response) => {
+      // converting file to json format
+      return response.json()
+    }).then((recipeData) => {
+      // insert data into recipe array and repopulate local storage
+      const localStorage = window.localStorage
+      let inList = false
+      recipeData.id = hashing(recipeData.title)
+      console.log(recipeData.id)
+      // if there isnt a duplicate recipe, add it to myRecipe;
+      if (localStorage.getItem(recipeData.id) != null) {
+        console.log("DUPLICATE RECIPE")
+      } else {
+        localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
+        // repopulate myrecipepage
+        populateMyRecipe()
+        // resolve(true);
+      }
+      // if(Object.keys(recipes).length == N){resolve(true);}
+    })
+    .catch(error => {
+      window.alert('Invalid Recipe URL Please Try Again')
+      window.alert(error.name + ' ' + error.message)
+      window.alert(`https://api.spoonacular.com/recipes/extract?apiKey=c162770ae04a41fbb00c4029015c9000&url=${URL}`)
+    })
   // }catch(error){
   //       console.log(error)
   //       alert("invalid URL");
   // }
 
-    // .catch((error) => {
-    //     reject(false);
-    //     alert("invalid URl");
-    // })
-    document.querySelector('.addPage').classList.add('hide');
-    document.querySelector('.recipes-container').classList.remove('hide');
+  // .catch((error) => {
+  //     reject(false);
+  //     alert("invalid URl");
+  // })
+  // document.querySelector('.addPage').classList.add('hide')
+  document.querySelector('.recipes-container').classList.remove('hide')
 }
-function hashing(string) {
-    //set variable hash as 0
-    var hash = 0;
-    // if the length of the string is 0, return 0
-    if (string.length == 0) return hash;
-    for (i = 0; i < string.length; i++) {
-        ch = string.charCodeAt(i);
-        hash = ((hash << 5) - hash) + ch;
-        hash = hash & hash;
-    }
-    return hash;
+/**
+ * return the hashed string
+ * @param {string} string to hash
+ * @returns the hashed value of the string
+ */
+function hashing (string) {
+  // set variable hash as 0
+  let hash = 0
+  // if the length of the string is 0, return 0
+  if (string.length === 0) return hash
+  for (let i = 0; i < string.length; i++) {
+    const ch = string.charCodeAt(i)
+    hash = ((hash << 5) - hash) + ch
+    hash = hash & hash
+  }
+  return hash
+}
 
+function addPageSubmitOnClick () {
+  const URL = document.querySelector('.addPageText').value
+  console.log(URL)
+  addRecipeURL(URL)
+  document.querySelector('.addPageText').value = ''
 }
-function addPageSubmitOnClick(){
-    let URL = document.querySelector('.addPageText').value;
-    console.log(URL);
 
-    addRecipeURL(URL)
-     document.querySelector('.addPageText').value ="";
+// function addPageCloseOnClick () {
+//   document.querySelector('.addPageText').value = ''
+//   document.querySelector('.addPage').classList.add('hide')
+//   document.querySelector('.recipes-container').classList.remove('hide')
+// }
 
-}
-function addPageCloseOnClick(){
-    document.querySelector('.addPageText').value ="";
-    document.querySelector('.addPage').classList.add('hide');
-    document.querySelector('.recipes-container').classList.remove('hide');
-}
 // initiate the sandbox
 async function init () {
   // clear so that each run is clear
@@ -345,7 +374,7 @@ async function init () {
   // }
   populateMyRecipe()
 
-  console.log('GREY TEST' + document.querySelector('recipe-card'))
+  // console.log('GREY TEST' + document.querySelector('recipe-card'))
 
   // document.querySelector('recipe-card').shadowRoot.querySelector('.recipe-card').classList.add("grey")
   // document.querySelector('recipe-card').shadowRoot.querySelector('.recipe-card').classList.remove("grey")
@@ -369,11 +398,11 @@ async function init () {
     selected = false
     bindRecipeCards()
   })
-  //Code for adding recipe by URL:
-  document.querySelector('.add-button').addEventListener('click', ()=>{addButtonOnClick()})
 
-    document.querySelector('.addPageSubmit').addEventListener('click', ()=>{addPageSubmitOnClick()})
-    document.querySelector('.addPageClose').addEventListener('click', ()=>{addPageCloseOnClick()})
+  // Code for adding recipe by URL:
+  document.querySelector('.add-button').addEventListener('click', () => { addButtonOnClick() })
+  document.querySelector('.addPageSubmit').addEventListener('click', () => { addPageSubmitOnClick() })
+  // document.querySelector('.addPageClose').addEventListener('click', () => {addPageCloseOnClick()})
 
   //     //Code for adding myRecipePage event listener to each recipe card
   // let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
