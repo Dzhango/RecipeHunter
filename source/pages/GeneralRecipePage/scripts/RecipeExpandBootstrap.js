@@ -204,17 +204,23 @@ class RecipeExpand extends HTMLElement {
   
       // fetch recipe ingredient and nutrition info
       let recipeInfo
-      fetch(`https://api.spoonacular.com/recipes/${data.id}/information?apiKey=99a52ef738514021ab33c7e15116c1ca&includeNutrition=true`).then((response) => {
+      fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${data.id}/information?&includeNutrition=true`, {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+          "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+        }
+      })
+      .then((response) => {
         return response.json()
       }).then((data) => {
         recipeInfo = data
         console.log(recipeInfo)
-  
         // set calories
         // TODO: no calorie
         // const calories = Math.floor(recipeInfo.nutrition.nutrients[0].amount / servings)
         // this.shadowRoot.getElementById('cals').innerHTML = calories
-  
+
         // set ingredient list
         const ingredientsList = this.shadowRoot.querySelector('ul.ingredients-list')
         for (const item of recipeInfo.extendedIngredients) {
