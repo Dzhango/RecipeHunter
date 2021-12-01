@@ -260,7 +260,6 @@ function addButtonOnClick () {
   // document.querySelector('.addPage').classList.remove('hide')
   document.querySelector('.recipes-container').classList.add('hide')
 }
-
 function addRecipeURL (URL) {
   // console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
   // make api call to spoonacular
@@ -310,18 +309,7 @@ function addRecipeURL (URL) {
       window.alert(error.name + ' ' + error.message)
       window.alert(`https://api.spoonacular.com/recipes/extract?apiKey=c162770ae04a41fbb00c4029015c9000&url=${URL}`)
     })
-  // }catch(error){
-  //       console.log(error)
-  //       alert("invalid URL");
-  // }
 
-  // .catch((error) => {
-  //     reject(false);
-  //     alert("invalid URl");
-  // })
-  // document.querySelector('.addPage').classList.add('hide')
-  document.querySelector('.recipes-container').classList.remove('hide')
-}
 /**
  * return the hashed string
  * @param {string} string to hash

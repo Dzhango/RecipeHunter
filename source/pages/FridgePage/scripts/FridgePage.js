@@ -21,7 +21,13 @@ async function init () {
 }
 
 function autocompleteIgd (inputValue) {
-  fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${inputValue}&number=10&apiKey=dc78a83ae8644578a0d98c3c8b6d5796`)
+  fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=" + inputValue + "&number=10", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+    }
+  })
     .then(response => response.json())
     .then(data => createIgdCard(data))
 }
@@ -136,7 +142,6 @@ function removeFilter () {
 
 function findRecipes () {
   sessionStorage.clear()
-  const foundRcps = []
   let ingredients = ''
   for (let i = 0; i < selectedIngredients.length; i++) {
     ingredients += selectedIngredients[i]
