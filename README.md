@@ -41,7 +41,7 @@
     <a href="https://github.com/Dzhango/cse-110-team-6/tree/main/specs"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://focused-lewin-0ee25c.netlify.app/pages/mainpage/mainpage">View Demo</a>
+    <a href="https://productive-racoons.netlify.app/pages/mainpage/mainpagebootstrap">View Demo</a>
     ·
     <a href="https://github.com/Dzhango/cse-110-team-6/issues">Report Bug</a>
     ·
