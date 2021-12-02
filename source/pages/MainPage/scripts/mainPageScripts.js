@@ -3,11 +3,11 @@ const MAX_RECIPE_TIME = 100
 // create lists of types checked
 // the types of recipes input: breakfast, lunch, main course, snack
 let type = []
-// maximum cooking time
+    // maximum cooking time
 let timeMax = MAX_RECIPE_TIME
-// a list of allergies / intolerance
+    // a list of allergies / intolerance
 let allergies = []
-// the name of diet: there can only be one diet choosen.
+    // the name of diet: there can only be one diet choosen.
 let diet = ''
 let searchText = ''
 
@@ -65,24 +65,22 @@ function largeFilterDiv(name) {
     typeCheckboxDiv.classList.remove('dropdown-menu')
     typeCheckboxDiv.classList.remove('bg-light')
     typeCheckboxDiv.classList.add('collapse')
-    if (name === 'type'){
+    if (name === 'type') {
         typeCheckboxDiv.classList.add('show')
         typeBtnEle.setAttribute('aria-expanded', 'true')
-    }
-    else {
+    } else {
         typeBtnEle.setAttribute('aria-expanded', 'false')
     }
 }
 
 function changeSidebar(mq) {
-    if (mq.matches){
+    if (mq.matches) {
         // screen size is smaller than 768px
         mediumFilterDiv('type')
         mediumFilterDiv('time')
         mediumFilterDiv('allergies')
         mediumFilterDiv('diet')
-    }
-    else {
+    } else {
         largeFilterDiv('type')
         largeFilterDiv('time')
         largeFilterDiv('allergies')
@@ -92,7 +90,6 @@ function changeSidebar(mq) {
 
 /**
  * Alters the recipe cards on the main page to display the recipes retrieved by search
- * @param {Object} recipeData the object containing JSON recipe data
  */
 function createRecipeCards(recipeData) {
     // clear loaded recipe cards
@@ -113,7 +110,7 @@ function createRecipeCards(recipeData) {
         recipeCard.style.marginBottom = "10px";
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
-        
+
         recipeCard.shadowRoot.querySelector('.recipe-title').innerText = recipeData[i].title
         recipeCard.shadowRoot.querySelector('.card-img-top').setAttribute('src', recipeData[i].image)
     }
@@ -121,7 +118,6 @@ function createRecipeCards(recipeData) {
 
 /**
  * Store a list of recipes into the session storage
- * @param {A list of json object} recipeData is a list of json object, each is a recipe
  */
 function storeToSessionStorage(recipeData) {
     sessionStorage.clear()
@@ -150,20 +146,20 @@ function populateFromSession() {
  */
 function getDefaultRecipes() {
     fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?instructionsRequired=true&addRecipeInformation=true", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
-        }
-    })
-    .then((response) => {
-        return response.json()
-    }).then((data) => {
-        const recipeData = data.results
-        createRecipeCards(recipeData)
-        bindRecipes()
-        storeToSessionStorage(recipeData)
-    })
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+            }
+        })
+        .then((response) => {
+            return response.json()
+        }).then((data) => {
+            const recipeData = data.results
+            createRecipeCards(recipeData)
+            bindRecipes()
+            storeToSessionStorage(recipeData)
+        })
 }
 
 /**
@@ -171,35 +167,35 @@ function getDefaultRecipes() {
  * and filter input
  * @param {String} query the string specify filter and search information
  */
-function fetchCall (query) {
+function fetchCall(query) {
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?${query}&instructionsRequired=true&addRecipeInformation=true`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
-        }
-    })
-    .then((response) => {
-        return response.json()
-    }).then((data) => {
-        const recipeData = data.results
-        createRecipeCards(recipeData)
-        bindRecipes()
-        storeToSessionStorage(recipeData)
-    })
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+            }
+        })
+        .then((response) => {
+            return response.json()
+        }).then((data) => {
+            const recipeData = data.results
+            createRecipeCards(recipeData)
+            bindRecipes()
+            storeToSessionStorage(recipeData)
+        })
 }
 
 /**
  * Get filter and search information from input and call fetchCall function
  * to retrieve recipe.
  */
-function bindButton () {
+function bindButton() {
     const SearchButton = document.querySelector('.search-button')
     const FilterButton = document.querySelector('.filters-button')
     SearchButton.addEventListener('click', filterRecipes)
     FilterButton.addEventListener('click', filterRecipes)
 
-    function filterRecipes (event) {
+    function filterRecipes(event) {
         type = []
         timeMax = MAX_RECIPE_TIME
         allergies = []
@@ -213,7 +209,7 @@ function bindButton () {
         for (const a of listedTypes) {
             // type checkboxes
             const cbType = document.getElementById('type-' + a)
-            // add to list
+                // add to list
             if (cbType.checked) {
                 type.push(a)
             } else {
@@ -227,7 +223,7 @@ function bindButton () {
         // time checkbox
         const inputRange = document.getElementById('time')
         timeMax = inputRange.value
-        // treenut?
+            // treenut?
         const listedAllergies = ['lactose', 'egg', 'seafood', 'shellfish', 'peanut', 'wheat', 'soy', 'tree-nut']
         for (const a of listedAllergies) {
             const cbAllergies = document.getElementById('allergies-' + a)
@@ -261,7 +257,7 @@ function bindButton () {
 /**
  * Bind recipe card to general recipe page
  */
-function bindRecipes () {
+function bindRecipes() {
     // Add event listener to each recipe card
     let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
     for (let i = 0; i < recipeCardList.length; i++) {
@@ -277,7 +273,7 @@ function bindRecipes () {
     }
 }
 
-function init () {
+function init() {
     // eslint-disable-next-line no-console
 
     // Making div display time selected from slider
