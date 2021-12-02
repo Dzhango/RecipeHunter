@@ -10,9 +10,6 @@ class RecipeExpand extends HTMLElement {
     // style for article
     // same as recipepage.css, so should we even use a shadow DOM?
     styles.innerHTML = `
-    ul {
-        list-style-type: none;
-    }
     `
   
       // skeleton code for recipe that will be filled in
@@ -68,8 +65,8 @@ class RecipeExpand extends HTMLElement {
           Directions
         </h2>
 
-        <ul class = "mt-3 directions-list">
-        </ul>
+        <ol class = "mt-3 directions-list">
+        </ol>
       </div>
     </div>
     `
@@ -111,6 +108,7 @@ class RecipeExpand extends HTMLElement {
             <p id="time"></p>
 
             <div class = "row recipe-tags">
+              <p id='summary' class='mt-4'></p>
             </div>
           </div>
 
@@ -137,8 +135,8 @@ class RecipeExpand extends HTMLElement {
           Directions
         </h2>
 
-        <ul class = "mt-3 directions-list">
-        </ul>
+        <ol class = "mt-3 directions-list">
+        </ol>
       </div>
     </div>
           `
@@ -193,10 +191,15 @@ class RecipeExpand extends HTMLElement {
       // iterate over 'diets' and 'dishTypes' to set tags
   
       // set description
-      /*
-      const description = data.summary // need to find this
-      this.shadowRoot.getElementById('summary').innerHTML = description
-      */
+      if (data.summary !== null) {
+        const description = data.summary // need to find this
+        const descriptionList = description.split('.')
+        let conciseDescription = ''
+        for (let i = 0; i < 4; i++) {
+          conciseDescription = conciseDescription + descriptionList[i]
+        }
+        this.shadowRoot.getElementById('summary').innerHTML = conciseDescription
+      }
   
       // set serving size
       // TODO: no serving on the page
@@ -229,8 +232,23 @@ class RecipeExpand extends HTMLElement {
           ingred.innerHTML = item.originalString
           ingredientsList.appendChild(ingred)
         }
+      }).catch((error) => {
+        console.error(error.name + ' ' + error.message)
+        console.log('can not find recipe instructions by id, try to see if the data itself contain it')
       })
   
+      // set ingredient list
+      if (data.extendedIngredients !== undefined) {
+        const ingredientsList = this.shadowRoot.querySelector('ul.ingredients-list')
+        for (const item of data.extendedIngredients) {
+          const ingred = document.createElement('li')
+          ingred.innerHTML = item.originalString
+          ingredientsList.appendChild(ingred)
+        }
+      } else {
+        console.log('recipe itself does not contain ingredients list')
+      }
+
       // set necessary equipment
       // TODO: no equipments
       if (data.analyzedInstructions[0] !== undefined) {
@@ -245,7 +263,7 @@ class RecipeExpand extends HTMLElement {
 
         // set directions list
         const directions = data.analyzedInstructions[0].steps
-        const directionsList = this.shadowRoot.querySelector('ul.directions-list')
+        const directionsList = this.shadowRoot.querySelector('ol.directions-list')
         for (let i = 0; i < directions.length; i++) {
           const dir = document.createElement('li')
           dir.innerHTML = directions[i].step

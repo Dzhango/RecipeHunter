@@ -145,7 +145,7 @@ function populateFromSession() {
  * Makes an API call to retrieve JSON recipe data
  */
 function getDefaultRecipes() {
-    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?instructionsRequired=true&addRecipeInformation=true", {
+    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?instructionsRequired=true&addRecipeInformation=true&addRecipeNutrition=true", {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -168,7 +168,7 @@ function getDefaultRecipes() {
  * @param {String} query the string specify filter and search information
  */
 function fetchCall(query) {
-    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?${query}&instructionsRequired=true&addRecipeInformation=true`, {
+    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?${query}&instructionsRequired=true&addRecipeInformation=true&addRecipeNutrition=true`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",

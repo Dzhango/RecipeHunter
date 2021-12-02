@@ -150,7 +150,7 @@ function findRecipes () {
     }
   }
   fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredients}
-  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true`, {
+  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&addRecipeNutrition=true`, {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -163,7 +163,7 @@ function findRecipes () {
     const recipe = []
     for (const r in data) {
       console.log(data[r].id)
-      recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information')
+      recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information?addRecipeNutrition=true')
     }
     const recipePromises = recipe.map((url) =>
       fetch(url, {
