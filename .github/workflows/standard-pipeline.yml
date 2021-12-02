@@ -29,15 +29,14 @@ jobs:
                   DEFAULT_BRANCH: main
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 
-    run-tests:
+    run-jest-tests:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2
               with:
                   node-version: "14"
+            - name: Lighthouse CI Action
+            - uses: treosh/lighthouse-ci-action@v8
             - run: npm install jest
             - run: npm test
-            - name: Lighthouse CI Action
-              uses: treosh/lighthouse-ci-action@v8
-
