@@ -13,11 +13,11 @@ jobs:
                   recurse: true
                   template: minami
                   output_dir: ./specs/documentation
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@4.1.7
               with:
-                  deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-                  publish_dir: ./specs/documentation
+                  branch: main # The branch the action should deploy to.
+                  folder: ./specs/documentation # The folder the action should deploy.
     lint-code-base:
         # Set the agent to run on
         runs-on: ubuntu-latest
