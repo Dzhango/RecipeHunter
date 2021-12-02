@@ -16,163 +16,36 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- Quick styling -->
-  <style> 
-    ul {
-      list-style-type: none;
-    }
-  </style>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="scripts\recipePageScriptBootstrap.js"></script>
   <script src='scripts\RecipeExpandBootstrap.js'></script>
 
 </head>
 
 <body>
-  <main class="w-100 overflow-hidden">
-    <div class="row">
-      <!-- MAIN SECTION -->
-      <div class = "col ps-0 main-div">
-        <!-- HEADER section-->
-        <header>
-          <!-- MAIN navbar -->
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-              <a class="navbar-brand" href="#">LOGO</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <!-- <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home pe-1"></i> Home</a>
-                  </li>
-                  <li class="nav-item pe-3">
-                    <a class="nav-link" href="#">My Fridge</a>
-                  </li>
-                  <li class="nav-item pe-3">
-                    <a class="nav-link" href="#">My Recipes</a>
-                  </li>
-                  <li class = "nav-item">
-                    <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form> 
-                  </li> -->
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../MainPage/mainPageBootstrap.html"><i class="fas fa-home pe-1"></i> Home</a>
-                  </li>
-                  <li class="nav-item pe-3">
-                      <a class="nav-link" href="../FridgePage/FridgePage.html">My Fridge</a>
-                  </li>
-                  <li class="nav-item pe-3">
-                      <a class="nav-link" href="../MyRecipesPage/myRecipePageBootstrap.html">My Recipes</a>
-                  </li>
-                  <li class="nav-item">
-                      <form class="d-flex">
-                          <input class="form-control me-2 search-bar" type="text" placeholder="Search" aria-label="Search">
-                          <button class="btn btn-outline-success search-button" type="submit">Search</button>
-                      </form>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>  
-        </header>
-        
-        <!-- MAIN SECTION -->
-        <!-- top -->
-        <!--
-        <div class = "row mt-4 px-4">
-          <div class = "col-5">
-              <img src = "https://yournorthcounty.com/wp-content/uploads/2017/07/acai-bowls-san-diego-north-county.jpg" class = "img-fluid rounded" style = "height:auto; width:100%;">
-          </div>
-
-          <div class = "col-7 bg-light p-4">
-            <div class = "row">
-              <div class = "col-3">
-                <button class = "btn btn-warning rounded-pill">Back to Search</button>
-              </div>
-
-              <div class = "col-6 text-center">
-                <h1>Acai Bowl Recipe</h1>
-                <p>Prep time: 5 min Cook time: 5 min</p>
-
-                <div class = "row">
-                  <div class = "col-3">
-                    <button class = "btn btn-primary rounded-pill">
-                      Breakfast
-                    </button>
-                  </div>
-
-                  <div class = "col-3">
-                    <button class = "btn btn-success rounded-pill">
-                      dairy
-                    </button>
-                  </div>
-
-                  <div class = "col-3">
-                    <button class = "btn btn-warning rounded-pill">
-                      gluten
-                    </button>
-                  </div>
-
-                  <div class = "col-3">
-                    <button class = "btn btn-info rounded-pill">
-                      nuts
-                    </button>
-                  </div>
-
-                  <p class = "mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, accusamus libero, ex dicta magnam, eveniet quisquam nam quos temporibus minima praesentium! Tempora animi ducimus, dolor veniam adipisci deserunt molestias vel.</p>
-
-                </div>
-              </div>
-
-              <div class = "col-3">
-                <button class = "btn btn-success rounded-pill float-end">Add to Recipe</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      -->
-      
-        <!-- bottom -->
-        <!--
-        <div class = "row mt-4 ms-4">
-          <div class = "col-5">
-            <h2>
-              Ingredients
-            </h2>
-
-            <ul class = "mt-3">
-              <li>1 cup frozen acai puree, slightly thawed</li>
-              <li>1 banana</li>
-              <li>1/4 cup pineapple</li>
-              <li>1 cup frozen mixed berries</li>
-              <li>1/4 cup plain low fat greek yogurt</li>
-              <li>1/4 cup almond milk</li>
-            </ul>
-          </div>
-
-          <div class = "col-7" >
-            <h2>
-              Directions
-            </h2>
-
-            <ul class = "mt-3">
-              <li>1 cup frozen acai puree, slightly thawed</li>
-              <li>1 banana</li>
-              <li>1/4 cup pineapple</li>
-              <li>1 cup frozen mixed berries</li>
-              <li>1/4 cup plain low fat greek yogurt</li>
-              <li>1/4 cup almond milk</li>
-            </ul>
-          </div>
-        </div>
-      -->
-
+  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <a class="d-flex align-items-center text-center mr-2">
+      <img src="../../assets/images/PierreCook.png" alt="logo" width="36" height="36"
+        class="text-center mx-auto d-inline-block align-top rounded-circle">
+    </a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsenav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsenav">
+      <div class="navbar-nav">
+        <a href="../MainPage/mainPageBootstrap.html" class="nav-item nav-link active" style="padding-right: 0;">Home</a>
+        <a href="../FridgePage/FridgePage.html" class="nav-item nav-link" style="padding-right: 0;">Fridge</a>
+        <a href="../MyRecipesPage/myRecipePageBootstrap.html" class="nav-item nav-link" style="padding-right: 0;">My
+          Recipe</a>
       </div>
-      
+    </div>
+  </nav>
+  <main class="w-100 overflow-hidden" style="margin-top: 56px;">
+    <div class="row" style="margin: 0;">
+      <!-- MAIN SECTION -->
+      <div class="col ps-0 main-div" style="padding: 0;">
+      </div>
     </div>
   </main>
 
