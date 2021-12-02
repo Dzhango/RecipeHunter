@@ -119,6 +119,10 @@ function createRecipeCards(recipeData) {
     }
 }
 
+/**
+ * Store a list of recipes into the session storage
+ * @param {A list of json object} recipeData is a list of json object, each is a recipe
+ */
 function storeToSessionStorage(recipeData) {
     sessionStorage.clear()
     for (let i = 0; i < recipeData.length; i++) {
@@ -145,7 +149,14 @@ function populateFromSession() {
  * Makes an API call to retrieve JSON recipe data
  */
 function getDefaultRecipes() {
-    fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=99a52ef738514021ab33c7e15116c1ca&instructionsRequired=true&addRecipeInformation=true').then((response) => {
+    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?instructionsRequired=true&addRecipeInformation=true", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+        }
+    })
+    .then((response) => {
         return response.json()
     }).then((data) => {
         const recipeData = data.results
@@ -160,8 +171,15 @@ function getDefaultRecipes() {
  * and filter input
  * @param {String} query the string specify filter and search information
  */
-function fetchCall(query) {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=99a52ef738514021ab33c7e15116c1ca&${query}&instructionsRequired=true&addRecipeInformation=true`).then((response) => {
+function fetchCall (query) {
+    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?${query}&instructionsRequired=true&addRecipeInformation=true`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+        }
+    })
+    .then((response) => {
         return response.json()
     }).then((data) => {
         const recipeData = data.results
@@ -175,13 +193,13 @@ function fetchCall(query) {
  * Get filter and search information from input and call fetchCall function
  * to retrieve recipe.
  */
-function bindButton() {
+function bindButton () {
     const SearchButton = document.querySelector('.search-button')
     const FilterButton = document.querySelector('.filters-button')
     SearchButton.addEventListener('click', filterRecipes)
     FilterButton.addEventListener('click', filterRecipes)
 
-    function filterRecipes(event) {
+    function filterRecipes (event) {
         type = []
         timeMax = MAX_RECIPE_TIME
         allergies = []
@@ -240,7 +258,10 @@ function bindButton() {
     }
 }
 
-function bindRecipes() {
+/**
+ * Bind recipe card to general recipe page
+ */
+function bindRecipes () {
     // Add event listener to each recipe card
     let recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
     for (let i = 0; i < recipeCardList.length; i++) {
@@ -256,7 +277,7 @@ function bindRecipes() {
     }
 }
 
-function init() {
+function init () {
     // eslint-disable-next-line no-console
 
     // Making div display time selected from slider
