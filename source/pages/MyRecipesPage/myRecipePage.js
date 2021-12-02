@@ -174,13 +174,14 @@ function addRecipeURL (URL) {
   //   }
   // })
   const fetchUrl = `https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`
-  fetch(fetchUrl, {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
-    }
-  })
+  // fetch(fetchUrl, {
+  //   "method": "GET",
+  //   "headers": {
+  //     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  //     "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+  //   }
+  //   })
+  fetch(fetchUrl)
     .then((response) => {
       // converting file to json format
       console.log(`https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`)
