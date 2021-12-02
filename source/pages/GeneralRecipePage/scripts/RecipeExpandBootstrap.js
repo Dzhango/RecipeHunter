@@ -97,25 +97,24 @@ class RecipeExpand extends HTMLElement {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <div class = "row mt-4 px-4">
       <div class = "col-5">
-          <img class = "photo" src = "https://yournorthcounty.com/wp-content/uploads/2017/07/acai-bowls-san-diego-north-county.jpg" class = "img-fluid rounded" style = "height:auto; width:100%;">
+          <img class = "photo" src = "https://yournorthcounty.com/wp-content/uploads/2017/07/acai-bowls-san-diego-north-county.jpg" class = "img-fluid rounded" style = "height:100%; width:100%;">
       </div>
 
-      <div class = "col-7 bg-light p-4">
+      <div class = "col-7 bg-light p-4 border-end border-start rounded">
         <div class = "row">
-          <div class = "col-3">
+          <div class = "col-md-3">
             <button class = "btn btn-warning rounded-pill back-button">Back to Search</button>
           </div>
 
-          <div class = "col-6 text-center">
+          <div class = "col-md-6 text-center">
             <h1 class = "recipe-title"></h1>
             <p id="time"></p>
 
             <div class = "row recipe-tags">
-              <p id="summary" class = "mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, accusamus libero, ex dicta magnam, eveniet quisquam nam quos temporibus minima praesentium! Tempora animi ducimus, dolor veniam adipisci deserunt molestias vel.</p>
             </div>
           </div>
 
-          <div class = "col-3">
+          <div class = "col-md-3">
             <button class = "btn btn-success rounded-pill float-end add-to-myrecipes">Add to Recipe</button>
           </div>
         </div>
@@ -123,8 +122,8 @@ class RecipeExpand extends HTMLElement {
     </div>
 
     <!-- bottom -->
-    <div class = "row mt-4 ms-4">
-      <div class = "col-5">
+    <div class = "row mt-4 p-4">
+      <div class = "col-5 py-4">
         <h2>
           Ingredients
         </h2>
@@ -133,7 +132,7 @@ class RecipeExpand extends HTMLElement {
         </ul>
       </div>
 
-      <div class = "col-7" >
+      <div class = "col-7 bg-light border-end border-start rounded py-4" >
         <h2>
           Directions
         </h2>
@@ -167,9 +166,9 @@ class RecipeExpand extends HTMLElement {
       for (const item of dietArr) {
         if (diets.includes(item)) {
           const div1 = document.createElement('div')
-          div1.classList.add('col-3')
+          div1.classList.add('col-4', 'mt-3')
           const but1 = document.createElement('button')
-          but1.classList.add('btn', 'btn-primary', 'rounded-pill')
+          but1.classList.add('btn', 'btn-primary', 'rounded-pill', 'w-100')
           but1.innerHTML = item
           div1.appendChild(but1)
           tagsContainer.appendChild(div1)
@@ -180,9 +179,9 @@ class RecipeExpand extends HTMLElement {
       }
       for (const item of dishTypeArr) {
         const div1 = document.createElement('div')
-        div1.classList.add('col-3')
+        div1.classList.add('col-4', 'mt-3')
         const but1 = document.createElement('button')
-        but1.classList.add('btn', 'btn-primary', 'rounded-pill')
+        but1.classList.add('btn', 'btn-primary', 'rounded-pill', 'w-100')
         but1.innerHTML = item
         div1.appendChild(but1)
         tagsContainer.appendChild(div1)
@@ -194,8 +193,10 @@ class RecipeExpand extends HTMLElement {
       // iterate over 'diets' and 'dishTypes' to set tags
   
       // set description
+      /*
       const description = data.summary // need to find this
       this.shadowRoot.getElementById('summary').innerHTML = description
+      */
   
       // set serving size
       // TODO: no serving on the page
