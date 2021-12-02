@@ -28,7 +28,6 @@ jobs:
                   VALIDATE_ALL_CODEBASE: false
                   DEFAULT_BRANCH: main
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                
     run-tests:
         runs-on: ubuntu-latest
         steps:
@@ -36,7 +35,13 @@ jobs:
             - uses: actions/setup-node@v2
               with:
                   node-version: "14"
-            - name: Lighthouse CI Action
-            - uses: treosh/lighthouse-ci-action@v8
             - run: npm install jest
             - run: npm test
+    lighthouse:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: Lighthouse
+          uses: foo-software/lighthouse-check-action@master
+          with:
+            urls: 'https://deploy-preview-140--productive-racoons.netlify.app/pages/mainpage/mainpagebootstrap'
