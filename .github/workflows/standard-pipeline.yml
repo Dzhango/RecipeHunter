@@ -11,7 +11,13 @@ jobs:
               with:
                   source_dir: ./source
                   recurse: true
+                  template: minami
                   output_dir: ./specs/documentation
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+                  publish_dir: ./specs/documentation
     lint-code-base:
         # Set the agent to run on
         runs-on: ubuntu-latest
