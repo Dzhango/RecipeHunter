@@ -28,10 +28,18 @@ function autocompleteIgd (inputValue) {
       "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
     }
   })
-    .then(response => response.json())
+    .then(response =>  {
+      // For test use only
+      if(!response.ok) throw new Error(response.status); 
+      else return response.json();
+    })
     .then(data => createIgdCard(data))
 }
 
+/**
+ * Create ingredient card at the column
+ * @param {JSON} igdData JSON of a list of autocomplete ingredients
+ */
 function createIgdCard (igdData) {
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
@@ -72,6 +80,10 @@ function createIgdCard (igdData) {
   }
 }
 
+/**
+ * Add a ingredient to the right column
+ * @param {JSON} igdData fetched ingredient data
+ */
 function addSelected (igdData) {
   if (selectedIngredients.includes(igdData.name)) {
     // TODO: Error handling
@@ -105,6 +117,10 @@ function addSelected (igdData) {
   }
 }
 
+/**
+ * delete the selected ingredients from right column
+ * @param {string} igdName the name of ingredients
+ */
 function deleteSelected (igdName) {
   const indexToRemove = selectedIngredients.indexOf(igdName)
   if (indexToRemove === -1) {
@@ -123,6 +139,9 @@ function deleteSelected (igdName) {
   }
 }
 
+/**
+ * 
+ */
 function removeFilter () {
   const toDeleteArray = Array.from(toDeleteIngredients)
   const filterContainerEle = document.querySelector('#filter-columns')
@@ -140,6 +159,9 @@ function removeFilter () {
   toDeleteIngredients.clear()
 }
 
+/**
+ * find recipe by the selectedIngredients list
+ */
 function findRecipes () {
   sessionStorage.clear()
   let ingredients = ''
@@ -174,6 +196,7 @@ function findRecipes () {
         }
       }).then((response) => response.json())
     )
+    console.log(data)
 
     Promise.all(recipePromises).then((data) => {
       for (const d in data) {
@@ -190,6 +213,10 @@ function findRecipes () {
   })
 }
 
+/**
+ * Sleep for a few seconds
+ * @param {int} milliseconds: number of milliseconds to wait
+ */
 function sleep (milliseconds) {
   const start = new Date().getTime()
   for (let i = 0; i < 1e7; i++) {
@@ -198,3 +225,5 @@ function sleep (milliseconds) {
     }
   }
 }
+
+module.exports = {sleep, createIgdCard, deleteSelected, removeFilter, findRecipes}
