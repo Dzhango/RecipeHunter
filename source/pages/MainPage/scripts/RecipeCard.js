@@ -56,7 +56,7 @@ template.innerHTML = `
 </style>
 <div class = "recipe-card card h-100">
   <img src="" class="card-img-top" alt="Recipe image">
-  <div class = "card-title h-100 recipe-title font-weight-light text-center" style="margin-bottom: 0; margin-left: 2%; display: flex; justify-content: center; align-items: center;">
+  <div class = "card-title h-100 recipe-title font-weight-light text-center" style="margin-bottom: 2%; margin-top: 2%; margin-left: 2%; margin-right: 2%; display: flex; justify-content: center; align-items: center;">
   </div>
 </div>
 `
