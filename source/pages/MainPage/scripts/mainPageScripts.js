@@ -10,7 +10,6 @@ module.exports = {
     fetchCall,
     bindButton,
     bindRecipes,
-    init
 }
 
 const MAX_RECIPE_TIME = 100
