@@ -14,7 +14,7 @@
 <body>
     <!-- Top Navbar -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
-        <a class="d-flex align-items-center text-center mr-2">
+        <a class="d-flex align-items-center text-center mr-2" id="appIcon" href="#">
             <img src="../../assets/images/PierreCook.png" alt="logo" width="36" height="36"
                 class="text-center mx-auto d-inline-block align-top rounded-circle">
         </a>
@@ -37,7 +37,7 @@
     <div class="container-fluid" id="content-container">
         <div class="row">
             <!-- Sidebar -->
-            <div class="d-flex flex-column sidebar bg-light">
+            <div class="d-flex flex-column sidebar bg-light" id="collapsesidebar">
                 <ul class="list-unstyled">
                     <li>
                         <div id="type-filters">
@@ -59,8 +59,9 @@
                             <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-time" aria-expanded="false">
                                 Time
                             </button>
-                            <div class="collapse" id="collapse-time">
-                                <input type="range" name="time" id="time" value="100" min="0" max="100" step="1" class="ml-3">
+                            <div class="collapse" id="collapse-time" style="text-align: center;">
+                                <input type="range" name="time" id="time" value="100" min="2" max="100" step="1" class="ml-3">
+                                <p>Under <span id="timeintext" style="font-weight: bold;">100</span> mins</p>
                             </div>
                         </div>
                     </li>

@@ -28,11 +28,11 @@ toggleBtnTemplate.innerHTML = `
  */
 function displayTime() {
     const inputRange = document.getElementById('time')
-    const displayDiv = document.querySelector('.selected-time')
+    const displayDiv = document.querySelector('#timeintext')
 
     const timeValue = inputRange.value
 
-    displayDiv.innerHTML = `Under ${timeValue} Minutes`
+    displayDiv.innerHTML = `${timeValue}`
 }
 
 function mediumFilterDiv(name) {
@@ -73,19 +73,50 @@ function largeFilterDiv(name) {
     }
 }
 
+function collapseSidebar(mq) {
+    let mgl;
+    if (mq.matches) {
+        mgl = '100px'
+    }
+    else {
+        mgl = '180px'
+    }
+    const sidebarEle = document.querySelector('.sidebar')
+    const recipesContainer = document.querySelector('.recipes-container')
+    if (sidebarEle.hidden) {
+        sidebarEle.hidden = false
+        sidebarEle.style.display = ''
+        recipesContainer.style.marginLeft = mgl
+    }
+    else {
+        sidebarEle.setAttribute('style', 'display: none !important;')
+        sidebarEle.hidden = true
+        recipesContainer.style.marginLeft = "0px";
+    }
+}
+
 function changeSidebar(mq) {
+    const sidebarEle = document.querySelector('.sidebar')
+    if (sidebarEle.hidden) {
+        return
+    }
+    let mgl;
     if (mq.matches) {
         // screen size is smaller than 768px
+        mgl = "100px"
         mediumFilterDiv('type')
         mediumFilterDiv('time')
         mediumFilterDiv('allergies')
         mediumFilterDiv('diet')
     } else {
+        mgl = "180px"
         largeFilterDiv('type')
         largeFilterDiv('time')
         largeFilterDiv('allergies')
         largeFilterDiv('diet')
     }
+    const recipesContainer = document.querySelector('.recipes-container')
+    recipesContainer.style.marginLeft = mgl
 }
 
 /**
@@ -104,7 +135,7 @@ function createRecipeCards(recipeData) {
 
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
-        recipeCard.classList.add('col-6')
+        recipeCard.classList.add('col-12')
         recipeCard.classList.add('col-sm-4')
         recipeCard.classList.add('col-lg-3')
         recipeCard.style.marginBottom = "10px";
@@ -278,6 +309,7 @@ function init() {
 
     // Making div display time selected from slider
     let smWindowSize = window.matchMedia('(max-width: 768px)')
+    document.getElementById('appIcon').addEventListener('click', () => collapseSidebar(smWindowSize))
     changeSidebar(smWindowSize)
     smWindowSize.addEventListener('change', () => changeSidebar(smWindowSize))
     document.getElementById('time').addEventListener('input', displayTime)

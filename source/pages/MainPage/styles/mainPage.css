@@ -1,9 +1,27 @@
+* {
+  transition: 0.6s;
+}
+
 #content-container {
   padding: 0;
   margin-top: 56px;
 
   /* Fridge page */
   height: 80vh;
+}
+
+#appIcon {
+  animation: glow 1s infinite alternate;
+  border-radius: 50%;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 8px -8px #F0E68C;
+  }
+  to {
+    box-shadow: 0 0 8px 8px #F0E68C;
+  }
 }
 
 .sidebar {
