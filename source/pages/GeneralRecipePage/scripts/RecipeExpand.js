@@ -266,7 +266,7 @@ textarea {
                     <button class="notes-button">Recipe Notes</button>
                 </div>
             </div>
-            <div class="notes hide">
+            <div class="notes">
                 <textarea name="comments" id="additional_comments" cols="30" rows="10"></textarea>
                 <div class="recipe-notes">
                     <button class="image-button">Close</button>

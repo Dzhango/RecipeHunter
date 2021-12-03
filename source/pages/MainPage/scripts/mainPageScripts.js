@@ -28,11 +28,11 @@ toggleBtnTemplate.innerHTML = `
  */
 function displayTime() {
     const inputRange = document.getElementById('time')
-    const displayDiv = document.querySelector('.selected-time')
+    const displayDiv = document.querySelector('#timeintext')
 
     const timeValue = inputRange.value
 
-    displayDiv.innerHTML = `Under ${timeValue} Minutes`
+    displayDiv.innerHTML = `${timeValue}`
 }
 
 function mediumFilterDiv(name) {
@@ -104,9 +104,9 @@ function createRecipeCards(recipeData) {
 
         document.querySelector('.recipes-container').appendChild(recipeCard)
 
-        recipeCard.classList.add('col-6')
-        recipeCard.classList.add('col-sm-4')
-        recipeCard.classList.add('col-lg-3')
+        recipeCard.classList.add('col-12')
+        recipeCard.classList.add('col-sm-6')
+        recipeCard.classList.add('col-lg-4')
         recipeCard.style.marginBottom = "10px";
         recipeCard.setAttribute('name', recipeData[i].title)
         recipeCard.setAttribute('image', recipeData[i].image)
