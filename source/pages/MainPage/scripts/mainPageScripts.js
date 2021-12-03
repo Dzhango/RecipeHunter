@@ -144,7 +144,7 @@ function populateFromSession() {
     // refresh the page through repopulating page from session storage
     let list_recipes = []
     for (let i = 0; i < sessionStorage.length; i++) {
-        key = sessionStorage.key(i)
+        let key = sessionStorage.key(i)
         if (key == 'IsThisFirstTime_Log_From_LiveServer' || key == 'curr') {
             continue
         }
