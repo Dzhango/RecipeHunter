@@ -1,0 +1,16 @@
+{
+  "name": "myrecipespage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myRecipePage.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.3",
+    "jsdom": "^18.1.1"
+  }
+}

@@ -269,3 +269,6 @@ async function init () {
 
   bindRemoveButton()
 }
+
+module.exports = {DeleteFromFavID, bindRemoveButton, populateMyRecipe, bindRecipeCards, bindRecipeSelect, bindRecipeClick, 
+  greyOut, createRecipeCards, addRecipeURL, hashing, addPageSubmitOnClick};
