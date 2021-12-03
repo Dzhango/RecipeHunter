@@ -309,7 +309,7 @@ function init() {
 
     // Making div display time selected from slider
     let smWindowSize = window.matchMedia('(max-width: 768px)')
-    document.getElementById('appIcon').addEventListener('click', () => collapseSidebar(smWindowSize))
+    document.getElementById('togglesidebar').addEventListener('click', () => collapseSidebar(smWindowSize))
     changeSidebar(smWindowSize)
     smWindowSize.addEventListener('change', () => changeSidebar(smWindowSize))
     document.getElementById('time').addEventListener('input', displayTime)

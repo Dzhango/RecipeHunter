@@ -10,6 +10,11 @@
   height: 80vh;
 }
 
+.recipes-container {
+  padding-left: 8px;
+  padding-right: 1px;
+}
+
 #appIcon {
   animation: glow 1s infinite alternate;
   border-radius: 50%;
