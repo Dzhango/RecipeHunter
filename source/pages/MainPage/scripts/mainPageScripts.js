@@ -1,3 +1,17 @@
+module.exports = {
+    displayTime,
+    mediumFilterDiv,
+    largeFilterDiv,
+    changeSidebar,
+    createRecipeCards,
+    storeToSessionStorage,
+    populateFromSession,
+    getDefaultRecipes,
+    fetchCall,
+    bindButton,
+    bindRecipes,
+}
+
 const MAX_RECIPE_TIME = 100
 
 // create lists of types checked
