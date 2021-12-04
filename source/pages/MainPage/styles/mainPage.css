@@ -29,6 +29,23 @@
   }
 }
 
+#togglesidebar {
+  z-index: 1000; 
+  opacity: 0.5; 
+  position: fixed; 
+  width: 40px; 
+  height: 40px; 
+  bottom: 20px; 
+  left: 20px; 
+  border-radius: 50px; 
+  text-align: center; 
+  box-shadow: 2px 2px 3px #999;
+}
+
+#togglesidebar:hover {
+  opacity: 0.8;
+}
+
 .sidebar {
   position: fixed;
   top: 56px;
