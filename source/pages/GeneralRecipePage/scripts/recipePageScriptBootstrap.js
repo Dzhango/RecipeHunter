@@ -35,21 +35,21 @@ function bindFavoriteButton (event) {
 /**
  * Open note and hide image when click the button
  */
-function openNotes () {
-  const recipeExpand = document.querySelector('recipe-expand-bootstrap')
-  recipeExpand.shadowRoot.querySelector('.photo').classList.add('hide')
-  recipeExpand.shadowRoot.querySelector('.notes').classList.remove('hide')
-}
+// function openNotes () {
+//   const recipeExpand = document.querySelector('recipe-expand-bootstrap')
+//   recipeExpand.shadowRoot.querySelector('.photo').classList.add('hide')
+//   recipeExpand.shadowRoot.querySelector('.notes').classList.remove('hide')
+// }
 
 /**
 * Open image and hide note when click the button
 * Set notes div display:none and remove display
 */
-function openImage () {
-  const recipeExpand = document.querySelector('recipe-expand-bootstrap')
-  recipeExpand.shadowRoot.querySelector('.notes').classList.add('hide')
-  recipeExpand.shadowRoot.querySelector('.photo').classList.remove('hide')
-}
+// function openImage () {
+//   const recipeExpand = document.querySelector('recipe-expand-bootstrap')
+//   recipeExpand.shadowRoot.querySelector('.notes').classList.add('hide')
+//   recipeExpand.shadowRoot.querySelector('.photo').classList.remove('hide')
+// }
 
 /**
 * Go back on step in the history, bind to Back to Search button
@@ -89,4 +89,4 @@ function init () {
   // recipeExpand.shadowRoot.querySelector('.add-to-myrecipes button').addEventListener('click', testFunc)
 }
 
-module.exports = {bindFavoriteButton, backToSearch}
+module.exports = {bindFavoriteButton, backToSearch, init}
