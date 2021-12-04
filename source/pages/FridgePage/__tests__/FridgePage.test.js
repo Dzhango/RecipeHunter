@@ -6,15 +6,42 @@
 let sampleJsonList = []
 const sampleInputList = ["apple", "banana", "cabbage", "apple"]
 
+const { TestWatcher } = require('@jest/core')
 const functions = require('../scripts/FridgePage.js')
 console.log(functions)
 
 beforeEach(() => {
     jest.resetModules()
     jest.resetAllMocks()
+    window.sessionStorage.clear();
 })
 
-
+const localStorageMock = (() => {
+    let store = {};
+    return {
+      length() {
+        return Object.keys(store).length
+      },
+      getItem(key) {
+        return store[key] || null;
+      },
+      setItem(key, value) {
+        length += 1
+        store[key] = value.toString();
+      },
+      removeItem(key) {
+        length -= 1
+        delete store[key];
+      },
+      clear() {
+        store = {};
+      }
+    };
+  })();
+  
+  Object.defineProperty(window, 'sessionStorage', {
+    value: localStorageMock
+  });
 
 describe('addSelected deleteSelected createIgdCard', () => {
     // Test removeFilter() - Niya
@@ -130,34 +157,50 @@ describe('createIgdCard', () => {
     </template>
     <div class="card-columns" id="filter-columns"></div>
     <div class="card-columns" id="selected-columns"></div>
-    `;
+    `
         expect(document.querySelector('#filter-columns').children.length).toBe(0)
         expect(document.querySelector('#selected-columns').children.length).toBe(0)
-        all = [
+        all = all = [
             {
-                "name": "apple",
-                "image": "apple.jpg"
+                "name": "banana",
+                "image": "bananas.jpg"
             },
             {
-                "name": "applesauce",
-                "image": "applesauce.png"
+                "name": "banana chips",
+                "image": "banana-chips.jpg"
             },
             {
-                "name": "apple juice",
-                "image": "apple-juice.jpg"
+                "name": "banana bread",
+                "image": "quick-bread.png"
             },
             {
-                "name": "apple cider",
-                "image": "apple-cider.jpg"
+                "name": "banana leaves",
+                "image": "banana-leaf.jpg"
             },
             {
-                "name": "apple jelly",
-                "image": "apple-jelly.jpg"
+                "name": "banana peppers",
+                "image": "wax-peppers.png"
             },
             {
-                "name": "apple butter",
-                "image": "apple-jelly.jpg"
+                "name": "banana liqueur",
+                "image": "limoncello.jpg"
             },
+            {
+                "name": "banana flower",
+                "image": "banana-blossoms.jpg"
+            },
+            {
+                "name": "banana shallots",
+                "image": "banana-shallots.jpg"
+            },
+            {
+                "name": "banana pepper rings",
+                "image": "wax-peppers.png"
+            },
+            {
+                "name": "banana squash",
+                "image": "pink-banana-squash.jpg"
+            }
         ]
         functions.createIgdCard(all)
         expect(document.querySelector('#selected-columns').children.length).toBe(0)
@@ -1104,7 +1147,7 @@ describe('findRecipes', () => {
             json: () => Promise.resolve(returnJson),
         })
         await functions.findRecipes()
-        expect(window.sessionStorage.length).toBe(10)
+        expect(sessionStorage.length()).toBe(10)
 
         global.fetch = unmockedFetch
     })

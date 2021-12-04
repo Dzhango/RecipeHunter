@@ -41,13 +41,19 @@ function autocompleteIgd (inputValue) {
  * @param {JSON} igdData JSON of a list of autocomplete ingredients
  */
 function createIgdCard (igdData) {
-  console.log('test1: ', createIgdCard)
+  // console.log(igdData)
+  // console.log('test1: ', createIgdCard)
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
   const igdToAdd = igdData.filter(ele => !displayedIngredients.includes(ele.name))
   const igdContainerEle = document.querySelector('#filter-columns')
+  // console.log("igdToRemove: " + igdToRemove)
+  // console.log("igdToAdd: " + igdToAdd)
+  // console.log("displayedIngredients: " + displayedIngredients)
   for (const igd of igdToRemove) {
     const indexToRemove = displayedIngredients.indexOf(igd)
+    console.log('igdContainerEle', igdContainerEle)
+    console.log('indexToRemove', indexToRemove)
     igdContainerEle.removeChild(igdContainerEle.children[indexToRemove])
     displayedIngredients.splice(indexToRemove, 1)
   }
@@ -205,11 +211,11 @@ function findRecipes () {
       }
     }).then(() => {
       sleep(1000)
-      if (window.location.origin === 'https://productive-racoons.netlify.app') {
-        window.location.href = "/pages/MainPage/mainPageBootstrap.html";
-      } else {
-        window.location.href = "/source/pages/MainPage/mainPageBootstrap.html";
-      }
+      // if (window.location.origin === 'https://productive-racoons.netlify.app') {
+      //   window.location.href = "/pages/MainPage/mainPageBootstrap.html";
+      // } else {
+      //   window.location.href = "/source/pages/MainPage/mainPageBootstrap.html";
+      // }
     })
   })
 }
@@ -227,4 +233,4 @@ function sleep (milliseconds) {
   }
 }
 
-module.exports = {sleep, createIgdCard, deleteSelected, removeFilter, findRecipes, addSelected}
+module.exports = {sleep, createIgdCard, deleteSelected, removeFilter, findRecipes, addSelected, displayedIngredients}
