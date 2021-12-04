@@ -55,7 +55,9 @@ function openImage () {
 * Go back on step in the history, bind to Back to Search button
 */
 function backToSearch () {
+  console.log("BEFORE BACK:" + window.location.href)
   window.history.back()
+  console.log("AFTER BACK:" +window.location.href)
 }
 
 function init () {
@@ -86,3 +88,5 @@ function init () {
   recipeExpand.shadowRoot.querySelector('.add-to-myrecipes').addEventListener('click', bindFavoriteButton)
   // recipeExpand.shadowRoot.querySelector('.add-to-myrecipes button').addEventListener('click', testFunc)
 }
+
+module.exports = {bindFavoriteButton, backToSearch}
