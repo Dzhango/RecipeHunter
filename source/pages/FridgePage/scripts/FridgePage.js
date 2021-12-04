@@ -41,6 +41,7 @@ function autocompleteIgd (inputValue) {
  * @param {JSON} igdData JSON of a list of autocomplete ingredients
  */
 function createIgdCard (igdData) {
+  console.log('test1: ', createIgdCard)
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
   const igdToAdd = igdData.filter(ele => !displayedIngredients.includes(ele.name))
@@ -140,7 +141,7 @@ function deleteSelected (igdName) {
 }
 
 /**
- * 
+ * Remove color of the ingredient card
  */
 function removeFilter () {
   const toDeleteArray = Array.from(toDeleteIngredients)
@@ -181,10 +182,10 @@ function findRecipes () {
   }).then((response) => {
     return response.json()
   }).then((data) => {
-    console.log(data)
+    // console.log(data)
     const recipe = []
     for (const r in data) {
-      console.log(data[r].id)
+      // console.log(data[r].id)
       recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information')
     }
     const recipePromises = recipe.map((url) =>
@@ -196,7 +197,7 @@ function findRecipes () {
         }
       }).then((response) => response.json())
     )
-    console.log(data)
+    // console.log(data)
 
     Promise.all(recipePromises).then((data) => {
       for (const d in data) {
@@ -226,4 +227,4 @@ function sleep (milliseconds) {
   }
 }
 
-module.exports = {sleep, createIgdCard, deleteSelected, removeFilter, findRecipes}
+module.exports = {sleep, createIgdCard, deleteSelected, removeFilter, findRecipes, addSelected}
