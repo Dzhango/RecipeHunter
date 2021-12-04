@@ -10,9 +10,16 @@ async function init () {
   filterInputEle.addEventListener('keyup', () => {
     autocompleteIgd(filterInputEle.value.toLowerCase())
   })
-  document.getElementById('submit-filter').addEventListener('click', () => {
+  const submitFilterBtn = document.getElementById('submit-filter')
+  submitFilterBtn.addEventListener('click', () => {
     // User click submit button
     // Selected ingredients are stored in array selectedIngredients
+    const spinnerEle = document.createElement('span')
+    spinnerEle.classList.add('spinner-border')
+    spinnerEle.classList.add('spinner-border-sm')
+    spinnerEle.classList.add('ml-2')
+    submitFilterBtn.appendChild(spinnerEle)
+    document.body.style.pointerEvents = "none"
     findRecipes()
   })
   document.getElementById('remove-filter').addEventListener('click', () => {
@@ -180,7 +187,6 @@ function findRecipes () {
         sessionStorage.setItem(data[d].id, JSON.stringify(data[d]))
       }
     }).then(() => {
-      sleep(1000)
       if (window.location.origin === 'https://productive-racoons.netlify.app') {
         window.location.href = "/pages/MainPage/mainPageBootstrap.html";
       } else {
@@ -188,13 +194,4 @@ function findRecipes () {
       }
     })
   })
-}
-
-function sleep (milliseconds) {
-  const start = new Date().getTime()
-  for (let i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds) {
-      break
-    }
-  }
 }
