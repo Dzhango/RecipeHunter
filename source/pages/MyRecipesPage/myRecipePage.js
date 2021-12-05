@@ -107,10 +107,10 @@ function bindRecipeClick (event) {
   const recipe = event.target
   sessionStorage.setItem('curr', recipe.data.id)
   // if on live server
-  if (window.location.origin === 'http://127.0.0.1:5500') {
-    window.location.href = '/source/pages/GeneralRecipePage/recipePageBootstrap.html'
-  } else {
+  if (window.location.origin.includes('netlify.app')) {
     window.location.href = '/pages/GeneralRecipePage/recipePageBootstrap.html'
+  } else {
+    window.location.href = '/source/pages/GeneralRecipePage/recipePageBootstrap.html'
   }
 }
 
