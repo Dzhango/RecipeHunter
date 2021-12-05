@@ -50,15 +50,6 @@ class RecipeExpand extends HTMLElement {
           <ol class="directions-list list-group list-group-flush overflow-auto" style="font-size: 1em; font-weight: 300; max-height: 83vh; border: none;">
           </ol>
         </div>
-        <div class="card text-center">
-          <div class="card-header" style="font-size: 1.1em; font-weight: 500; text-align: center;">Ingredients</div>
-          <ul class="text-center ingredients-list font-weight-light list-unstyled" style="font-size: 1.1em;"></ul>
-        </div>
-        <div class="card">
-          <div class="card-header" style="font-size: 1.1em; font-weight: 500; text-align: center;">Direction</div>
-          <ol class = "directions-list" style="font-size: 1.5em; font-weight: 300;">
-          </ol>
-        </div>
       </div>
           `
 
