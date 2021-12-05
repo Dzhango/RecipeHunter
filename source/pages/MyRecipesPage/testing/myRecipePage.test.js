@@ -64,25 +64,87 @@ test('DeleteFromFavID removes items from localstorage: localstorage is right siz
     }
 })
 
-// tests for bindRemoveButton - needs end to end probably
+// tests for bindRemoveButton - Jeremy
 
-// tests for populateMyRecipe - Jeremy - uses DOM elements 
+test('bindRemoveButton: event listener is added', () => {
+    document.body.innerHTML = `
+    <div class="col-6">
+    <button class="btn btn-primary rounded-pill px-3 me-2 add-button" data-bs-toggle="modal"
+      data-bs-target="#addRecipeModal">
+      + Add Recipe
+    </button>
+    <button class="btn btn-success rounded-pill px-3 me-2 select-button">
+      + Remove Recipe
+    </button>
+    <button class="btn btn-danger rounded-pill px-3 me-2 cancel-button hide">
+      + Cancel
+    </button>
+    <button class="btn btn-warning rounded-pill px-3 remove-button hide">
+      + Remove
+    </button>
+  </div>
+  <div class="row mt-4 recipes-container px-4">
+          <div class="col-md-3">
+            <div class="card rounded">
+              <img src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2019/05/san-diego-1.png"
+                class="card-img-top">
+              <div class="card-body">
+                <p class="card-text text-center recipe-title"><b> Spicy Chicken Sandwich</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    `
+    functions.bindRemoveButton()
+    document.querySelector('.remove-button').click()
+})
 
-// test('populateMyRecipe: correct number of recipes load', () => {
-//     // populate local storage
-//     localStorage.clear();
-//     for(let i = 0; i < 10; i++) {
-//         localStorage.setItem(i, recipeData);
-//     }
-//     // create recipe-cards from local stoeage items
-//     functions.populateMyRecipe();
-//     // query select array of recipe-cards
-//     const recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
-//     // check number of recipe cards equals number of local storage items
-//     expect(recipeCardList.size).toBe(localStorage.length);
-// }) 
+test('bindRemoveButton: cancel and remove buttons are hidden', () => {
+    expect(document.querySelector('.cancel-button').classList.contains('hide')).toBe(true)
+    expect(document.querySelector('.remove-button').classList.contains('hide')).toBe(true)
+})
 
-// tests for bindRecipeCards - Need to check that an event listener was added, not possible? 
+// tests for populateMyRecipe - Jeremy 
+
+JSON.parse = jest.fn().mockImplementationOnce(() => {
+    return recipeData2[0]
+  });
+
+test('populateMyRecipe: correct number of recipes load', () => {
+    document.body.innerHTML = `
+    <div class="addPage">
+        <input type="text" placeholder="Enter Url" class = "addPageText"></input>
+        <button type = "submit" class = "addPageSubmit">Enter</button>
+    </div>
+    <div class="recipes-container"></div>
+    `;
+    require('../../MainPage/scripts/RecipeCard.js'); 
+    // populate local storage
+    localStorage.clear();
+    localStorage.setItem(recipeData2[0].id, recipeData2[0])
+    // create recipe-cards from local stoeage items
+    functions.populateMyRecipe();
+    // query select array of recipe-cards
+    const recipeCardList = Array.from(document.querySelectorAll('recipe-card'));
+    // check number of recipe cards equals number of local storage items
+    expect(recipeCardList.size).toBe(localStorage.length);
+}) 
+
+// tests for bindRecipeCards 
+
+test('bindRecipeCards: event listeners added successfully', () => {
+    document.body.innerHTML = `
+    <div class="row mt-4 recipes-container px-4">
+    </div>
+    `
+    require('../../MainPage/scripts/RecipeCard.js')
+    functions.createRecipeCards(recipeData1);
+    functions.bindRecipeCards()
+    functions.bindRecipeCards()
+    document.querySelector('recipe-card').click()
+    actualGrey = Array.from(document.querySelectorAll('grey'));
+    expect(actualGrey.length).toBe(1)
+})
 
 // tests for bindRecipeSelect - Jeremy - Need to check classes of DOM elements
 

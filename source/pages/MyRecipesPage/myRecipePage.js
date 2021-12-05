@@ -194,11 +194,11 @@ function addRecipeURL (URL) {
     }).then((recipeData) => {
       // insert data into recipe array and repopulate local storage
       // let inList = false
-      console.log("RECIPE DATA IS:")
-      console.log(recipeData)
-      console.log("RECIPE TITLE IS:")
-      console.log(recipeData.title)
-      console.log("END OF CONSOLE.LOG")
+      // console.log("RECIPE DATA IS:")
+      // console.log(recipeData)
+      // console.log("RECIPE TITLE IS:")
+      // console.log(recipeData.title)
+      // console.log("END OF CONSOLE.LOG")
 
       recipeData.id = hashing(recipeData.title)
       console.log(recipeData.id)
@@ -207,18 +207,18 @@ function addRecipeURL (URL) {
         // window.alert("DUPLICATE RECIPE")
         console.log("DUPLICATE RECIPE")
       } else {
-        console.log("TEST RECIPE URL HERE 207")
+        //console.log("TEST RECIPE URL HERE 207")
         localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
-        console.log("LOCAL STORAGE BEFORE POPULATE MY RECIPE IS "+localStorage.length)
+        // console.log("LOCAL STORAGE BEFORE POPULATE MY RECIPE IS "+localStorage.length)
         // repopulate myrecipepage
         populateMyRecipe()
-        console.log("LOCAL STORAGE AFTER BEFORE POPULATE MY RECIPE IS "+localStorage.length)
+        // console.log("LOCAL STORAGE AFTER BEFORE POPULATE MY RECIPE IS "+localStorage.length)
         // document.querySelector('#addRecipeModal').classList.remove('show')
         // document.querySelector('body').classList.remove('modal-open')
       }
     })
     .catch(error => {
-      console.log("TEST RECIPE URL REACHES ERROR")
+      //console.log("TEST RECIPE URL REACHES ERROR")
       console.log(error)
       // window.alert('Invalid Recipe URL Please Try Again')
       // window.alert(error.name + ' ' + error.message)
