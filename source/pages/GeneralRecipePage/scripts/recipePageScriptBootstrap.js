@@ -7,7 +7,10 @@ const localStorage = window.localStorage
  * bind favorite button on the general recipe page
  */
 function bindFavoriteButton (event) {
-  const recipeData = JSON.parse(sessionStorage.getItem(sessionStorage.getItem('curr')))
+  let recipeData = JSON.parse(sessionStorage.getItem(sessionStorage.getItem('curr')))
+  if (recipeData === null) {
+    recipeData = JSON.parse(localStorage.getItem(sessionStorage.getItem('curr')))
+  }
   const FavoriteButton = event.target
   let inList = false
   if (localStorage.getItem(recipeData.id) != null) {

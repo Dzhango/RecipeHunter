@@ -13,15 +13,12 @@ const recipeData = [{"vegetarian":true,"vegan":true,"glutenFree":true,"dairyFree
     json: () => Promise.resolve(recipeData),
   })
 )
-// beforeEach(() => {
-//     fetch.mockClear()
-//   })
 
 /*
  * Unit tests for:
  * displayTime, mediumFilterDiv, largeFilterDiv, changeSidebar, createRecipeCards,
  * storeToSessionStorage, populateFromSession, getDefaultRecipes, fetchCall, bindButton,
- * bindRecipes, init
+ * bindRecipes, init, collapseSidebar
 */
 
 const localStorage = window.localStorage
@@ -80,6 +77,17 @@ test('getDefaultRecipes adds fetched recipes to session storage', () => {
     expect(sessionStorage.length).toBe(1)
 })
 
+test('getDefaultRecipes adds correct JSON recipe data to session storage', () => {
+    document.body.innerHTML = `
+    <div class="row recipes-container mt-3 container-fluid">
+    </div>
+    `
+    functions.getDefaultRecipes()
+    let recipe = sessionStorage.getItem(recipeData[0]['id'])
+    const myObj = JSON.parse(recipe)
+    expect(myObj.id).toBe(recipeData[0]['id'])
+})
+
 test('bindButtons is called on button click and calls a fetch', () => {
     document.body.innerHTML = `
     <form class="form-inline ml-auto flex-nowrap">
@@ -89,7 +97,7 @@ test('bindButtons is called on button click and calls a fetch', () => {
     <button class="btn btn-outline-primary filters-button ml-3 mr-3 rounded-pill">Apply</button>
     `
     functions.bindButton()
-    expect(fetch).toHaveBeenCalledTimes(4)
+    expect(fetch).toHaveBeenCalledTimes(5)
 })
 
 test('bindRecipes stores recipe JSON in session storage', () => {
@@ -103,4 +111,197 @@ test('bindRecipes stores recipe JSON in session storage', () => {
     let recipe = sessionStorage.getItem(recipeData[0]['id'])
     const myObj = JSON.parse(recipe)
     expect(myObj.id).toBe(recipeData[0]['id'])
+})
+
+test('collapseSidebar hides the sidebar', () => {
+    document.body.innerHTML = `
+    <div class="d-flex flex-column sidebar bg-light" id="collapsesidebar">
+    </div>
+    <div class="row recipes-container mt-3 container-fluid">
+    </div>
+    `
+    functions.collapseSidebar(100)
+    const sidebarEle = document.querySelector('.sidebar')
+    expect(sidebarEle.hidden).toBe(true)
+})
+
+test('collapseSidebar unhides the sidebar', () => {
+    document.body.innerHTML = `
+    <div class="d-flex flex-column sidebar bg-light" id="collapsesidebar">
+    </div>
+    <div class="row recipes-container mt-3 container-fluid">
+    </div>
+    `
+    functions.collapseSidebar(100)
+    functions.collapseSidebar(100)
+    const sidebarEle = document.querySelector('.sidebar')
+    expect(sidebarEle.hidden).toBe(false)
+})
+
+test('changeSidebar uses largeFilterDiv', () => {
+    document.body.innerHTML = `
+    <!-- Sidebar -->
+    <div class="d-flex flex-column sidebar bg-light" id="collapsesidebar">
+        <ul class="list-unstyled">
+            <li>
+                <div id="type-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-type" aria-expanded="true">
+                        Type
+                    </button>
+                    <div class="collapse show" id="collapse-type">
+                        <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                            <li><label><input type="checkbox" id='type-breakfast'><span class="ml-1">breakfast</span></label></li>
+                            <li><label><input type="checkbox" id='type-lunch'><span class="ml-1">lunch</span></label></li>
+                            <li><label><input type="checkbox" id='type-snack'><span class="ml-1">snack</span></label></li>
+                            <li><label><input type="checkbox" id='type-dinner'><span class="ml-1">dinner</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="time-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-time" aria-expanded="false">
+                        Time
+                    </button>
+                    <div class="collapse" id="collapse-time" style="text-align: center;">
+                        <input type="range" name="time" id="time" value="100" min="2" max="100" step="1" class="ml-3">
+                        <p>Under <span id="timeintext" style="font-weight: bold;">100</span> mins</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="allergies-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                        data-target="#collapse-allergies" aria-expanded="false">
+                        Allergies
+                    </button>
+                    <div class="collapse" id="collapse-allergies">
+                        <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                            <li><label><input type="checkbox" id='allergies-lactose'><span class="ml-1">lactose</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-egg'><span class="ml-1">egg</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-seafood'><span class="ml-1">fish</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-shellfish'><span class="ml-1">shellfish</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-peanut'><span class="ml-1">peanuts</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-tree-nut'><span class="ml-1">treenuts</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-wheat'><span class="ml-1">wheat</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-soy'><span class="ml-1">soy</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="diet-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                        data-target="#collapse-diet" aria-expanded="false">
+                        Diet
+                    </button>
+                    <div class="collapse" id="collapse-diet">
+                        <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                            <li><label><input type="radio" id="diet-none" name="r-diet" value="none" checked><span class="ml-1">none</span></label></li>
+                            <li><label><input type="radio" id="diet-vegan" name="r-diet" value="vegan"><span class="ml-1">vegan</span></label></li>
+                            <li><label><input type="radio" id="diet-vegenatian" name="r-diet" value="vegetarian"><span class="ml-1">vegetarian</span></label></li>
+                            <li><label><input type="radio" id="diet-ketogenic" name="r-diet" value="ketogenic"><span class="ml-1">keto</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button class="btn btn-outline-primary filters-button ml-3 mr-3 rounded-pill">Apply</button>
+    </div>
+    <div class="row recipes-container mt-3 container-fluid">
+    </div>
+    `
+    functions.changeSidebar(100)
+    const recipesContainer = document.querySelector('.recipes-container')
+    expect(recipesContainer.style.marginLeft).toBe('180px')
+})
+
+test('mediumFilterDiv has 2 children on filter time', () => {
+    document.body.innerHTML = `
+    <!-- Sidebar -->
+    <div class="d-flex flex-column sidebar bg-light" id="collapsesidebar">
+        <ul class="list-unstyled">
+            <li>
+                <div id="type-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-type" aria-expanded="true">
+                        Type
+                    </button>
+                    <div class="collapse show" id="collapse-type">
+                        <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                            <li><label><input type="checkbox" id='type-breakfast'><span class="ml-1">breakfast</span></label></li>
+                            <li><label><input type="checkbox" id='type-lunch'><span class="ml-1">lunch</span></label></li>
+                            <li><label><input type="checkbox" id='type-snack'><span class="ml-1">snack</span></label></li>
+                            <li><label><input type="checkbox" id='type-dinner'><span class="ml-1">dinner</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="time-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-time" aria-expanded="false">
+                        Time
+                    </button>
+                    <div class="collapse" id="collapse-time" style="text-align: center;">
+                        <input type="range" name="time" id="time" value="100" min="2" max="100" step="1" class="ml-3">
+                        <p>Under <span id="timeintext" style="font-weight: bold;">100</span> mins</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="allergies-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                        data-target="#collapse-allergies" aria-expanded="false">
+                        Allergies
+                    </button>
+                    <div class="collapse" id="collapse-allergies">
+                        <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                            <li><label><input type="checkbox" id='allergies-lactose'><span class="ml-1">lactose</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-egg'><span class="ml-1">egg</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-seafood'><span class="ml-1">fish</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-shellfish'><span class="ml-1">shellfish</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-peanut'><span class="ml-1">peanuts</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-tree-nut'><span class="ml-1">treenuts</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-wheat'><span class="ml-1">wheat</span></label></li>
+                            <li><label><input type="checkbox" id='allergies-soy'><span class="ml-1">soy</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="diet-filters">
+                    <button class="btn filter-toggle align-items-center" data-toggle="collapse"
+                        data-target="#collapse-diet" aria-expanded="false">
+                        Diet
+                    </button>
+                    <div class="collapse" id="collapse-diet">
+                        <ul class="btn-toggle-nav list-unstyled" style="margin-left: 15%;">
+                            <li><label><input type="radio" id="diet-none" name="r-diet" value="none" checked><span class="ml-1">none</span></label></li>
+                            <li><label><input type="radio" id="diet-vegan" name="r-diet" value="vegan"><span class="ml-1">vegan</span></label></li>
+                            <li><label><input type="radio" id="diet-vegenatian" name="r-diet" value="vegetarian"><span class="ml-1">vegetarian</span></label></li>
+                            <li><label><input type="radio" id="diet-ketogenic" name="r-diet" value="ketogenic"><span class="ml-1">keto</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button class="btn btn-outline-primary filters-button ml-3 mr-3 rounded-pill">Apply</button>
+    </div>
+    <div class="row recipes-container mt-3 container-fluid">
+    </div>
+    `
+    functions.mediumFilterDiv('time')
+    const filterDiv = document.getElementById('time-filters')
+    expect(filterDiv.childElementCount).toBe(2)
+})
+
+test('displayTime changes value only on user input', () => {
+    document.body.innerHTML = `
+    <div class="collapse" id="collapse-time" style="text-align: center;">
+    <input type="range" name="time" id="time" value="100" min="2" max="100" step="1" class="ml-3">
+    <p>Under <span id="timeintext" style="font-weight: bold;">100</span> mins</p>
+    </div>
+    `
+    functions.displayTime()
+    const displayDiv = document.querySelector('#timeintext')
+    expect(displayDiv.innerHTML).toBe('100')
 })

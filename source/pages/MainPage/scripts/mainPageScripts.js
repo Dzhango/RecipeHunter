@@ -29,9 +29,7 @@ toggleBtnTemplate.innerHTML = `
 function displayTime() {
     const inputRange = document.getElementById('time')
     const displayDiv = document.querySelector('#timeintext')
-
     const timeValue = inputRange.value
-
     displayDiv.innerHTML = `${timeValue}`
 }
 
@@ -121,6 +119,7 @@ function changeSidebar(mq) {
 
 /**
  * Alters the recipe cards on the main page to display the recipes retrieved by search
+ * @param {Object} recipeData the object containing JSON recipe data
  */
 function createRecipeCards(recipeData) {
     // clear loaded recipe cards
@@ -149,6 +148,7 @@ function createRecipeCards(recipeData) {
 
 /**
  * Store a list of recipes into the session storage
+ * @param {Object} recipeData the object containing JSON recipe data
  */
 function storeToSessionStorage(recipeData) {
     sessionStorage.clear()
@@ -157,6 +157,9 @@ function storeToSessionStorage(recipeData) {
     }
 }
 
+/**
+ * Create recipe cards from recipe data in session storage
+ */
 function populateFromSession() {
     // refresh the page through repopulating page from session storage
     let list_recipes = []
@@ -309,14 +312,13 @@ function init() {
 
     // Making div display time selected from slider
     let smWindowSize = window.matchMedia('(max-width: 768px)')
-    document.getElementById('appIcon').addEventListener('click', () => collapseSidebar(smWindowSize))
+    document.getElementById('togglesidebar').addEventListener('click', () => collapseSidebar(smWindowSize))
     changeSidebar(smWindowSize)
     smWindowSize.addEventListener('change', () => changeSidebar(smWindowSize))
     document.getElementById('time').addEventListener('input', displayTime)
     if (sessionStorage.length < 3) {
         getDefaultRecipes()
     } else {
-        //getDefaultRecipes()
         populateFromSession()
     }
     bindButton()
@@ -328,6 +330,7 @@ module.exports = {
     displayTime,
     mediumFilterDiv,
     largeFilterDiv,
+    collapseSidebar,
     changeSidebar,
     createRecipeCards,
     storeToSessionStorage,
@@ -336,4 +339,5 @@ module.exports = {
     fetchCall,
     bindButton,
     bindRecipes,
+    init
 }

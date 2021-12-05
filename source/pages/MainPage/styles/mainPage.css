@@ -10,6 +10,11 @@
   height: 80vh;
 }
 
+.recipes-container {
+  padding-left: 8px;
+  padding-right: 1px;
+}
+
 #appIcon {
   animation: glow 1s infinite alternate;
   border-radius: 50%;
@@ -22,6 +27,23 @@
   to {
     box-shadow: 0 0 8px 8px #F0E68C;
   }
+}
+
+#togglesidebar {
+  z-index: 1000; 
+  opacity: 0.5; 
+  position: fixed; 
+  width: 40px; 
+  height: 40px; 
+  bottom: 20px; 
+  left: 20px; 
+  border-radius: 50px; 
+  text-align: center; 
+  box-shadow: 2px 2px 3px #999;
+}
+
+#togglesidebar:hover {
+  opacity: 0.8;
 }
 
 .sidebar {
