@@ -37,7 +37,7 @@ class RecipeExpand extends HTMLElement {
             <div class="col-12">
               <img class="photo img-fluid rounded ml-1 mr-1 mt-2 mb-1">
             </div>
-            <div class="col-12 ml-1 mr-1 mt-2 mb-1" style="display: flex; justify-content: center; padding: 0;">
+            <div class="col-12 ml-1 mr-1 mt-2 mb-1" style="display: flex; justify-content: center;">
               <div class="recipe-tags"><div class="btn btn-primary rounded-pill font-weight-light ml-1 mr-1 mt-1 mb-1" id="time"></div></div>
             </div>
             <div style="margin: 2% 10% 0 10%;">
