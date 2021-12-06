@@ -27,6 +27,10 @@ async function init () {
   })
 }
 
+/**
+ * Makes an API call to retrieve ingredient data according to inputValue
+ * @param {String} inputValue the string specify autocomplete ingredient
+ */
 function autocompleteIgd (inputValue) {
   fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=' + inputValue + '&number=10', {
     method: 'GET',
@@ -39,6 +43,10 @@ function autocompleteIgd (inputValue) {
     .then(data => createIgdCard(data))
 }
 
+/**
+ * Creates ingredient card for an inputted ingredient
+ * @param {String} igdData the string of the ingredient
+ */
 function createIgdCard (igdData) {
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
@@ -79,6 +87,10 @@ function createIgdCard (igdData) {
   }
 }
 
+/**
+ * Adds selected ingredient card to "selected ingredients" section
+ * @param {String} igdData the string of the ingredient
+ */
 function addSelected (igdData) {
   if (selectedIngredients.includes(igdData.name)) {
     // TODO: Error handling
@@ -112,6 +124,10 @@ function addSelected (igdData) {
   }
 }
 
+/**
+ * Remove ingredient card from "selected ingredient" section
+ * @param {String} igdData the string of the ingredient
+ */
 function deleteSelected (igdName) {
   const indexToRemove = selectedIngredients.indexOf(igdName)
   if (indexToRemove === -1) {
@@ -130,6 +146,9 @@ function deleteSelected (igdName) {
   }
 }
 
+/**
+ * Remove all ingredient cards from "selected ingredient" section
+ */
 function removeFilter () {
   const toDeleteArray = Array.from(toDeleteIngredients)
   const filterContainerEle = document.querySelector('#filter-columns')
@@ -147,6 +166,9 @@ function removeFilter () {
   toDeleteIngredients.clear()
 }
 
+/**
+ * Find recipes that contain the selected ingredients
+ */
 function findRecipes () {
   sessionStorage.clear()
   let ingredients = ''
