@@ -1,4 +1,4 @@
-# {choose backend - local storage}
+# choose backend - local storage
 
 * Status: accepted
 * Deciders:
