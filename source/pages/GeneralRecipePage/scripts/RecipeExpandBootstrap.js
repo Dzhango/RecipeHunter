@@ -27,31 +27,27 @@ class RecipeExpand extends HTMLElement {
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
       <div class="card-columns">
-        <div class="card text-center">
-          <div class="recipe-title card-header" style="font-weight: 270; font-size: 2em;"></div>
-          <div class="row">
-            <div class="col-12">
-              <button class = "btn btn-outline-warning ml-1 mr-1 mt-2 mb-1 rounded-pill font-weight-light back-button">Back to Search</button>
-              <button class = "btn btn-outline-success ml-1 mr-1 mt-2 mb-1 rounded-pill font-weight-light add-to-myrecipes"></button>
-            </div>
-            <div class="col-12">
-              <img class="photo img-fluid rounded ml-1 mr-1 mt-2 mb-1">
-            </div>
-            <div class="col-12 ml-1 mr-1 mt-2 mb-1" style="display: flex; justify-content: center;">
-              <div class="recipe-tags"><div class="btn btn-primary rounded-pill font-weight-light ml-1 mr-1 mt-1 mb-1" id="time"></div></div>
-            </div>
-            <div style="margin: 2% 10% 0 10%;">
-              <p class="font-weight-light" id="summary" style="font-size: 1.1em;"></p>
-            </div>
+        <div class="card text-center" style="border: none">
+          <div class="recipe-title card-header border rounded" style="font-weight: 270; font-size: 2em;"></div>
+          <div class="d-flex justify-content-center flex-nowrap">
+            <button class="btn btn-outline-warning ml-1 mr-1 mt-2 mb-1 rounded-pill back-button" style="font-size: small">Back to Search</button>
+            <button class="btn btn-outline-success ml-1 mr-1 mt-2 mb-1 rounded-pill add-to-myrecipes" style="font-size: small"></button>
           </div>
+          <div class="ml-1 mr-1 mt-2 mb-1">
+            <img class="photo img-fluid rounded">
+          </div>
+          <div class="ml-1 mr-1 mt-2 mb-1" style="display: flex; justify-content: center;">
+              <div class="recipe-tags"><div class="recipe-tags btn btn-primary rounded-pill ml-1 mr-1 mt-1 mb-1" id="time" style="font-size: small;"></div></div>
+          </div>
+          <div class="font-weight-light ml-2 mr-2 mt-2 mb-1 text-center" id="summary"></div>
         </div>
-        <div class="card text-center">
-          <div class="card-header" style="font-size: 1.1em; font-weight: 500; text-align: center;">Ingredients</div>
-          <ul class="text-center ingredients-list font-weight-light list-unstyled" style="font-size: 1.1em;"></ul>
+        <div class="card text-center" style="border: none;">
+          <div class="card-header border rounded" style="font-size: 1.5em; font-weight: 270; text-align: center;">Ingredients</div>
+          <ul class="overflow-auto text-left ingredients-list font-weight-light list-group list-group-flush" style="max-height: 83vh;"></ul>
         </div>
-        <div class="card">
-          <div class="card-header" style="font-size: 1.1em; font-weight: 500; text-align: center;">Direction</div>
-          <ol class = "directions-list" style="font-size: 1.5em; font-weight: 300;">
+        <div class="card" style="border: none;">
+          <div class="card-header border rounded" style="font-size: 1.5em; font-weight: 270; text-align: center;">Direction</div>
+          <ol class="directions-list list-group list-group-flush overflow-auto" style="font-size: 1em; font-weight: 300; max-height: 83vh; border: none;">
           </ol>
         </div>
       </div>
@@ -80,14 +76,16 @@ class RecipeExpand extends HTMLElement {
     for (const item of dietArr) {
       if (diets.includes(item)) {
         const div1 = document.createElement('div')
-        div1.classList.add('btn', 'btn-outline-primary', 'rounded-pill', 'ml-1', 'mr-1', 'font-weight-light', 'mb-1', 'mt-1')
+        div1.classList.add('btn', 'btn-outline-primary', 'rounded-pill', 'ml-1', 'mr-1', 'mb-1', 'mt-1')
+        div1.style.fontSize = 'small'
         div1.innerHTML = item
         tagsContainer.appendChild(div1)
       }
     }
     for (const item of dishTypeArr) {
       const div1 = document.createElement('div')
-      div1.classList.add('btn', 'btn-outline-primary', 'rounded-pill', 'ml-1', 'mr-1', 'font-weight-light', 'mb-1', 'mt-1')
+      div1.classList.add('btn', 'btn-outline-primary', 'rounded-pill', 'ml-1', 'mr-1', 'mb-1', 'mt-1')
+      div1.style.fontSize = 'small'
       div1.innerHTML = item
       tagsContainer.appendChild(div1)
     }
@@ -133,6 +131,8 @@ class RecipeExpand extends HTMLElement {
         const ingredientsList = this.shadowRoot.querySelector('ul.ingredients-list')
         for (const item of recipeInfo.extendedIngredients) {
           const ingred = document.createElement('li')
+          ingred.classList.add('list-group-item')
+          ingred.classList.add('list-group-item-action')
           ingred.innerHTML = item.originalString
           ingredientsList.appendChild(ingred)
         }
@@ -170,6 +170,8 @@ class RecipeExpand extends HTMLElement {
       const directionsList = this.shadowRoot.querySelector('ol.directions-list')
       for (let i = 0; i < directions.length; i++) {
         const dir = document.createElement('li')
+        dir.classList.add('list-group-item')
+        dir.classList.add('list-group-item-action')
         dir.innerHTML = directions[i].step
         directionsList.appendChild(dir)
       }

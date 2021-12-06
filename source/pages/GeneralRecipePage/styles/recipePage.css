@@ -1,10 +1,20 @@
 .card-columns {
-    margin: 5px; 
-    column-count: 2 !important;
+    margin: 8px; 
+    column-count: 1 !important;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .card-columns {
-        column-count: 1 !important;
+        margin: 8px; 
+        column-count: 2 !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .card-columns {
+        margin: 8px;
+        justify-content: space-between;
+        display: flex;
+        column-count: 3 !important;
     }
 }
