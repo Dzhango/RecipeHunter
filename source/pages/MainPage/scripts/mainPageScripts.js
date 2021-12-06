@@ -33,6 +33,10 @@ function displayTime () {
   displayDiv.innerHTML = `${timeValue}`
 }
 
+/**
+ * Pop out filter div
+ * @param {String} name the string of the filter
+ */
 function mediumFilterDiv (name) {
   const filterDiv = document.getElementById(`${name}-filters`)
   filterDiv.classList.add('btn-group')
@@ -49,6 +53,10 @@ function mediumFilterDiv (name) {
   typeCheckboxDiv.classList.add('bg-light')
 }
 
+/**
+ * Drop down filter div
+ * @param {String} name the string of the filter
+ */
 function largeFilterDiv (name) {
   const typeDiv = document.getElementById(`${name}-filters`)
   typeDiv.classList.remove('btn-group')
@@ -71,6 +79,9 @@ function largeFilterDiv (name) {
   }
 }
 
+/**
+ * Collapse the filter sidebar
+ */
 function collapseSidebar (mq) {
   let mgl
   if (mq.matches) {
@@ -91,6 +102,9 @@ function collapseSidebar (mq) {
   }
 }
 
+/**
+ * Change filter div based on screen size
+ */
 function changeSidebar (mq) {
   const sidebarEle = document.querySelector('.sidebar')
   if (sidebarEle.hidden) {
