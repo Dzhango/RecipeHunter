@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mainpage Template</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/mainPage.css">
 </head>
 
@@ -15,7 +14,7 @@
     <!-- Top Navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <a class="d-flex align-items-center text-center mr-2" id="appIcon">
-            <img src="../../assets/images/PierreCook.png" width="46" height="46" class="text-center d-inline-block align-top rounded-circle">
+            <img src="../../assets/images/PierreCook.png" width="80" height="80" class="text-center d-inline-block align-top rounded-circle">
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsenav">
             <span class="navbar-toggler-icon"></span>
@@ -37,8 +36,7 @@
                 <ul class="list-unstyled">
                     <li>
                         <div id="type-filters">
-                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
-                                data-target="#collapse-type" aria-expanded="true">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-type" aria-expanded="true">
                                 Type
                             </button>
                             <div class="collapse show" id="collapse-type">
@@ -57,21 +55,18 @@
                     </li>
                     <li>
                         <div id="time-filters">
-                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
-                                data-target="#collapse-time" aria-expanded="false">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-time" aria-expanded="false">
                                 Time
                             </button>
                             <div class="collapse" id="collapse-time" style="text-align: center;">
-                                <input type="range" name="time" id="time" value="100" min="2" max="100" step="1"
-                                    class="ml-3">
+                                <input type="range" name="time" id="time" value="100" min="2" max="100" step="1" class="ml-3">
                                 <p style="margin-bottom: 0;">Under <span id="timeintext" style="font-weight: bold;">100</span> mins</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div id="allergies-filters">
-                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
-                                data-target="#collapse-allergies" aria-expanded="false">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-allergies" aria-expanded="false">
                                 Allergies
                             </button>
                             <div class="collapse" id="collapse-allergies">
@@ -98,8 +93,7 @@
                     </li>
                     <li>
                         <div id="diet-filters">
-                            <button class="btn filter-toggle align-items-center" data-toggle="collapse"
-                                data-target="#collapse-diet" aria-expanded="false">
+                            <button class="btn filter-toggle align-items-center" data-toggle="collapse" data-target="#collapse-diet" aria-expanded="false">
                                 Diet
                             </button>
                             <div class="collapse" id="collapse-diet">
@@ -120,7 +114,7 @@
                 <button class="btn btn-outline-primary filters-button ml-3 mr-3 rounded-pill"><i class="fas fa-search"></i></button>
             </div>
             <!-- Main content -->
-            <div class="row recipes-container mt-3 container-fluid">
+            <div class="row recipes-container container-fluid">
                 <!-- <div class="col-6 col-sm-4 col-lg-3" style="margin-bottom: 10px;">
                     <div class="card">
                         <img class="card-img-bottom" alt="Recipe image" src="https://www.ezcater.com/lunchrush/wp-content/uploads/sites/2/2019/05/san-diego-1.png">
@@ -131,15 +125,9 @@
             <button id="togglesidebar" class="bg-success" aria-expanded="true"></button>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/ba28f70830.js" crossorigin="anonymous"></script>
     <script type="module" src=".\scripts\mainPageScripts.js"></script>
     <script type="module" src=".\scripts\RecipeCard.js"></script>
