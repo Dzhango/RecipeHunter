@@ -187,7 +187,7 @@ function findRecipes () {
         sessionStorage.setItem(data[d].id, JSON.stringify(data[d]))
       }
     }).then(() => {
-      if (window.location.origin === 'https://productive-racoons.netlify.app') {
+      if (window.location.origin.includes('netlify.app')) {
         window.location.href = "/pages/MainPage/mainPageBootstrap.html";
       } else {
         window.location.href = "/source/pages/MainPage/mainPageBootstrap.html";

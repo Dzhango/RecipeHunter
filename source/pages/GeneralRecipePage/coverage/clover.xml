@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1638659702665" clover="3.2.0">
+  <project timestamp="1638659702665" name="All files">
+    <metrics statements="111" coveredstatements="86" conditionals="16" coveredconditionals="8" methods="9" coveredmethods="6" elements="136" coveredelements="100" complexity="0" loc="111" ncloc="111" packages="1" files="2" classes="2"/>
+    <file name="RecipeExpandBootstrap.js" path="/Users/jeremy/Documents/cse110/cse-110-team-6/source/pages/GeneralRecipePage/scripts/RecipeExpandBootstrap.js">
+      <metrics statements="80" coveredstatements="71" conditionals="10" coveredconditionals="6" methods="6" coveredmethods="4"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="75" count="1" type="stmt"/>
+      <line num="82" count="1" type="stmt"/>
+      <line num="86" count="1" type="stmt"/>
+      <line num="147" count="1" type="stmt"/>
+      <line num="148" count="1" type="stmt"/>
+      <line num="152" count="1" type="stmt"/>
+      <line num="153" count="1" type="stmt"/>
+      <line num="156" count="1" type="stmt"/>
+      <line num="157" count="1" type="stmt"/>
+      <line num="160" count="1" type="stmt"/>
+      <line num="161" count="1" type="stmt"/>
+      <line num="162" count="1" type="stmt"/>
+      <line num="163" count="1" type="stmt"/>
+      <line num="164" count="1" type="stmt"/>
+      <line num="165" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="166" count="2" type="stmt"/>
+      <line num="167" count="2" type="stmt"/>
+      <line num="168" count="2" type="stmt"/>
+      <line num="169" count="2" type="stmt"/>
+      <line num="170" count="2" type="stmt"/>
+      <line num="171" count="2" type="stmt"/>
+      <line num="172" count="2" type="stmt"/>
+      <line num="178" count="1" type="stmt"/>
+      <line num="179" count="4" type="stmt"/>
+      <line num="180" count="4" type="stmt"/>
+      <line num="181" count="4" type="stmt"/>
+      <line num="182" count="4" type="stmt"/>
+      <line num="183" count="4" type="stmt"/>
+      <line num="184" count="4" type="stmt"/>
+      <line num="185" count="4" type="stmt"/>
+      <line num="194" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="195" count="1" type="stmt"/>
+      <line num="196" count="1" type="stmt"/>
+      <line num="197" count="1" type="stmt"/>
+      <line num="198" count="1" type="stmt"/>
+      <line num="199" count="4" type="stmt"/>
+      <line num="201" count="1" type="stmt"/>
+      <line num="211" count="1" type="stmt"/>
+      <line num="219" count="1" type="stmt"/>
+      <line num="221" count="1" type="stmt"/>
+      <line num="222" count="1" type="stmt"/>
+      <line num="229" count="1" type="stmt"/>
+      <line num="230" count="1" type="stmt"/>
+      <line num="231" count="20" type="stmt"/>
+      <line num="232" count="20" type="stmt"/>
+      <line num="233" count="20" type="stmt"/>
+      <line num="236" count="0" type="stmt"/>
+      <line num="237" count="0" type="stmt"/>
+      <line num="241" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="242" count="0" type="stmt"/>
+      <line num="243" count="0" type="stmt"/>
+      <line num="244" count="0" type="stmt"/>
+      <line num="245" count="0" type="stmt"/>
+      <line num="246" count="0" type="stmt"/>
+      <line num="249" count="1" type="stmt"/>
+      <line num="254" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="255" count="1" type="stmt"/>
+      <line num="256" count="1" type="stmt"/>
+      <line num="257" count="1" type="stmt"/>
+      <line num="258" count="6" type="stmt"/>
+      <line num="259" count="6" type="stmt"/>
+      <line num="260" count="3" type="stmt"/>
+      <line num="265" count="1" type="stmt"/>
+      <line num="266" count="1" type="stmt"/>
+      <line num="267" count="1" type="stmt"/>
+      <line num="268" count="6" type="stmt"/>
+      <line num="269" count="6" type="stmt"/>
+      <line num="270" count="6" type="stmt"/>
+      <line num="285" count="1" type="stmt"/>
+      <line num="286" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="287" count="0" type="stmt"/>
+      <line num="289" count="1" type="stmt"/>
+      <line num="294" count="0" type="stmt"/>
+      <line num="298" count="1" type="stmt"/>
+    </file>
+    <file name="recipePageScriptBootstrap.js" path="/Users/jeremy/Documents/cse110/cse-110-team-6/source/pages/GeneralRecipePage/scripts/recipePageScriptBootstrap.js">
+      <metrics statements="31" coveredstatements="15" conditionals="6" coveredconditionals="2" methods="3" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="29" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="58" count="1" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+      <line num="60" count="1" type="stmt"/>
+      <line num="65" count="0" type="stmt"/>
+      <line num="68" count="0" type="stmt"/>
+      <line num="70" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="71" count="0" type="stmt"/>
+      <line num="73" count="0" type="stmt"/>
+      <line num="76" count="0" type="stmt"/>
+      <line num="77" count="0" type="stmt"/>
+      <line num="78" count="0" type="stmt"/>
+      <line num="85" count="0" type="stmt"/>
+      <line num="88" count="0" type="stmt"/>
+      <line num="92" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
