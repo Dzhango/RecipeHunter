@@ -107,10 +107,10 @@ function bindRecipeClick (event) {
   const recipe = event.target
   sessionStorage.setItem('curr', recipe.data.id)
   // if on live server
-  if (window.location.origin === 'http://127.0.0.1:5500') {
-    window.location.href = '/source/pages/GeneralRecipePage/recipePageBootstrap.html'
-  } else {
+  if (window.location.origin.includes('netlify.app')) {
     window.location.href = '/pages/GeneralRecipePage/recipePageBootstrap.html'
+  } else {
+    window.location.href = '/source/pages/GeneralRecipePage/recipePageBootstrap.html'
   }
 }
 
@@ -164,6 +164,8 @@ function createRecipeCards (recipeData) {
 }
 
 function addRecipeURL (URL) {
+  
+  // localStorage.setItem(1, recipeData[0]);
   // console.log(`https://api.spoonacular.com/recipes/extract?apiKey=99a52ef738514021ab33c7e15116c1ca&url=${URL}`)
   // make api call to spoonacular
   // fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/extract?url=https%3A%2F%2Fwww.allrecipes.com%2Frecipe%2F21014%2Fgood-old-fashioned-pancakes%2F", {
@@ -181,10 +183,13 @@ function addRecipeURL (URL) {
   //     "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
   //   }
   //   })
+  console.log("TEST RECIPE URL HERE 186")
   fetch(fetchUrl)
     .then((response) => {
       // converting file to json format
       console.log(`https://api.spoonacular.com/recipes/extract?apiKey=aebc3ef46cd54888b77ec872fa50deb1&url=${URL}`)
+      console.log("resonse is")
+      console.log(response)
       return response.json()
     }).then((recipeData) => {
       // insert data into recipe array and repopulate local storage
@@ -193,18 +198,19 @@ function addRecipeURL (URL) {
       console.log(recipeData.id)
       // if there isnt a duplicate recipe, add it to myRecipe;
       if (localStorage.getItem(recipeData.id) != null) {
-        window.alert("DUPLICATE RECIPE")
+        // window.alert("DUPLICATE RECIPE")
+        console.log("DUPLICATE RECIPE")
       } else {
         localStorage.setItem(recipeData.id, JSON.stringify(recipeData))
-        // repopulate myrecipepage
         populateMyRecipe()
         // document.querySelector('#addRecipeModal').classList.remove('show')
         // document.querySelector('body').classList.remove('modal-open')
       }
     })
     .catch(error => {
-      window.alert('Invalid Recipe URL Please Try Again')
-      window.alert(error.name + ' ' + error.message)
+      console.log(error)
+      // window.alert('Invalid Recipe URL Please Try Again')
+      // window.alert(error.name + ' ' + error.message)
     })
 }
 
@@ -269,3 +275,6 @@ async function init () {
 
   bindRemoveButton()
 }
+
+module.exports = {DeleteFromFavID, bindRemoveButton, populateMyRecipe, bindRecipeCards, bindRecipeSelect, bindRecipeClick, 
+  greyOut, createRecipeCards, addRecipeURL, hashing, addPageSubmitOnClick};
