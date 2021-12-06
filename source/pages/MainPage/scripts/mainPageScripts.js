@@ -86,13 +86,13 @@ function collapseSidebar(mq) {
         sidebarEle.hidden = false
         sidebarEle.style.display = ''
         recipesContainer.style.marginLeft = mgl
-        toggleSidebarBtn.ariaExpanded = true
+        toggleSidebarBtn.setAttribute("aria-expanded", "true")
     }
     else {
         sidebarEle.setAttribute('style', 'display: none !important;')
         sidebarEle.hidden = true
         recipesContainer.style.marginLeft = "0px";
-        toggleSidebarBtn.ariaExpanded = false
+        toggleSidebarBtn.setAttribute("aria-expanded", "false")
     }
 }
 
