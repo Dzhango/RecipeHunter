@@ -114,7 +114,10 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-3. Open mainPage.html locally
+3. Open any page local
+   ```sh
+   /source/pages
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
