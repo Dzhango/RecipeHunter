@@ -1,3 +1,86 @@
+* {
+  transition: 0.8s;
+  max-width: 100%;
+}
+
+#content-container {
+  padding: 0;
+  margin-top: 62px;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.nav-item {
+  font-size: larger !important;
+}
+
+.sidebar {
+  position: fixed;
+  top: 62px;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 180px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  font-size: large;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.filter-toggle::before {
+  font-family: "Font Awesome 5 Free", serif;
+  font-weight: 900;
+  content: "\f105";
+  margin-right: 9px;
+}
+
+.filter-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+#togglesidebar {
+  z-index: 1000;
+  opacity: 0.5;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 50px;
+  text-align: center;
+  border: none;
+  box-shadow: 2px 2px 3px #999;
+}
+
+#togglesidebar::before {
+  font-family: "Font Awesome 5 Free", serif;
+  font-weight: 900;
+  content: "\f100";
+}
+
+#togglesidebar[aria-expanded="false"]::before {
+  content: "\f101";
+}
+
+#togglesidebar:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+      width: 100px;
+      overflow: visible;
+  }
+}
+
 .recipes-container {
   margin: 0 0 0 180px;
   padding: 0;

@@ -63,7 +63,7 @@ function largeFilterDiv(name) {
     typeCheckboxDiv.classList.remove('dropdown-menu')
     typeCheckboxDiv.classList.remove('bg-light')
     typeCheckboxDiv.classList.add('collapse')
-    if (name === 'type') {
+    if (name === 'Type') {
         typeCheckboxDiv.classList.add('show')
         typeBtnEle.setAttribute('aria-expanded', 'true')
     } else {
