@@ -1,99 +1,10 @@
-#content-container {
+.recipes-container {
+  margin: 0 0 0 180px;
   padding: 0;
-  margin-top: 56px;
-
-  /* Fridge page */
-  height: 80vh;
-}
-
-.recipes-container {
-  padding-left: 8px;
-  padding-right: 1px;
-}
-
-#togglesidebar {
-  z-index: 1000; 
-  opacity: 0.5; 
-  position: fixed; 
-  width: 40px; 
-  height: 40px; 
-  bottom: 20px; 
-  left: 20px; 
-  border-radius: 50px; 
-  text-align: center; 
-  box-shadow: 2px 2px 3px #999;
-}
-
-#togglesidebar:hover {
-  opacity: 0.8;
-}
-
-.sidebar {
-  position: fixed;
-  top: 56px;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  width: 180px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.recipes-container {
-  margin-left: 180px;
-  margin-right: 1px;
-}
-
-.filter-toggle {
-  display: inline-flex;
-  align-items: center;
-  font-size: large;
-  font-weight: 500;
-  background-color: transparent;
-}
-
-.filter-toggle::before {
-  font-family: "Font Awesome 5 Free", serif;
-  font-weight: 900;
-  content: "\f105";
-  margin-right: 9px;
-}
-
-.filter-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 56px;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    width: 100px;
-    overflow: visible;
-  }
-
   .recipes-container {
-    margin-left: 100px;
-    margin-right: 1px;
-  }
-
-  .large-size-sidebar {
-    display: none;
-  }
-
-  .medium-size-sidebar {
-    display: block;
-  }
-}
-
-@media (min-width: 768px) {
-  .large-size-sidebar {
-    display: block;
-  }
-
-  .medium-size-sidebar {
-    display: none;
+    margin-left: 0 0 0 100px;
   }
 }
