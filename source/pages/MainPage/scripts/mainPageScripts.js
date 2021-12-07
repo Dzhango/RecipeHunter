@@ -38,7 +38,7 @@ function displayTime () {
  * @param {String} name the string of the filter
  */
 function mediumFilterDiv (name) {
-  const filterDiv = document.getElementById(`${name}-filters`)
+  const filterDiv = document.getElementById(`${name.toLowerCase()}-filters`)
   filterDiv.classList.add('btn-group')
   filterDiv.classList.add('dropright')
   filterDiv.removeChild(filterDiv.children[0])
@@ -46,7 +46,7 @@ function mediumFilterDiv (name) {
   const typeBtnEle = typeBtn.querySelector('.btn')
   typeBtnEle.innerText = name
   filterDiv.insertBefore(typeBtn, filterDiv.children[0])
-  const typeCheckboxDiv = document.getElementById(`collapse-${name}`)
+  const typeCheckboxDiv = document.getElementById(`collapse-${name.toLowerCase()}`)
   typeCheckboxDiv.classList.remove('collapse')
   typeCheckboxDiv.classList.remove('show')
   typeCheckboxDiv.classList.add('dropdown-menu')
@@ -58,20 +58,20 @@ function mediumFilterDiv (name) {
  * @param {String} name the string of the filter
  */
 function largeFilterDiv (name) {
-  const typeDiv = document.getElementById(`${name}-filters`)
+  const typeDiv = document.getElementById(`${name.toLowerCase()}-filters`)
   typeDiv.classList.remove('btn-group')
   typeDiv.classList.remove('dropright')
   typeDiv.removeChild(typeDiv.children[0])
   const typeBtn = toggleBtnTemplate.content.cloneNode(true)
   const typeBtnEle = typeBtn.querySelector('.btn')
   typeBtnEle.innerText = name
-  typeBtnEle.setAttribute('data-target', `#collapse-${name}`)
+  typeBtnEle.setAttribute('data-target', `#collapse-${name.toLowerCase()}`)
   typeDiv.insertBefore(typeBtn, typeDiv.children[0])
-  const typeCheckboxDiv = document.getElementById(`collapse-${name}`)
+  const typeCheckboxDiv = document.getElementById(`collapse-${name.toLowerCase()}`)
   typeCheckboxDiv.classList.remove('dropdown-menu')
   typeCheckboxDiv.classList.remove('bg-light')
   typeCheckboxDiv.classList.add('collapse')
-  if (name === 'type') {
+  if (name === 'Type') {
     typeCheckboxDiv.classList.add('show')
     typeBtnEle.setAttribute('aria-expanded', 'true')
   } else {
@@ -90,15 +90,18 @@ function collapseSidebar (mq) {
     mgl = '180px'
   }
   const sidebarEle = document.querySelector('.sidebar')
+  const toggleSidebarBtn = document.querySelector('#togglesidebar')
   const recipesContainer = document.querySelector('.recipes-container')
   if (sidebarEle.hidden) {
     sidebarEle.hidden = false
     sidebarEle.style.display = ''
     recipesContainer.style.marginLeft = mgl
+    toggleSidebarBtn.setAttribute('aria-expanded', 'true')
   } else {
     sidebarEle.setAttribute('style', 'display: none !important;')
     sidebarEle.hidden = true
     recipesContainer.style.marginLeft = '0px'
+    toggleSidebarBtn.setAttribute('aria-expanded', 'false')
   }
 }
 
@@ -114,16 +117,16 @@ function changeSidebar (mq) {
   if (mq.matches) {
     // screen size is smaller than 768px
     mgl = '100px'
-    mediumFilterDiv('type')
-    mediumFilterDiv('time')
-    mediumFilterDiv('allergies')
-    mediumFilterDiv('diet')
+    mediumFilterDiv('Type')
+    mediumFilterDiv('Time')
+    mediumFilterDiv('Allergies')
+    mediumFilterDiv('Diet')
   } else {
     mgl = '180px'
-    largeFilterDiv('type')
-    largeFilterDiv('time')
-    largeFilterDiv('allergies')
-    largeFilterDiv('diet')
+    largeFilterDiv('Type')
+    largeFilterDiv('Time')
+    largeFilterDiv('Allergies')
+    largeFilterDiv('Diet')
   }
   const recipesContainer = document.querySelector('.recipes-container')
   recipesContainer.style.marginLeft = mgl
@@ -143,16 +146,11 @@ function createRecipeCards (recipeData) {
     // delegates the creation of recipe-card and its content to RecipeCard.js
     const recipeCard = document.createElement('recipe-card')
     recipeCard.data = recipeData[i]
-
     document.querySelector('.recipes-container').appendChild(recipeCard)
-
-    recipeCard.classList.add('col-12')
-    recipeCard.classList.add('col-sm-4')
-    recipeCard.classList.add('col-lg-3')
-    recipeCard.style.marginBottom = '10px'
+    recipeCard.classList.add('col-12', 'col-sm-4', 'col-lg-3', 'pl-3', 'pr-3', 'pb-3')
+    recipeCard.style.padding = 0
     recipeCard.setAttribute('name', recipeData[i].title)
     recipeCard.setAttribute('image', recipeData[i].image)
-
     recipeCard.shadowRoot.querySelector('.recipe-title').innerText = recipeData[i].title
     recipeCard.shadowRoot.querySelector('.card-img-top').setAttribute('src', recipeData[i].image)
   }
@@ -236,9 +234,7 @@ function fetchCall (query) {
  * to retrieve recipe.
  */
 function bindButton () {
-  const SearchButton = document.querySelector('.search-button')
   const FilterButton = document.querySelector('.filters-button')
-  SearchButton.addEventListener('click', filterRecipes)
   FilterButton.addEventListener('click', filterRecipes)
 
   function filterRecipes (event) {
