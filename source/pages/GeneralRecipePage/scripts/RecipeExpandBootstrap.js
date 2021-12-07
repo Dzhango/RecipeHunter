@@ -1,5 +1,5 @@
 class RecipeExpand extends HTMLElement {
-  constructor() {
+  constructor () {
     super()
     this.attachShadow({ mode: 'open' })
     // create elements for style and an article to hold html
@@ -10,9 +10,9 @@ class RecipeExpand extends HTMLElement {
   }
 
   /*
-     * populates the article child of <recipe-expand> with selected recipe data
-     */
-  set data(data) {
+   * populates the article child of <recipe-expand> with selected recipe data
+   */
+  set data (data) {
     this.json = data
 
     // reset article to be empty so we can populate it
@@ -53,12 +53,9 @@ class RecipeExpand extends HTMLElement {
       </div>
           `
 
-    // TODO: set all data
-
     // set image
     const recipeImage = data.image
     this.shadowRoot.querySelector('.photo').setAttribute('src', recipeImage)
-    //this.shadowRoot.querySelector('.photo').style = `background-image: url(${recipeImage})`
 
     // set recipe title
     const recipeTitle = data.title
@@ -105,23 +102,22 @@ class RecipeExpand extends HTMLElement {
 
     // set serving size
     // TODO: no serving on the page
-    //   const servings = data.servings
-    //   this.shadowRoot.getElementById('servings').innerHTML = servings
+    // const servings = data.servings
+    // this.shadowRoot.getElementById('servings').innerHTML = servings
 
     // fetch recipe ingredient and nutrition info
     let recipeInfo
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${data.id}/information?&includeNutrition=true`, {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+      method: 'GET',
+      headers: {
+        'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+        'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
       }
     })
       .then((response) => {
         return response.json()
       }).then((data) => {
         recipeInfo = data
-        console.log(recipeInfo)
         // set calories
         // TODO: no calorie
         // const calories = Math.floor(recipeInfo.nutrition.nutrients[0].amount / servings)
@@ -177,17 +173,6 @@ class RecipeExpand extends HTMLElement {
       }
     }
 
-    //   let count = 1
-    //   const equipmentList = this.shadowRoot.getElementById('equipment-list')
-    //   for (const item of equipmentSet) {
-    //     if (count === equipmentSet.size) {
-    //       equipmentList.innerHTML += item
-    //     } else {
-    //       equipmentList.innerHTML = equipmentList.innerHTML + item + ', '
-    //     }
-    //     count++
-    //   }
-
     const favoriteButton = this.shadowRoot.querySelector('.add-to-myrecipes')
     if (window.localStorage.getItem(data.id) != null) {
       favoriteButton.innerHTML = 'Remove from MyRecipes'
@@ -196,7 +181,7 @@ class RecipeExpand extends HTMLElement {
     }
   }
 
-  get data() {
+  get data () {
     return this.json
   }
 }

@@ -19,7 +19,7 @@ async function init () {
     spinnerEle.classList.add('spinner-border-sm')
     spinnerEle.classList.add('ml-2')
     submitFilterBtn.appendChild(spinnerEle)
-    document.body.style.pointerEvents = "none"
+    document.body.style.pointerEvents = 'none'
     findRecipes()
   })
   document.getElementById('remove-filter').addEventListener('click', () => {
@@ -27,18 +27,26 @@ async function init () {
   })
 }
 
+/**
+ * Makes an API call to retrieve ingredient data according to inputValue
+ * @param {String} inputValue the string specify autocomplete ingredient
+ */
 function autocompleteIgd (inputValue) {
-  fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=" + inputValue + "&number=10", {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=' + inputValue + '&number=10', {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+      'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
     }
   })
     .then(response => response.json())
     .then(data => createIgdCard(data))
 }
 
+/**
+ * Creates ingredient card for an inputted ingredient
+ * @param {String} igdData the string of the ingredient
+ */
 function createIgdCard (igdData) {
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
@@ -79,6 +87,10 @@ function createIgdCard (igdData) {
   }
 }
 
+/**
+ * Adds selected ingredient card to "selected ingredients" section
+ * @param {String} igdData the string of the ingredient
+ */
 function addSelected (igdData) {
   if (selectedIngredients.includes(igdData.name)) {
     // TODO: Error handling
@@ -112,6 +124,10 @@ function addSelected (igdData) {
   }
 }
 
+/**
+ * Remove ingredient card from "selected ingredient" section
+ * @param {String} igdData the string of the ingredient
+ */
 function deleteSelected (igdName) {
   const indexToRemove = selectedIngredients.indexOf(igdName)
   if (indexToRemove === -1) {
@@ -130,6 +146,9 @@ function deleteSelected (igdName) {
   }
 }
 
+/**
+ * Remove all ingredient cards from "selected ingredient" section
+ */
 function removeFilter () {
   const toDeleteArray = Array.from(toDeleteIngredients)
   const filterContainerEle = document.querySelector('#filter-columns')
@@ -147,6 +166,9 @@ function removeFilter () {
   toDeleteIngredients.clear()
 }
 
+/**
+ * Find recipes that contain the selected ingredients
+ */
 function findRecipes () {
   sessionStorage.clear()
   let ingredients = ''
@@ -158,24 +180,22 @@ function findRecipes () {
   }
   fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredients}
   &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&addRecipeNutrition=true`, {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+      'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
     }
   }).then((response) => {
     return response.json()
   }).then((data) => {
-    console.log(data)
     const recipe = []
     for (const r in data) {
-      console.log(data[r].id)
       recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information?addRecipeNutrition=true')
     }
     const recipePromises = recipe.map((url) =>
       fetch(url, {
-        'method': 'GET',
-        'headers': {
+        method: 'GET',
+        headers: {
           'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
           'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
         }
@@ -188,9 +208,9 @@ function findRecipes () {
       }
     }).then(() => {
       if (window.location.origin.includes('netlify.app')) {
-        window.location.href = "/pages/MainPage/mainPageBootstrap.html";
+        window.location.href = '/pages/MainPage/mainPageBootstrap.html'
       } else {
-        window.location.href = "/source/pages/MainPage/mainPageBootstrap.html";
+        window.location.href = '/source/pages/MainPage/mainPageBootstrap.html'
       }
     })
   })
