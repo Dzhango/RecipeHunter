@@ -75,8 +75,7 @@ function collapseSidebar(mq) {
     let mgl;
     if (mq.matches) {
         mgl = '100px'
-    }
-    else {
+    } else {
         mgl = '180px'
     }
     const sidebarEle = document.querySelector('.sidebar')
@@ -87,8 +86,7 @@ function collapseSidebar(mq) {
         sidebarEle.style.display = ''
         recipesContainer.style.marginLeft = mgl
         toggleSidebarBtn.setAttribute("aria-expanded", "true")
-    }
-    else {
+    } else {
         sidebarEle.setAttribute('style', 'display: none !important;')
         sidebarEle.hidden = true
         recipesContainer.style.marginLeft = "0px";
@@ -225,9 +223,9 @@ function fetchCall(query) {
  * to retrieve recipe.
  */
 function bindButton() {
-    const SearchButton = document.querySelector('.search-button')
+    // const SearchButton = document.querySelector('.search-button')
     const FilterButton = document.querySelector('.filters-button')
-    SearchButton.addEventListener('click', filterRecipes)
+        // SearchButton.addEventListener('click', filterRecipes)
     FilterButton.addEventListener('click', filterRecipes)
 
     function filterRecipes(event) {
