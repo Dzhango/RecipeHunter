@@ -1,4 +1,4 @@
-# {short title of solved problem and solution}
+# Working style - mob coding
 
 * Status: accepted
 * Deciders: Dzhangir, Niya
