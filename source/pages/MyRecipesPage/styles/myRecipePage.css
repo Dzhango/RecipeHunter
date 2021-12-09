@@ -87,7 +87,7 @@ nav{
 }
 
 .recipes-container {
-    margin: 50px 0 0 180px;
+    margin: 50px 0 0 50ppx;
     padding: 0;
 }
 
@@ -105,3 +105,11 @@ body {
       padding-top: 0px;
     }
   }
+
+  ul {
+      list-style-type: none;
+    }
+
+    .hide {
+      display: none;
+    }

@@ -46,8 +46,8 @@ class RecipeExpand extends HTMLElement {
           <ul class="overflow-auto text-left ingredients-list font-weight-light list-group list-group-flush" style="max-height: 83vh;"></ul>
         </div>
         <div class="card" style="border: none;">
-          <div class="card-header border rounded" style="font-size: 1.5em; font-weight: 270; text-align: center;">Directions</div>
-          <ol class="directions-list list-group list-group-flush overflow-auto" style="font-size: 1em; font-weight: 300; max-height: 83vh; border: none;">
+          <div class="card-header border rounded" style=" font-size: 1.5em; font-weight: 270; text-align: center;">Directions</div>
+          <ol type = "1" class="directions-list list-group list-group-flush overflow-auto" style="font-size: 1em; font-weight: 300; max-height: 83vh; border: none;">
           </ol>
         </div>
       </div>
@@ -167,6 +167,7 @@ class RecipeExpand extends HTMLElement {
       for (let i = 0; i < directions.length; i++) {
         const dir = document.createElement('li')
         dir.classList.add('list-group-item')
+        dir.classList.add('direction-list')
         dir.classList.add('list-group-item-action')
         dir.innerHTML = directions[i].step
         directionsList.appendChild(dir)
