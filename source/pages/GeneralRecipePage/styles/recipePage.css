@@ -19,7 +19,10 @@
     }
 }
 
+.direction-list {
+    list-style: decimal inside !important;
+}
 
-/* .list-group-item {
+.list-group-item {
     display: list-item !important;
-  } */
+}

@@ -167,6 +167,7 @@ class RecipeExpand extends HTMLElement {
       for (let i = 0; i < directions.length; i++) {
         const dir = document.createElement('li')
         dir.classList.add('list-group-item')
+        dir.classList.add('direction-list')
         dir.classList.add('list-group-item-action')
         dir.innerHTML = directions[i].step
         directionsList.appendChild(dir)
