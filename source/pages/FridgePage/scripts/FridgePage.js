@@ -10,9 +10,16 @@ async function init () {
   filterInputEle.addEventListener('keyup', () => {
     autocompleteIgd(filterInputEle.value.toLowerCase())
   })
-  document.getElementById('submit-filter').addEventListener('click', () => {
+  const submitFilterBtn = document.getElementById('submit-filter')
+  submitFilterBtn.addEventListener('click', () => {
     // User click submit button
     // Selected ingredients are stored in array selectedIngredients
+    const spinnerEle = document.createElement('span')
+    spinnerEle.classList.add('spinner-border')
+    spinnerEle.classList.add('spinner-border-sm')
+    spinnerEle.classList.add('ml-2')
+    submitFilterBtn.appendChild(spinnerEle)
+    document.body.style.pointerEvents = 'none'
     findRecipes()
   })
   document.getElementById('remove-filter').addEventListener('click', () => {
@@ -20,40 +27,33 @@ async function init () {
   })
 }
 
+/**
+ * Makes an API call to retrieve ingredient data according to inputValue
+ * @param {String} inputValue the string specify autocomplete ingredient
+ */
 function autocompleteIgd (inputValue) {
-  fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=" + inputValue + "&number=10", {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+  fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?query=' + inputValue + '&number=10', {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+      'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
     }
   })
-    .then(response =>  {
-      // For test use only
-      if(!response.ok) throw new Error(response.status); 
-      else return response.json();
-    })
+    .then(response => response.json())
     .then(data => createIgdCard(data))
 }
 
 /**
- * Create ingredient card at the column
- * @param {JSON} igdData JSON of a list of autocomplete ingredients
+ * Creates ingredient card for an inputted ingredient
+ * @param {String} igdData the string of the ingredient
  */
 function createIgdCard (igdData) {
-  // console.log(igdData)
-  // console.log('test1: ', createIgdCard)
   const igdName = igdData.map(ele => ele.name)
   const igdToRemove = displayedIngredients.filter(ele => !igdName.includes(ele))
   const igdToAdd = igdData.filter(ele => !displayedIngredients.includes(ele.name))
   const igdContainerEle = document.querySelector('#filter-columns')
-  // console.log("igdToRemove: " + igdToRemove)
-  // console.log("igdToAdd: " + igdToAdd)
-  // console.log("displayedIngredients: " + displayedIngredients)
   for (const igd of igdToRemove) {
     const indexToRemove = displayedIngredients.indexOf(igd)
-    console.log('igdContainerEle', igdContainerEle)
-    console.log('indexToRemove', indexToRemove)
     igdContainerEle.removeChild(igdContainerEle.children[indexToRemove])
     displayedIngredients.splice(indexToRemove, 1)
   }
@@ -88,8 +88,8 @@ function createIgdCard (igdData) {
 }
 
 /**
- * Add a ingredient to the right column
- * @param {JSON} igdData fetched ingredient data
+ * Adds selected ingredient card to "selected ingredients" section
+ * @param {String} igdData the string of the ingredient
  */
 function addSelected (igdData) {
   if (selectedIngredients.includes(igdData.name)) {
@@ -125,8 +125,8 @@ function addSelected (igdData) {
 }
 
 /**
- * delete the selected ingredients from right column
- * @param {string} igdName the name of ingredients
+ * Remove ingredient card from "selected ingredient" section
+ * @param {String} igdData the string of the ingredient
  */
 function deleteSelected (igdName) {
   const indexToRemove = selectedIngredients.indexOf(igdName)
@@ -147,7 +147,7 @@ function deleteSelected (igdName) {
 }
 
 /**
- * Remove color of the ingredient card
+ * Remove all ingredient cards from "selected ingredient" section
  */
 function removeFilter () {
   const toDeleteArray = Array.from(toDeleteIngredients)
@@ -167,7 +167,7 @@ function removeFilter () {
 }
 
 /**
- * find recipe by the selectedIngredients list
+ * Find recipes that contain the selected ingredients
  */
 function findRecipes () {
   sessionStorage.clear()
@@ -179,58 +179,39 @@ function findRecipes () {
     }
   }
   fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredients}
-  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true`, {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": "e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b"
+  &number=10&ranking=2&ignorePantry=true&instructionsRequired=true&addRecipeInformation=true&addRecipeNutrition=true`, {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+      'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
     }
   }).then((response) => {
     return response.json()
   }).then((data) => {
-    // console.log(data)
     const recipe = []
     for (const r in data) {
-      // console.log(data[r].id)
-      recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information')
+      recipe.push('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + data[r].id + '/information?addRecipeNutrition=true')
     }
     const recipePromises = recipe.map((url) =>
       fetch(url, {
-        'method': 'GET',
-        'headers': {
+        method: 'GET',
+        headers: {
           'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
           'x-rapidapi-key': 'e448cb3f23msh24599c589d222bfp18177ajsn2d6682024b3b'
         }
       }).then((response) => response.json())
     )
-    // console.log(data)
 
     Promise.all(recipePromises).then((data) => {
       for (const d in data) {
         sessionStorage.setItem(data[d].id, JSON.stringify(data[d]))
       }
     }).then(() => {
-      sleep(1000)
-      // if (window.location.origin === 'https://productive-racoons.netlify.app') {
-      //   window.location.href = "/pages/MainPage/mainPageBootstrap.html";
-      // } else {
-      //   window.location.href = "/source/pages/MainPage/mainPageBootstrap.html";
-      // }
+      if (window.location.origin.includes('netlify.app')) {
+        window.location.href = '/pages/MainPage/mainPageBootstrap.html'
+      } else {
+        window.location.href = '/source/pages/MainPage/mainPageBootstrap.html'
+      }
     })
   })
 }
-
-/**
- * Sleep for a few seconds
- * @param {int} milliseconds: number of milliseconds to wait
- */
-function sleep (milliseconds) {
-  const start = new Date().getTime()
-  for (let i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds) {
-      break
-    }
-  }
-}
-
-module.exports = {sleep, createIgdCard, deleteSelected, removeFilter, findRecipes, addSelected, displayedIngredients}

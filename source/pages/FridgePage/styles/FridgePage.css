@@ -1,4 +1,7 @@
 /* Navbar and sidebar base css */
+* {
+  transition: 0.3s;
+}
 
 #content-container {
   padding: 0;

@@ -60,12 +60,10 @@ function backToSearch () {
 
 function init () {
   // eslint-disable-next-line no-console
-  console.log('Called')
 
   // populate page with JSON data
   const dataKey = sessionStorage.getItem('curr')
   const recipeData = JSON.parse(sessionStorage.getItem(dataKey))
-  // console.log(recipeData)
   const recipeExpand = document.createElement('recipe-expand')
   recipeExpand.data = recipeData
   document.querySelector('body').appendChild(recipeExpand)
@@ -79,5 +77,4 @@ function init () {
 
   // Add to MyRecipes and Remove from MyRecipes
   recipeExpand.shadowRoot.querySelector('.add-to-myrecipes button').addEventListener('click', bindFavoriteButton)
-  // recipeExpand.shadowRoot.querySelector('.add-to-myrecipes button').addEventListener('click', testFunc)
 }

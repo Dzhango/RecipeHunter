@@ -1,4 +1,4 @@
-# {short title of solved problem and solution}
+# storage used for navigation between MainPage and GeneralRecipePage
 
 * Status: accepted
 * Deciders: Jeremy, Ryan Heo, Niya

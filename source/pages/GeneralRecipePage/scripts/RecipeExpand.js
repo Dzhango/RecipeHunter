@@ -10,7 +10,6 @@ class RecipeExpand extends HTMLElement {
     const article = document.createElement('article')
 
     // style for article
-    // same as recipepage.css, so should we even use a shadow DOM?
     styles.innerHTML = `
 *::-webkit-scrollbar {
   width: 12px;
@@ -252,8 +251,8 @@ textarea {
   }
 
   /*
-     * populates the article child of <recipe-expand> with selected recipe data
-     */
+   * populates the article child of <recipe-expand> with selected recipe data
+   */
   set data (data) {
     this.json = data
 
@@ -266,7 +265,7 @@ textarea {
                     <button class="notes-button">Recipe Notes</button>
                 </div>
             </div>
-            <div class="notes hide">
+            <div class="notes">
                 <textarea name="comments" id="additional_comments" cols="30" rows="10"></textarea>
                 <div class="recipe-notes">
                     <button class="image-button">Close</button>
@@ -319,8 +318,6 @@ textarea {
         </div>
         `
 
-    // TODO: set all data
-
     // set image
     const recipeImage = data.image
     this.shadowRoot.querySelector('.photo').style = `background-image: url(${recipeImage})`
@@ -367,7 +364,6 @@ textarea {
       return response.json()
     }).then((data) => {
       recipeInfo = data
-      console.log(recipeInfo)
 
       // set calories
       const calories = Math.floor(recipeInfo.nutrition.nutrients[0].amount / servings)
