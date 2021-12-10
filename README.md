@@ -33,7 +33,7 @@
     <img src="https://github.com/Dzhango/cse-110-team-6/blob/main/admin/branding/PierreCook.png?raw=true" alt="Logo" width="200" height="250">
   </a>
 
-<h3 align="center">project_name</h3>
+<h3 align="center">RecipeHunter</h3>
 
   <p align="center">
     A recipe management application for busy people
