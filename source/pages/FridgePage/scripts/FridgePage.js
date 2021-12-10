@@ -215,3 +215,5 @@ function findRecipes () {
     })
   })
 }
+
+module.exports = { findRecipes, removeFilter, deleteSelected, addSelected, createIgdCard, autocompleteIgd, addSelected }

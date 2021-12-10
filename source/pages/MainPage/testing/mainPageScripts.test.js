@@ -118,6 +118,7 @@ test('collapseSidebar hides the sidebar', () => {
     </div>
     <div class="row recipes-container mt-3 container-fluid">
     </div>
+    <button id="togglesidebar" class="bg-success" aria-expanded="true"></button>
     `
   functions.collapseSidebar(100)
   const sidebarEle = document.querySelector('.sidebar')
@@ -130,6 +131,7 @@ test('collapseSidebar unhides the sidebar', () => {
     </div>
     <div class="row recipes-container mt-3 container-fluid">
     </div>
+    <button id="togglesidebar" class="bg-success" aria-expanded="true"></button>
     `
   functions.collapseSidebar(100)
   functions.collapseSidebar(100)
