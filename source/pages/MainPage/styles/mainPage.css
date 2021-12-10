@@ -3,12 +3,13 @@
     max-width: 100%;
 }
 
-nav{
+nav {
     display: block;
 }
+
 #content-container {
     padding: 0;
-    margin-top: 62px;
+    margin-top: 86px;
 }
 
 .btn:focus {
@@ -17,13 +18,13 @@ nav{
 
 .nav-item {
     font-size: larger !important;
-    margin-left: 2.5rem !important;
-    margin-right: 2.5rem !important;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
 }
 
 .sidebar {
     position: fixed;
-    top: 100px;
+    top: 86px;
     bottom: 0;
     left: 0;
     z-index: 999;
@@ -84,24 +85,13 @@ nav{
         width: 100px;
         overflow: visible;
     }
+
+    .recipes-container {
+        margin-left: 2 0 0 100px;
+    }
 }
 
 .recipes-container {
-    margin: 50px 0 0 180px;
+    margin: 2 0 0 180px;
     padding: 0;
 }
-
-@media (max-width: 768px) {
-    .recipes-container {
-        margin-left: 0 0 0 100px;
-    }
-}
-
-body {
-    padding-top: 35px;
-  }
-  @media (max-width: 979px) {
-    body {
-      padding-top: 0px;
-    }
-  }

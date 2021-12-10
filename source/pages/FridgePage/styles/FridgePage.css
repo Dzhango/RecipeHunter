@@ -1,23 +1,23 @@
 /* Navbar and sidebar base css */
 * {
-  transition: 0.3s;
+  transition: 0.1s !important;
 }
 
 #content-container {
   padding: 0;
-  margin-top: 56px;
+  margin-top: 86px;
 
   /* Fridge page */
   height: 80vh;
 }
 .recipes-container {
-    margin: 50px 0 0 50px;
+    margin: 86px 0 0 50px;
     padding: 0;
 }
 
 .sidebar {
   position: fixed;
-  top: 56px;
+  top: 86px;
   bottom: 0;
   left: 0;
   z-index: 999;
@@ -54,7 +54,7 @@
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
-    top: 56px;
+    top: 86px;
     bottom: 0;
     left: 0;
     z-index: 999;
