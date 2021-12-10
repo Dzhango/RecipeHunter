@@ -106,6 +106,7 @@ class RecipeExpand extends HTMLElement {
     // this.shadowRoot.getElementById('servings').innerHTML = servings
 
     // fetch recipe ingredient and nutrition info
+    let ingredients_exists = false
     let recipeInfo
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${data.id}/information?&includeNutrition=true`, {
       method: 'GET',
@@ -135,19 +136,17 @@ class RecipeExpand extends HTMLElement {
       }).catch((error) => {
         console.error(error.name + ' ' + error.message)
         console.log('can not find recipe instructions by id, try to see if the data itself contain it')
+        const ingredientsList = this.shadowRoot.querySelector('ul.ingredients-list')
+        if (data.extendedIngredients !== undefined){
+          for (const item of data.extendedIngredients) {
+            const ingred = document.createElement('li')
+            ingred.classList.add('list-group-item')
+            ingred.classList.add('list-group-item-action')
+            ingred.innerHTML = item.originalString
+            ingredientsList.appendChild(ingred)
+          }
+        }
       })
-
-    // set ingredient list
-    if (data.extendedIngredients !== undefined) {
-      const ingredientsList = this.shadowRoot.querySelector('ul.ingredients-list')
-      for (const item of data.extendedIngredients) {
-        const ingred = document.createElement('li')
-        ingred.innerHTML = item.originalString
-        ingredientsList.appendChild(ingred)
-      }
-    } else {
-      console.log('recipe itself does not contain ingredients list')
-    }
 
     // set necessary equipment
     // TODO: no equipments
