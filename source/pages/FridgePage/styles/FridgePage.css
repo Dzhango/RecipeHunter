@@ -10,6 +10,10 @@
   /* Fridge page */
   height: 80vh;
 }
+.recipes-container {
+    margin: 50px 0 0 50px;
+    padding: 0;
+}
 
 .sidebar {
   position: fixed;

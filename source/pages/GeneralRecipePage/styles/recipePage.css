@@ -18,3 +18,11 @@
         column-count: 3 !important;
     }
 }
+
+.direction-list {
+    list-style: decimal inside !important;
+}
+
+.list-group-item {
+    display: list-item !important;
+}

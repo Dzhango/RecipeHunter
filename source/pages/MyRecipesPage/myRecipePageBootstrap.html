@@ -22,7 +22,8 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <!-- Quick styling -->
+  <link rel="stylesheet" href="./styles/myRecipePage.css">
+    <!-- Quick styling -->
   <style>
     ul {
       list-style-type: none;
@@ -31,12 +32,16 @@
     .hide {
       display: none;
     }
+    .recipe-container{
+        margin: 50px 0 0 50px;
+    padding: 0;
+    }
   </style>
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+  <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
     <a class="d-flex align-items-center text-center mr-2">
       <img src="../../assets/images/PierreCook.png" alt="logo" width="36" height="36"
         class="text-center mx-auto d-inline-block align-top rounded-circle">
@@ -52,7 +57,24 @@
           Recipe</a>
       </div>
     </div>
-  </nav>
+  </nav> -->
+      <!-- Top Navbar -->
+      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <a class="d-flex align-items-center text-center mr-2" id="appIcon">
+          <img src="../../assets/images/PierreCook.png" width="80" height="80"
+            class="text-center d-inline-block align-top rounded-circle">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsenav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsenav">
+          <div class="navbar-nav">
+            <a href="../MainPage/mainPageBootstrap.html" class="nav-item nav-link active">Home</a>
+            <a href="../FridgePage/FridgePage.html" class="nav-item nav-link">Fridge</a>
+            <a href="../MyRecipesPage/myRecipePageBootstrap.html" class="nav-item nav-link">My Recipe</a>
+          </div>
+        </div>
+      </nav>
   <main class="w-100 overflow-hidden" style="margin-top: 56px;">
     <div class="row" style="margin: 0;">
       <!-- SECONDARY HEADER -->
