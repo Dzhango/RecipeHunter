@@ -202,6 +202,6 @@ Project Link: [https://github.com/Dzhango/cse-110-team-6](https://github.com/git
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
 [codefactor-shield]: https://img.shields.io/codefactor/grade/github/dzhango/cse-110-team-6?style=for-the-badge
-[codefactor-url]: https://www.codefactor.io/repository/github/dzhango/cse-110-team-6
+[codefactor-url]: https://www.codefactor.io/repository/github/dzhango/RecipeHunter
 [netlify-shield]: https://img.shields.io/netlify/9e8acf1e-cb0c-49bf-ab6e-11efdd81e3d3?style=for-the-badge
 [netlify-url]: https://app.netlify.com/sites/focused-lewin-0ee25c/deploys
